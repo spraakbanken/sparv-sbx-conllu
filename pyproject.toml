@@ -21,6 +21,7 @@ classifiers = [
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
     "Programming Language :: Python :: Implementation :: CPython",
     # "uncomment if you test on these interpreters:",
     # "Programming Language :: Python :: Implementation :: IronPython",
@@ -30,7 +31,7 @@ classifiers = [
 ]
 
 [build-system]
-requires = ["uv_build>=0.8.24,<0.9.0"]
+requires = ["uv_build>=0.9,<0.10.0"]
 build-backend = "uv_build"
 
 [tool.uv.build-backend]
@@ -39,6 +40,8 @@ source-exclude = ["/.github", "/docs"]
 
 [dependency-groups]
 dev = [
+    "mypy>=1.18.2",
     "pytest>=8.4.2",
     "pytest-cov>=7.0.0",
+    "ruff>=0.14.2",
 ]

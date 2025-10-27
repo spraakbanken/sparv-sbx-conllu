@@ -16,7 +16,7 @@ permissions:
 
 env:
   MINIMUM_PYTHON_VERSION: "3.11"
-  UV_VERSION: "0.8.13"
+  UV_VERSION: "0.9.1"
 
 jobs:
   coverage:
@@ -35,6 +35,7 @@ jobs:
           - "3.11"
           - "3.12"
           - "3.13"
+          - "3.14"
 
     runs-on: ${{ matrix.os }}-latest
     env:
@@ -48,7 +49,7 @@ jobs:
           submodules: true
 
       - name: Set up uv
-        uses: astral-sh/setup-uv@d9ee7e2f262885c8843e45732f53001dc76be009
+        uses: astral-sh/setup-uv@3259c6206f993105e3a61b142c2d97bf4b9ef83d # 7.1.0
         with:
           version: ${{ env.UV_VERSION }}
           enable-cache: true
@@ -108,7 +109,7 @@ jobs:
           submodules: true
 
       - name: Set up uv
-        uses: astral-sh/setup-uv@d9ee7e2f262885c8843e45732f53001dc76be009
+        uses: astral-sh/setup-uv@3259c6206f993105e3a61b142c2d97bf4b9ef83d # 7.1.0
         with:
           version: ${{ env.UV_VERSION }}
           enable-cache: true
@@ -167,7 +168,7 @@ jobs:
           submodules: true
 
       - name: Set up uv
-        uses: astral-sh/setup-uv@d9ee7e2f262885c8843e45732f53001dc76be009
+        uses: astral-sh/setup-uv@3259c6206f993105e3a61b142c2d97bf4b9ef83d # 7.1.0
         with:
           version: ${{ env.UV_VERSION }}
           enable-cache: true

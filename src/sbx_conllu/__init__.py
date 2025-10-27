@@ -1,3 +1,6 @@
+"""Sparv plugin to import ConLL-U files."""
+
+
 def hello() -> str:
     """Say hello.
 

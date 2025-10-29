@@ -8,7 +8,11 @@ authors = [
     { name = "Kristoffer Andersson", email = "kristoffer.andersson@gu.se" }
 ]
 requires-python = ">=3.11"
-dependencies = []
+dependencies = [
+    "conllu>=6.0.0",
+    "setuptools>=80.9.0",
+    "sparv>=5.3.1",
+]
 classifiers = [
     "Development Status :: 3 - Alpha",
     # "Development Status :: 4 - Beta",
@@ -29,6 +33,9 @@ classifiers = [
     # "Programming Language :: Python :: Implementation :: Stackless",
     "Topic :: Utilities",
 ]
+
+[project.entry-points."sparv.plugin"]
+sbx_conllu = "sbx_conllu"
 
 [build-system]
 requires = ["uv_build>=0.9,<0.10.0"]

@@ -1,0 +1,4 @@
+**/logs
+**/.snakemake
+**/export
+**/sparv-workdir

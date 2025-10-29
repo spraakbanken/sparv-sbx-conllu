@@ -171,3 +171,7 @@ snapshot-update:
 	${INVENV} pytest --snapshot-update
 
 ### === project targets below this line ===
+test-example-long-token-to-text:
+	rm -rf examples/long-token-to-text/export
+	cd examples/long-token-to-text; ${INVENV} sparv run --stats
+	# diff assets/long-token-to-text/

@@ -1,0 +1,30 @@
+metadata:
+  id: conllu-import-test
+  name:
+    eng: CoNLL-U import test corpora
+    swe: ""
+  language: est
+  description:
+    eng: |+
+      Copied from https://github.com/UniversalDependencies/tools/blob/master/example-data/long-token-to-text.conllu
+    swe: |2+
+
+
+
+import:
+  source_dir: source
+  importer: sbx_conllu:parse
+  text_annotation: text
+export:
+  default:
+    # - conll_export:conllu
+    - csv_export:csv
+    - xml_export:pretty
+    - xml_export:preserved_format
+  annotations:
+    - <sentence>:misc.id
+    - <token>:misc.word
+    - <text>:readability.lix
+# dateformat:
+#   datetime_from: date
+#   datetime_informat: ""

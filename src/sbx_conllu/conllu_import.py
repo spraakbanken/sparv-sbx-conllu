@@ -52,16 +52,20 @@ class SparvCoNLLUParser:
 
     def save(self) -> None:
         """Save text data and annotation files to disk."""
-        logger.info("saving data parsed from filename='%s'", self.file)
-        logger.debug("writing text from filename=%s", self.file)
-        text = "".join(self.sentences)
-        Text(self.file).write(text)
+        if self.file is None:
+            raise RuntimeError("file is None. This shouldn't happen")
+        file: str = self.file
+        logger.info("saving data parsed from filename='%s'", file)
 
-        logger.debug("writing output from filename=%s", self.file)
+        logger.debug("writing text from filename=%s", file)
+        text = "".join(self.sentences)
+        Text(file).write(text)
+
+        logger.debug("writing output from filename=%s", file)
         full_element = "text"
         spans = [((0, 0), (len(text), 0))]
-        Output(full_element, source_file=self.file).write(spans)
+        Output(full_element, source_file=file).write(spans)
 
-        logger.debug("writing source structure from filename=%s", self.file)
+        logger.debug("writing source structure from filename=%s", file)
         structure: list[str] = ["text"]
-        SourceStructure(self.file).write(structure)
+        SourceStructure(file).write(structure)

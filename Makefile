@@ -173,7 +173,7 @@ snapshot-update:
 ### === project targets below this line ===
 test-example-long-token-to-text:
 	rm -rf examples/long-token-to-text/export
-	cd examples/long-token-to-text; ${INVENV} sparv run --stats
+	cd examples/long-token-to-text; ${INVENV} sparv run --stats --log-to-file debug
 	diff assets/long-token-to-text/long-token-to-text_export.gold.xml \
 	    examples/long-token-to-text/export/xml_export.pretty/long-token-to-text_export.xml
 

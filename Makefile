@@ -174,4 +174,12 @@ snapshot-update:
 test-example-long-token-to-text:
 	rm -rf examples/long-token-to-text/export
 	cd examples/long-token-to-text; ${INVENV} sparv run --stats
-	# diff assets/long-token-to-text/
+	diff assets/long-token-to-text/long-token-to-text_export.gold.xml \
+	    examples/long-token-to-text/export/xml_export.pretty/long-token-to-text_export.xml
+
+snapshot-update-example-long-token-to-text: assets/long-token-to-text/long-token-to-text_export.gold.xml
+
+
+assets/long-token-to-text/long-token-to-text_export.gold.xml: \
+	 examples/long-token-to-text/export/xml_export.pretty/long-token-to-text_export.xml
+	@cp "$<" "$@"

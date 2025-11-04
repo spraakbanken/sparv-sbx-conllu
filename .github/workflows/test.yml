@@ -154,8 +154,25 @@ jobs:
       - name: install dependencies
         run: make install-dev
 
+      - name: Cache of sparv
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
+        id: cache-sparv
+        with:
+          path: |
+            ~/.local/
+            examples/small/export/
+          key: ${{ runner.os }}-${{ steps.setup-python.outputs.python-version}}-sparv
+
       - name: sparv setup
         run: echo "" | .venv/bin/sparv setup
+
+      - name: install hunpos
+        if: steps.cache-sparv.outputs.cache-hit != 'true'
+        run: |
+          curl https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/hunpos/hunpos-1.0-linux.tgz --output hunpos.tgz
+          tar -zxvf hunpos.tgz
+          mkdir -pv ~/.local/share/sparv/bin
+          cp -v hunpos-1.0-linux/hunpos-tag ~/.local/share/sparv/bin
 
       - name: make test-example
         run: make test-example-${{ matrix.example-name }}

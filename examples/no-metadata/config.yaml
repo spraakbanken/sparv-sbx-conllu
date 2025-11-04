@@ -1,0 +1,20 @@
+metadata:
+  id: conllu-examples
+  name:
+    eng: CoNLL-U import test corpora
+    swe: ""
+
+import:
+  source_dir: source
+  importer: sbx_conllu:parse
+  text_annotation: text
+export:
+  default:
+    # - conll_export:conllu
+    - csv_export:csv
+    - xml_export:pretty
+    - xml_export:preserved_format
+  annotations:
+    - <sentence>:misc.id
+    - <token>:misc.word
+    - <text>:readability.lix

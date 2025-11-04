@@ -1,0 +1,41 @@
+# serializer version: 1
+# name: test_conllu_parser
+  _Call(
+    tuple(
+      'Moodymanni ehk Kenny Dixon Jnr võid näha ja lausa liigutamas aadressil proto.groovetech.com/mk-demf.rxml?file=/demf/mainstage/day2/mainstageday2-kennydixonjr.rm (Antes Edition) Filmimuusika loomine on mitmes mõttes erinev kontserdisaalis ette kantava teose kirjutamisest, sisaldades nii kitsendusi kui ka ahvatlevaid võimalusi.',
+    ),
+    dict({
+    }),
+  )
+# ---
+# name: test_conllu_parser.1
+  _Call(
+    tuple(
+      list([
+        tuple(
+          tuple(
+            0,
+            0,
+          ),
+          tuple(
+            327,
+            0,
+          ),
+        ),
+      ]),
+    ),
+    dict({
+    }),
+  )
+# ---
+# name: test_conllu_parser.2
+  _Call(
+    tuple(
+      list([
+        'text',
+      ]),
+    ),
+    dict({
+    }),
+  )
+# ---

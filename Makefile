@@ -172,14 +172,48 @@ snapshot-update:
 
 ### === project targets below this line ===
 test-example-long-token-to-text:
-	rm -rf examples/long-token-to-text/export
+	rm -rf examples/long-token-to-text/export examples/long-token-to-text/sparv-workdir
 	cd examples/long-token-to-text; ${INVENV} sparv run --stats --log-to-file debug
 	diff assets/long-token-to-text/long-token-to-text_export.gold.xml \
 	    examples/long-token-to-text/export/xml_export.pretty/long-token-to-text_export.xml
+	diff assets/long-token-to-text/preserved_format/long-token-to-text_export.gold.xml \
+	    examples/long-token-to-text/export/xml_export.preserved_format/long-token-to-text_export.xml
 
-snapshot-update-example-long-token-to-text: assets/long-token-to-text/long-token-to-text_export.gold.xml
-
+snapshot-update-example-long-token-to-text: \
+	assets/long-token-to-text/long-token-to-text_export.gold.xml \
+	assets/long-token-to-text/preserved_format/long-token-to-text_export.gold.xml
 
 assets/long-token-to-text/long-token-to-text_export.gold.xml: \
-	 examples/long-token-to-text/export/xml_export.pretty/long-token-to-text_export.xml
+		examples/long-token-to-text/export/xml_export.pretty/long-token-to-text_export.xml
+	@cp "$<" "$@"
+
+assets/long-token-to-text/preserved_format/long-token-to-text_export.gold.xml: \
+	 examples/long-token-to-text/export/xml_export.preserved_format/long-token-to-text_export.xml
+	@cp "$<" "$@"
+
+test-example-no-metadata:
+	rm -rf examples/no-metadata/export examples/no-metadata/sparv-workdir
+	cd examples/no-metadata; ${INVENV} sparv run --stats --log-to-file debug
+	diff assets/no-metadata/preserved_format/empty-node_export.gold.xml \
+	    examples/no-metadata/export/xml_export.preserved_format/empty-node_export.xml
+	diff assets/no-metadata/preserved_format/multiword_export.gold.xml \
+	    examples/no-metadata/export/xml_export.preserved_format/multiword_export.xml
+	diff assets/no-metadata/preserved_format/space-after-no_export.gold.xml \
+	    examples/no-metadata/export/xml_export.preserved_format/space-after-no_export.xml
+
+snapshot-update-example-no-metadata: \
+	assets/no-metadata/preserved_format/empty-node_export.gold.xml \
+	assets/no-metadata/preserved_format/multiword_export.gold.xml \
+	assets/no-metadata/preserved_format/space-after-no_export.gold.xml
+
+assets/no-metadata/preserved_format/empty-node_export.gold.xml: \
+	    examples/no-metadata/export/xml_export.preserved_format/empty-node_export.xml
+	@cp "$<" "$@"
+
+assets/no-metadata/preserved_format/multiword_export.gold.xml: \
+    examples/no-metadata/export/xml_export.preserved_format/multiword_export.xml
+	@cp "$<" "$@"
+
+assets/no-metadata/preserved_format/space-after-no_export.gold.xml: \
+	    examples/no-metadata/export/xml_export.preserved_format/space-after-no_export.xml
 	@cp "$<" "$@"

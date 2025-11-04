@@ -48,7 +48,27 @@ class SparvCoNLLUParser:
 
         with source_file.open(encoding="utf-8") as fp:
             for sentence in conllu.parse_incr(fp):
-                self.sentences.append(sentence.metadata["text"])
+                sentence_text: str | None = sentence.metadata.get("text")
+                if sentence_text is None:
+                    next_id = 0
+                    sentence_text = ""
+                    for token in sentence:
+                        id_: int | tuple[int, str, int] = token["id"]
+                        form: str = token["form"]
+                        misc: dict[str, str] | None = token.get("misc")
+                        if isinstance(id_, tuple) and id_[1] == ".":
+                            node_id = f"{id_[0]}{id_[1]}{id_[2]}"
+                            logger.warning("Found empty node, skipping id='%s', form='%s'", node_id, form)
+                            continue
+                        if isinstance(id_, tuple):
+                            next_id = id_[2]
+                        elif id_ > next_id:
+                            pass
+                        else:
+                            continue
+                        space = "" if misc and misc.get("SpaceAfter") == "No" else " "
+                        sentence_text += f"{form}{space}"
+                self.sentences.append(sentence_text)
 
     def save(self) -> None:
         """Save text data and annotation files to disk."""
@@ -58,7 +78,7 @@ class SparvCoNLLUParser:
         logger.info("saving data parsed from filename='%s'", file)
 
         logger.debug("writing text from filename=%s", file)
-        text = "".join(self.sentences)
+        text = " ".join(self.sentences)
         Text(file).write(text)
 
         logger.debug("writing output from filename=%s", file)

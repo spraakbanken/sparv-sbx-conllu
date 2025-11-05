@@ -9,12 +9,18 @@ metadata:
       Copied from https://github.com/UniversalDependencies/tools/blob/master/example-data/long-token-to-text.conllu
     swe: |2+
 
-
-
+classes:
+  sentence: sentence
 import:
-  source_dir: source
+  # source_dir: source
   importer: sbx_conllu:parse
-  text_annotation: text
+  # text_annotation: text
+
+sbx_conllu:
+  elements:
+    - text
+    - sentence
+
 export:
   default:
     # - conll_export:conllu
@@ -22,7 +28,7 @@ export:
     - xml_export:pretty
     - xml_export:preserved_format
   annotations:
-    - <sentence>:misc.id
+    # - <sentence>:misc.id
     - <token>:misc.word
     - <text>:readability.lix
 # dateformat:

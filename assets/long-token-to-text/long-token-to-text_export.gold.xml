@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<sentence id="c9">
-  <text lix="83.17">
+<text lix="51.84">
+  <sentence sent_id="aja_ee200110_3121">
     <token word="Moodymanni">Moodymanni</token>
     <token word="ehk">ehk</token>
     <token word="Kenny">Kenny</token>
@@ -24,10 +24,14 @@
     <token word="day2">day2</token>
     <token word="/">/</token>
     <token word="mainstageday2-kennydixonjr.rm">mainstageday2-kennydixonjr.rm</token>
+  </sentence>
+  <sentence sent_id="aja_ee200110_3122">
     <token word="(">(</token>
     <token word="Antes">Antes</token>
     <token word="Edition">Edition</token>
     <token word=")">)</token>
+  </sentence>
+  <sentence sent_id="aja_ee200110_3123">
     <token word="Filmimuusika">Filmimuusika</token>
     <token word="loomine">loomine</token>
     <token word="on">on</token>
@@ -48,5 +52,5 @@
     <token word="ahvatlevaid">ahvatlevaid</token>
     <token word="võimalusi">võimalusi</token>
     <token word=".">.</token>
-  </text>
-</sentence>
+  </sentence>
+</text>

@@ -1,9 +1,11 @@
+from pathlib import Path
 from unittest import mock
 
+import pytest
 from sparv.api import Output, Source, SourceFilename, SourceStructure, Text
 from syrupy.assertion import SnapshotAssertion
 
-from sbx_conllu.conllu_import import SparvCoNLLUParser
+from sbx_conllu.conllu_import import analyze_conllu, parse
 
 # id   form  lemma upostag xpostag           feats  head    deprel deps  misc
 EXAMPLE_NO_TEXT: str = """
@@ -20,18 +22,42 @@ EXAMPLE_NO_TEXT: str = """
 """
 
 
-@mock.patch.object(SourceStructure, "write")
-@mock.patch.object(Output, "write")
-@mock.patch.object(Text, "write")
-def test_conllu_parser(
-    text_write_mock: mock.MagicMock,
-    output_write_mock: mock.MagicMock,
-    source_structure_write_mock: mock.MagicMock,
+@pytest.mark.parametrize(
+    "filename",
+    [
+        "long-token-to-text",
+        "empty-node",
+        "multiword",
+        "space-after-no",
+    ],
+)
+def test_parse(
+    filename: str,
     snapshot: SnapshotAssertion,
 ) -> None:
-    parser = SparvCoNLLUParser(Source("assets/texts"))
-    parser.parse(SourceFilename("long-token-to-text"))
-    parser.save()
+    source_dir = Source("assets/texts")
+    filename_ = SourceFilename(filename)
+    with (
+        mock.patch.object(Text, "write") as text_write_mock,
+        mock.patch.object(Output, "write") as output_write_mock,
+        mock.patch.object(SourceStructure, "write") as source_structure_write_mock,
+    ):
+        parse(filename_, source_dir)
     assert text_write_mock.call_args == snapshot
-    assert output_write_mock.call_args == snapshot
+    assert output_write_mock.call_args_list == snapshot
     assert source_structure_write_mock.call_args == snapshot
+
+
+@pytest.mark.parametrize(
+    "filename",
+    [
+        "assets/texts/long-token-to-text.conllu",
+        "assets/texts/empty-node.conllu",
+        "assets/texts/multiword.conllu",
+        "assets/texts/space-after-no.conllu",
+    ],
+)
+def test_analyze_conllu(filename: str, snapshot: SnapshotAssertion) -> None:
+    actual = analyze_conllu(Path(filename))
+
+    assert actual == snapshot

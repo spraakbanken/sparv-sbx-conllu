@@ -11,15 +11,19 @@ metadata:
 
 classes:
   sentence: sentence
+  token: token
+  "<token>:pos": token:xpos
 import:
   # source_dir: source
   importer: sbx_conllu:parse
   # text_annotation: text
 
 sbx_conllu:
-  elements:
+  import_attributes:
     - text
     - sentence
+    - token
+    - token:xpos
 
 export:
   default:

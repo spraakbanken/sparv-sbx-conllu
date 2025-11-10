@@ -6,6 +6,7 @@ metadata:
 
 classes:
   sentence: sentence
+  token: token
 
 import:
   # source_dir: source
@@ -13,9 +14,10 @@ import:
   # text_annotation: text
 
 sbx_conllu:
-  elements:
+  import_attributes:
     - text
     - sentence
+    - token
 
 export:
   default:

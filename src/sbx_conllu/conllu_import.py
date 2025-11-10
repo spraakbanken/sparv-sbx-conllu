@@ -61,12 +61,12 @@ class XMLStructure(SourceStructureParser):
 @importer(
     "Import CoNLL-U files",
     file_extension=CONLLU_EXTENSION_NAME,
-    outputs=[Config("sbx_conllu.elements")],
+    outputs=[Config("sbx_conllu.import_attributes")],
     config=[
         Config(
-            "sbx_conllu.elements",
+            "sbx_conllu.import_attributes",
             ["text"],
-            description="List of elements present in the source files.",
+            description="List of attributes that is needed for other analysis.",
             datatype=list[str],
         )
     ],
@@ -101,12 +101,14 @@ class _Element(t.TypedDict):
 # there included structures
 TEXT_SUBPOS_START: int = 0
 SENTENCE_SUBPOS_START: int = 1
+TOKEN_SUBPOS_START: int = 2
 
 # TEXT_SUBPOS_END should always be greatest
 # and all others should have higher values than
 # there included structures
-TEXT_SUBPOS_END: int = 1
-SENTENCE_SUBPOS_END: int = 0
+TEXT_SUBPOS_END: int = 2
+SENTENCE_SUBPOS_END: int = 1
+TOKEN_SUBPOS_END: int = 0
 
 
 class SparvCoNLLUParser:
@@ -135,7 +137,7 @@ class SparvCoNLLUParser:
         end_pos: int = 0
         with source_file.open(encoding="utf-8") as fp:
             for sentence in conllu.parse_incr(fp):
-                sentence_text: str | None = sentence.metadata.get("text")
+                sentence_meta_text: str | None = sentence.metadata.get("text")
                 sentence_attrs = {key: sentence.metadata[key] for key in sentence.metadata if key.startswith("sent_")}
                 self.data["sentence"]["attrs"].update(sentence_attrs.keys())
                 self.data["sentence"]["elements"].append(
@@ -146,32 +148,93 @@ class SparvCoNLLUParser:
                         "attrs": sentence_attrs,
                     }
                 )
-                if sentence_text is None:
-                    next_id = 0
-                    sentence_text = ""
-                    for token in sentence:
-                        id_: int | tuple[int, str, int] = token["id"]
-                        form: str = token["form"]
-                        misc: dict[str, str] | None = token.get("misc")
-                        if isinstance(id_, tuple) and id_[1] == ".":
-                            node_id = f"{id_[0]}{id_[1]}{id_[2]}"
-                            logger.warning(
-                                "Found empty node (id='%s', form='%s') in %s: skipping", node_id, form, source_file
-                            )
-                            continue
-                        if isinstance(id_, tuple):
-                            next_id = id_[2]
-                        elif id_ > next_id:
-                            pass
-                        else:
-                            continue
-                        space = "" if misc and misc.get("SpaceAfter") == "No" else " "
-                        sentence_text += f"{form}{space}"
+
+                next_id = 0
+                sentence_form_text = ""
+
+                token_start = start_pos
+                for token in sentence:
+                    id_: int | tuple[int, str, int] = token["id"]
+                    form: str = token["form"]
+                    if isinstance(id_, tuple) and id_[1] == ".":
+                        logger.warning(
+                            "Skipping empty node (id='%s', form='%s') in %s. Tracking issue: %s",
+                            _fmt_id(id_),
+                            form,
+                            source_file,
+                            "https://github.com/spraakbanken/sparv-sbx-conllu/issues/14",
+                        )
+                        continue
+                    if isinstance(id_, tuple):
+                        next_id = id_[2]
+                    elif id_ > next_id:
+                        pass
+                    else:
+                        # TODO: handle skipped token, see https://github.com/spraakbanken/sparv-sbx-conllu/issues/15
+                        logger.warning(
+                            "Skipping token (id='%s', form='%s') inside multiword token in %s. Tracking issue: %s",
+                            _fmt_id(id_),
+                            form,
+                            source_file,
+                            "https://github.com/spraakbanken/sparv-sbx-conllu/issues/15",
+                        )
+                        continue
+                    misc: dict[str, str] | None = token.get("misc")
+                    space = "" if misc and misc.get("SpaceAfter") == "No" else " "
+                    if sentence_meta_text is None:
+                        sentence_form_text += f"{form}{space}"
+                    token_attrs = {"id": _fmt_id(id_)}
+                    if lemma := token.get("lemma"):
+                        token_attrs["baseform"] = "" if lemma == "_" else lemma
+                    if upos := token.get("upos"):
+                        token_attrs["upos"] = "" if upos == "_" else upos
+                    if xpos := token.get("xpos"):
+                        token_attrs["xpos"] = xpos
+                    if feats := token.get("feats"):
+                        feats_str = "|".join(f"{feat}={value}" for feat, value in feats.items())
+                        token_attrs["ufeats"] = f"|{feats_str}|" if feats_str else "|"
+                    if head := token.get("head"):
+                        token_attrs["dephead"] = head
+                    if deprel := token.get("deprel"):
+                        token_attrs["deprel"] = "" if deprel == "_" else deprel
+                    if deps := token.get("deps"):
+                        deps_str = "|".join(f"{dep}={rel}" for dep, rel in deps)
+                        if deps_str:
+                            token_attrs["deps"] = f"|{deps_str}|"
+                    if misc := token.get("misc"):
+                        misc_str = "|".join(f"{key}={value}" for key, value in misc.items())
+                        if misc_str:
+                            token_attrs["misc"] = f"|{misc_str}|"
+                    token_end = token_start + len(form)
+                    self.data["token"]["attrs"].update(token_attrs.keys())
+                    self.data["token"]["elements"].append(
+                        {
+                            "name": "token",
+                            "start": (token_start, TOKEN_SUBPOS_START),
+                            "end": (token_end, TOKEN_SUBPOS_END),
+                            "attrs": token_attrs,
+                        }
+                    )
+                    logger.debug(
+                        "added token id=%s start=%s, end=%s",
+                        token_attrs["id"],
+                        self.data["token"]["elements"][-1]["start"],
+                        self.data["token"]["elements"][-1]["end"],
+                    )
+                    token_start = token_end + len(space)
+                sentence_text = sentence_meta_text or sentence_form_text
                 self.sentences.append(sentence_text)
+                logger.debug("sentence_text=%s", sentence_text)
                 sentence_length = len(sentence_text)
                 end_pos += sentence_length
                 # update end_pos for sentence
                 self.data["sentence"]["elements"][-1]["end"] = (end_pos, SENTENCE_SUBPOS_END)
+                logger.debug(
+                    "added sentence start=%s, end=(%d, %d)",
+                    self.data["sentence"]["elements"][-1]["start"],
+                    end_pos,
+                    SENTENCE_SUBPOS_END,
+                )
                 # handle whitespace between sentences
                 end_pos += 1
                 start_pos = end_pos
@@ -224,7 +287,14 @@ class SparvCoNLLUParser:
 
         logger.debug("writing source structure from filename=%s", file)
         # Save list of all elements and attributes to a file (needed for export)
+        structure.sort()
         SourceStructure(file).write(structure)
+
+
+def _fmt_id(id_: int | tuple[int, str, int]) -> str:
+    if isinstance(id_, int):
+        return f"{id_}"
+    return f"{id_[0]}{id_[1]}{id_[2]}"
 
 
 def analyze_conllu(source_file: Path) -> set[str]:
@@ -236,7 +306,7 @@ def analyze_conllu(source_file: Path) -> set[str]:
     Returns:
         A set of elements and attributes found in the XML file.
     """
-    elements = {"text"}
+    elements = {"text", "token"}
 
     with source_file.open(encoding="utf-8") as fp:
         for line in fp:

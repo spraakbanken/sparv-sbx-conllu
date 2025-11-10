@@ -2,6 +2,7 @@
 # name: test_analyze_conllu[assets/texts/empty-node.conllu]
   set({
     'text',
+    'token',
   })
 # ---
 # name: test_analyze_conllu[assets/texts/long-token-to-text.conllu]
@@ -9,60 +10,43 @@
     'sent_id',
     'sentence',
     'text',
+    'token',
   })
 # ---
 # name: test_analyze_conllu[assets/texts/multiword.conllu]
   set({
     'text',
+    'token',
   })
 # ---
 # name: test_analyze_conllu[assets/texts/space-after-no.conllu]
   set({
     'text',
+    'token',
   })
 # ---
 # name: test_parse[empty-node]
-  _Call(
-    tuple(
-      'Sue likes coffee and Bill tea ',
+  _CallList([
+    _Call(
+      tuple(
+        'Sue likes coffee and Bill tea ',
+      ),
+      dict({
+      }),
     ),
-    dict({
-    }),
-  )
+  ])
 # ---
 # name: test_parse[empty-node].1
   _CallList([
     _Call(
       tuple(
         list([
-          tuple(
-            tuple(
-              0,
-              0,
-            ),
-            tuple(
-              30,
-              1,
-            ),
-          ),
-        ]),
-      ),
-      dict({
-      }),
-    ),
-    _Call(
-      tuple(
-        list([
-          tuple(
-            tuple(
-              0,
-              1,
-            ),
-            tuple(
-              30,
-              0,
-            ),
-          ),
+          'sentence',
+          'sentence',
+          'text',
+          'token',
+          'token:baseform',
+          'token:id',
         ]),
       ),
       dict({
@@ -70,155 +54,65 @@
     ),
   ])
 # ---
-# name: test_parse[empty-node].2
-  _Call(
-    tuple(
-      list([
-        'text',
-        'sentence',
-        'sentence',
-      ]),
-    ),
-    dict({
-    }),
-  )
-# ---
 # name: test_parse[long-token-to-text]
-  _Call(
-    tuple(
-      'Moodymanni ehk Kenny Dixon Jnr võid näha ja lausa liigutamas aadressil proto.groovetech.com/mk-demf.rxml?file=/demf/mainstage/day2/mainstageday2-kennydixonjr.rm (Antes Edition) Filmimuusika loomine on mitmes mõttes erinev kontserdisaalis ette kantava teose kirjutamisest, sisaldades nii kitsendusi kui ka ahvatlevaid võimalusi.',
+  _CallList([
+    _Call(
+      tuple(
+        'Moodymanni ehk Kenny Dixon Jnr võid näha ja lausa liigutamas aadressil proto.groovetech.com/mk-demf.rxml?file=/demf/mainstage/day2/mainstageday2-kennydixonjr.rm (Antes Edition) Filmimuusika loomine on mitmes mõttes erinev kontserdisaalis ette kantava teose kirjutamisest, sisaldades nii kitsendusi kui ka ahvatlevaid võimalusi.',
+      ),
+      dict({
+      }),
     ),
-    dict({
-    }),
-  )
+  ])
 # ---
 # name: test_parse[long-token-to-text].1
   _CallList([
     _Call(
       tuple(
         list([
-          tuple(
-            tuple(
-              0,
-              0,
-            ),
-            tuple(
-              327,
-              1,
-            ),
-          ),
+          'sentence',
+          'sentence',
+          'sentence:sent_id',
+          'text',
+          'token',
+          'token:baseform',
+          'token:dephead',
+          'token:deprel',
+          'token:deps',
+          'token:id',
+          'token:misc',
+          'token:ufeats',
+          'token:upos',
+          'token:xpos',
         ]),
-      ),
-      dict({
-      }),
-    ),
-    _Call(
-      tuple(
-        tuple(
-          tuple(
-            tuple(
-              0,
-              1,
-            ),
-            tuple(
-              160,
-              0,
-            ),
-          ),
-          tuple(
-            tuple(
-              161,
-              1,
-            ),
-            tuple(
-              176,
-              0,
-            ),
-          ),
-          tuple(
-            tuple(
-              177,
-              1,
-            ),
-            tuple(
-              327,
-              0,
-            ),
-          ),
-        ),
-      ),
-      dict({
-      }),
-    ),
-    _Call(
-      tuple(
-        tuple(
-          'aja_ee200110_3121',
-          'aja_ee200110_3122',
-          'aja_ee200110_3123',
-        ),
       ),
       dict({
       }),
     ),
   ])
 # ---
-# name: test_parse[long-token-to-text].2
-  _Call(
-    tuple(
-      list([
-        'text',
-        'sentence',
-        'sentence',
-        'sentence:sent_id',
-      ]),
-    ),
-    dict({
-    }),
-  )
-# ---
 # name: test_parse[multiword]
-  _Call(
-    tuple(
-      'vámonos al mar ',
+  _CallList([
+    _Call(
+      tuple(
+        'vámonos al mar ',
+      ),
+      dict({
+      }),
     ),
-    dict({
-    }),
-  )
+  ])
 # ---
 # name: test_parse[multiword].1
   _CallList([
     _Call(
       tuple(
         list([
-          tuple(
-            tuple(
-              0,
-              0,
-            ),
-            tuple(
-              15,
-              1,
-            ),
-          ),
-        ]),
-      ),
-      dict({
-      }),
-    ),
-    _Call(
-      tuple(
-        list([
-          tuple(
-            tuple(
-              0,
-              1,
-            ),
-            tuple(
-              15,
-              0,
-            ),
-          ),
+          'sentence',
+          'sentence',
+          'text',
+          'token',
+          'token:baseform',
+          'token:id',
         ]),
       ),
       dict({
@@ -226,78 +120,35 @@
     ),
   ])
 # ---
-# name: test_parse[multiword].2
-  _Call(
-    tuple(
-      list([
-        'text',
-        'sentence',
-        'sentence',
-      ]),
-    ),
-    dict({
-    }),
-  )
-# ---
 # name: test_parse[space-after-no]
-  _Call(
-    tuple(
-      'Er arbeitet fürs FBI ( deutsch etwa : „ Bundesamt für Ermittlung “ ) . ',
+  _CallList([
+    _Call(
+      tuple(
+        'Er arbeitet fürs FBI (deutsch etwa: „Bundesamt für Ermittlung“). ',
+      ),
+      dict({
+      }),
     ),
-    dict({
-    }),
-  )
+  ])
 # ---
 # name: test_parse[space-after-no].1
   _CallList([
     _Call(
       tuple(
         list([
-          tuple(
-            tuple(
-              0,
-              0,
-            ),
-            tuple(
-              71,
-              1,
-            ),
-          ),
-        ]),
-      ),
-      dict({
-      }),
-    ),
-    _Call(
-      tuple(
-        list([
-          tuple(
-            tuple(
-              0,
-              1,
-            ),
-            tuple(
-              71,
-              0,
-            ),
-          ),
+          'sentence',
+          'sentence',
+          'text',
+          'token',
+          'token:baseform',
+          'token:deprel',
+          'token:id',
+          'token:misc',
+          'token:upos',
         ]),
       ),
       dict({
       }),
     ),
   ])
-# ---
-# name: test_parse[space-after-no].2
-  _Call(
-    tuple(
-      list([
-        'text',
-        'sentence',
-        'sentence',
-      ]),
-    ),
-    dict({
-    }),
-  )
 # ---

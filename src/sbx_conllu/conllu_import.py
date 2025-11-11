@@ -100,13 +100,17 @@ class _Element(t.TypedDict):
 # and all others should have lower values than
 # there included structures
 TEXT_SUBPOS_START: int = 0
-SENTENCE_SUBPOS_START: int = 1
-TOKEN_SUBPOS_START: int = 2
+DOCUMENT_SUBPOS_START: int = 1
+PARAGRAPH_SUBPOS_START: int = 2
+SENTENCE_SUBPOS_START: int = 3
+TOKEN_SUBPOS_START: int = 4
 
 # TEXT_SUBPOS_END should always be greatest
 # and all others should have higher values than
 # there included structures
-TEXT_SUBPOS_END: int = 2
+TEXT_SUBPOS_END: int = 4
+DOCUMENT_SUBPOS_END: int = 3
+PARAGRAPH_SUBPOS_END: int = 2
 SENTENCE_SUBPOS_END: int = 1
 TOKEN_SUBPOS_END: int = 0
 
@@ -137,8 +141,55 @@ class SparvCoNLLUParser:
         end_pos: int = 0
         with source_file.open(encoding="utf-8") as fp:
             for sentence in conllu.parse_incr(fp):
+                logger.error("metadata=%s", sentence.metadata)
+                document_attrs = {
+                    key[(len("newdoc") + 1) :]: value
+                    for key, value in sentence.metadata.items()
+                    if key.startswith("newdoc")
+                }
+                if document_attrs:
+                    self.data["document"]["attrs"].update(document_attrs.keys())
+                    if self.data["document"]["elements"]:
+                        self.data["document"]["elements"][-1]["end"] = (end_pos - 1, PARAGRAPH_SUBPOS_END)
+                        logger.debug(
+                            "added document start=%s, end=(%d, %d)",
+                            self.data["document"]["elements"][-1]["start"],
+                            end_pos - 1,
+                            DOCUMENT_SUBPOS_END,
+                        )
+                    self.data["document"]["elements"].append(
+                        {
+                            "name": "document",
+                            "start": (start_pos, DOCUMENT_SUBPOS_START),
+                            "end": (start_pos, DOCUMENT_SUBPOS_END),
+                            "attrs": document_attrs,
+                        }
+                    )
+                paragraph_attrs = {
+                    key[(len("newpar") + 1) :]: value
+                    for key, value in sentence.metadata.items()
+                    if key.startswith("newpar")
+                }
+                if paragraph_attrs:
+                    self.data["paragraph"]["attrs"].update(paragraph_attrs.keys())
+                    if self.data["paragraph"]["elements"]:
+                        self.data["paragraph"]["elements"][-1]["end"] = (end_pos - 1, PARAGRAPH_SUBPOS_END)
+                        logger.debug(
+                            "added paragraph start=%s, end=(%d, %d)",
+                            self.data["paragraph"]["elements"][-1]["start"],
+                            end_pos - 1,
+                            PARAGRAPH_SUBPOS_END,
+                        )
+                    self.data["paragraph"]["elements"].append(
+                        {
+                            "name": "paragraph",
+                            "start": (start_pos, PARAGRAPH_SUBPOS_START),
+                            "end": (start_pos, PARAGRAPH_SUBPOS_END),
+                            "attrs": paragraph_attrs,
+                        }
+                    )
                 sentence_meta_text: str | None = sentence.metadata.get("text")
-                sentence_attrs = {key: sentence.metadata[key] for key in sentence.metadata if key.startswith("sent_")}
+                sentence_attrs = {key: value for key, value in sentence.metadata.items() if key.startswith("sent_")}
                 self.data["sentence"]["attrs"].update(sentence_attrs.keys())
                 self.data["sentence"]["elements"].append(
                     {
@@ -238,6 +289,22 @@ class SparvCoNLLUParser:
                 # handle whitespace between sentences
                 end_pos += 1
                 start_pos = end_pos
+        if self.data["paragraph"]["elements"]:
+            self.data["paragraph"]["elements"][-1]["end"] = (end_pos - 1, PARAGRAPH_SUBPOS_END)
+            logger.debug(
+                "added paragraph start=%s, end=(%d, %d)",
+                self.data["paragraph"]["elements"][-1]["start"],
+                end_pos - 1,
+                PARAGRAPH_SUBPOS_END,
+            )
+        if self.data["document"]["elements"]:
+            self.data["document"]["elements"][-1]["end"] = (end_pos - 1, DOCUMENT_SUBPOS_END)
+            logger.debug(
+                "added document start=%s, end=(%d, %d)",
+                self.data["document"]["elements"][-1]["start"],
+                end_pos - 1,
+                DOCUMENT_SUBPOS_END,
+            )
 
     def save(self) -> None:
         """Save text data and annotation files to disk."""
@@ -281,7 +348,7 @@ class SparvCoNLLUParser:
 
             for attr, attr_values in attributes.items():
                 full_attr = f"{full_element}:{attr}"
-                logger.debug("writing %s values from filename=%s", full_attr, file)
+                logger.debug("writing %s values (%d values) from filename=%s", full_attr, len(attr_values), file)
                 Output(full_attr, source_file=file).write(attr_values)
                 structure.append(full_attr)
 
@@ -317,6 +384,10 @@ def analyze_conllu(source_file: Path) -> set[str]:
                 elif attr.startswith("sent_"):
                     elements.add("sentence")
                     elements.add(f"{attr}")
+                elif attr.startswith("newpar"):
+                    elements.add("paragraph")
+                elif attr.startswith("newdoc"):
+                    elements.add("document")
                 else:
                     logger.warning("Unknown attribute '%s', skipping ...", attr)
 

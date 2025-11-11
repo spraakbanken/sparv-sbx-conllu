@@ -19,6 +19,16 @@
     'token',
   })
 # ---
+# name: test_analyze_conllu[assets/texts/paragraph-and-document.conllu]
+  set({
+    'document',
+    'paragraph',
+    'sent_id',
+    'sentence',
+    'text',
+    'token',
+  })
+# ---
 # name: test_analyze_conllu[assets/texts/space-after-no.conllu]
   set({
     'text',
@@ -41,6 +51,8 @@
     _Call(
       tuple(
         list([
+          'document',
+          'paragraph',
           'sentence',
           'sentence',
           'text',
@@ -70,6 +82,8 @@
     _Call(
       tuple(
         list([
+          'document',
+          'paragraph',
           'sentence',
           'sentence',
           'sentence:sent_id',
@@ -107,12 +121,54 @@
     _Call(
       tuple(
         list([
+          'document',
+          'paragraph',
           'sentence',
           'sentence',
           'text',
           'token',
           'token:baseform',
           'token:id',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+  ])
+# ---
+# name: test_parse[paragraph-and-document]
+  _CallList([
+    _Call(
+      tuple(
+        'Slovenská ústava: pro i proti',
+      ),
+      dict({
+      }),
+    ),
+  ])
+# ---
+# name: test_parse[paragraph-and-document].1
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'document',
+          'document:id',
+          'paragraph',
+          'paragraph:id',
+          'sentence',
+          'sentence',
+          'sentence:sent_id',
+          'text',
+          'token',
+          'token:baseform',
+          'token:dephead',
+          'token:deprel',
+          'token:id',
+          'token:misc',
+          'token:ufeats',
+          'token:upos',
+          'token:xpos',
         ]),
       ),
       dict({
@@ -136,6 +192,8 @@
     _Call(
       tuple(
         list([
+          'document',
+          'paragraph',
           'sentence',
           'sentence',
           'text',

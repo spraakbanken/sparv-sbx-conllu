@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<text>
+  <document id="mf920901-001">
+    <paragraph id="mf920901-001-p1">
+      <sentence sent_id="mf920901-001-p1s1A">
+        <token baseform="slovenský" dephead="2" deprel="amod" id="1" word="Slovenská" ufeats="|Case=Nom|Degree=Pos|Gender=Fem|Number=Sing|Polarity=Pos|" upos="ADJ" xpos="AAFS1----1A----">Slovenská</token>
+        <token baseform="ústava" deprel="root" id="2" misc="|SpaceAfter=No|" word="ústava" ufeats="|Case=Nom|Gender=Fem|Number=Sing|Polarity=Pos|" upos="NOUN" xpos="NNFS1-----A----">ústava</token>
+        <token baseform=":" dephead="2" deprel="punct" id="3" word=":" upos="PUNCT" xpos="Z:-------------">:</token>
+        <token baseform="pro" dephead="2" deprel="appos" id="4" misc="|LId=pro-1|" word="pro" ufeats="|Case=Acc|" upos="ADP" xpos="RR--4----------">pro</token>
+        <token baseform="i" dephead="6" deprel="cc" id="5" misc="|LId=i-1|" word="i" upos="CCONJ" xpos="J^-------------">i</token>
+        <token baseform="proti" dephead="4" deprel="conj" id="6" misc="|LId=proti-1|" word="proti" ufeats="|Case=Dat|" upos="ADP" xpos="RR--3----------">proti</token>
+      </sentence>
+    </paragraph>
+  </document>
+</text>

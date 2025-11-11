@@ -12,7 +12,7 @@ metadata:
 classes:
   sentence: sentence
   token: token
-  "<token>:pos": token:xpos
+  "token:pos": token:xpos
 import:
   # source_dir: source
   importer: sbx_conllu:parse

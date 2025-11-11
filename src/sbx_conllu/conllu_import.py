@@ -103,15 +103,17 @@ TEXT_SUBPOS_START: int = 0
 DOCUMENT_SUBPOS_START: int = 1
 PARAGRAPH_SUBPOS_START: int = 2
 SENTENCE_SUBPOS_START: int = 3
-TOKEN_SUBPOS_START: int = 4
+PARAGRAPH_IN_SENTENCE_SUBPOS_START: int = 4
+TOKEN_SUBPOS_START: int = 5
 
 # TEXT_SUBPOS_END should always be greatest
 # and all others should have higher values than
 # there included structures
-TEXT_SUBPOS_END: int = 4
-DOCUMENT_SUBPOS_END: int = 3
-PARAGRAPH_SUBPOS_END: int = 2
-SENTENCE_SUBPOS_END: int = 1
+TEXT_SUBPOS_END: int = 5
+DOCUMENT_SUBPOS_END: int = 4
+PARAGRAPH_SUBPOS_END: int = 3
+SENTENCE_SUBPOS_END: int = 2
+PARAGRAPH_IN_SENTENCE_SUBPOS_END: int = 1
 TOKEN_SUBPOS_END: int = 0
 
 
@@ -141,7 +143,6 @@ class SparvCoNLLUParser:
         end_pos: int = 0
         with source_file.open(encoding="utf-8") as fp:
             for sentence in conllu.parse_incr(fp):
-                logger.error("metadata=%s", sentence.metadata)
                 document_attrs = {
                     key[(len("newdoc") + 1) :]: value
                     for key, value in sentence.metadata.items()
@@ -204,6 +205,7 @@ class SparvCoNLLUParser:
                 sentence_form_text = ""
 
                 token_start = start_pos
+                paragraph_in_sentence: _Instance | None = None
                 for token in sentence:
                     id_: int | tuple[int, str, int] = token["id"]
                     form: str = token["form"]
@@ -231,6 +233,21 @@ class SparvCoNLLUParser:
                         )
                         continue
                     misc: dict[str, str] | None = token.get("misc")
+                    if misc and misc.get("NewPar") == "Yes":
+                        if paragraph_in_sentence is not None:
+                            paragraph_in_sentence["end"] = (token_start, PARAGRAPH_IN_SENTENCE_SUBPOS_END)
+                            self.data["paragraph"]["elements"].append(paragraph_in_sentence)
+                            logger.debug(
+                                "added paragraph with start=%s, end=%s",
+                                paragraph_in_sentence["start"],
+                                paragraph_in_sentence["end"],
+                            )
+                        paragraph_in_sentence = {
+                            "name": "paragraph",
+                            "start": (token_start, PARAGRAPH_IN_SENTENCE_SUBPOS_START),
+                            "end": (token_start, PARAGRAPH_IN_SENTENCE_SUBPOS_END),
+                            "attrs": {},
+                        }
                     space = "" if misc and misc.get("SpaceAfter") == "No" else " "
                     if sentence_meta_text is None:
                         sentence_form_text += f"{form}{space}"
@@ -273,6 +290,15 @@ class SparvCoNLLUParser:
                         self.data["token"]["elements"][-1]["end"],
                     )
                     token_start = token_end + len(space)
+
+                if paragraph_in_sentence is not None:
+                    paragraph_in_sentence["end"] = (token_start, PARAGRAPH_IN_SENTENCE_SUBPOS_END)
+                    self.data["paragraph"]["elements"].append(paragraph_in_sentence)
+                    logger.debug(
+                        "added paragraph with start=%s, end=%s",
+                        paragraph_in_sentence["start"],
+                        paragraph_in_sentence["end"],
+                    )
                 sentence_text = sentence_meta_text or sentence_form_text
                 self.sentences.append(sentence_text)
                 logger.debug("sentence_text=%s", sentence_text)

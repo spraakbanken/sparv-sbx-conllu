@@ -217,3 +217,29 @@ assets/no-metadata/preserved_format/multiword_export.gold.xml: \
 assets/no-metadata/preserved_format/space-after-no_export.gold.xml: \
 	    examples/no-metadata/export/xml_export.preserved_format/space-after-no_export.xml
 	@cp "$<" "$@"
+
+test-example-paragraph-and-document:
+	rm -rf examples/paragraph-and-document/export examples/paragraph-and-document/sparv-workdir examples/paragraph-and-document/.snakemake
+	cd examples/paragraph-and-document; ${INVENV} sparv run --stats --log-to-file debug
+	diff assets/paragraph-and-document/paragraph-and-document_export.gold.xml \
+	examples/paragraph-and-document/export/xml_export.pretty/paragraph-and-document_export.xml
+
+snapshot-update-example-paragraph-and-document: \
+	assets/paragraph-and-document/paragraph-and-document_export.gold.xml
+
+assets/paragraph-and-document/paragraph-and-document_export.gold.xml: \
+		examples/paragraph-and-document/export/xml_export.pretty/paragraph-and-document_export.xml
+	@cp "$<" "$@"
+
+test-example-en_ewt-ud-test:
+	rm -rf examples/en_ewt-ud-test/export examples/en_ewt-ud-test/sparv-workdir examples/en_ewt-ud-test/.snakemake
+	cd examples/en_ewt-ud-test; ${INVENV} sparv run --stats --log-to-file debug
+	diff assets/en_ewt-ud-test/en_ewt-ud-test_excerp_export.gold.xml \
+	examples/en_ewt-ud-test/export/xml_export.pretty/en_ewt-ud-test_excerp_export.xml
+
+snapshot-update-example-en_ewt-ud-test: \
+	assets/en_ewt-ud-test/en_ewt-ud-test_excerp_export.gold.xml
+
+assets/en_ewt-ud-test/en_ewt-ud-test_excerp_export.gold.xml: \
+		examples/en_ewt-ud-test/export/xml_export.pretty/en_ewt-ud-test_excerp_export.xml
+	@cp "$<" "$@"

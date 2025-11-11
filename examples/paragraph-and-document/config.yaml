@@ -1,0 +1,30 @@
+metadata:
+  id: conllu-paragraph-and-document
+  name:
+    eng: CoNLL-U import test corpus paragraph-and-document
+  language: slk
+
+classes:
+  sentence: sentence
+  token: token
+import:
+  # source_dir: source
+  importer: sbx_conllu:parse
+  # text_annotation: text
+
+sbx_conllu:
+  import_attributes:
+    - text
+    - sentence
+    - token
+    - token:xpos
+
+export:
+  default:
+    # - conll_export:conllu
+    - csv_export:csv
+    - xml_export:pretty
+    - xml_export:preserved_format
+  annotations:
+    # - <sentence>:misc.id
+    - <token>:misc.word

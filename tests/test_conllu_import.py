@@ -29,6 +29,9 @@ EXAMPLE_NO_TEXT: str = """
         "empty-node",
         "multiword",
         "space-after-no",
+        "paragraph-and-document",
+        "en_ewt-ud-test_excerp",
+        "paragraph-in-sentence",
     ],
 )
 def test_parse(
@@ -55,6 +58,9 @@ def test_parse(
         "assets/texts/empty-node.conllu",
         "assets/texts/multiword.conllu",
         "assets/texts/space-after-no.conllu",
+        "assets/texts/paragraph-and-document.conllu",
+        "assets/texts/en_ewt-ud-test_excerp.conllu",
+        "assets/texts/paragraph-in-sentence.conllu",
     ],
 )
 def test_analyze_conllu(filename: str, snapshot: SnapshotAssertion) -> None:

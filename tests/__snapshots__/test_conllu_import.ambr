@@ -1,28 +1,97 @@
 # serializer version: 1
 # name: test_analyze_conllu[assets/texts/empty-node.conllu]
   set({
+    'sentence',
     'text',
     'token',
+    'token:baseform',
+  })
+# ---
+# name: test_analyze_conllu[assets/texts/en_ewt-ud-test_excerp.conllu]
+  set({
+    'document',
+    'document:id',
+    'paragraph',
+    'paragraph:id',
+    'sentence',
+    'sentence:sent_id',
+    'text',
+    'token',
+    'token:baseform',
+    'token:dephead',
+    'token:deprel',
+    'token:deps',
+    'token:misc',
+    'token:ufeats',
+    'token:upos',
+    'token:xpos',
   })
 # ---
 # name: test_analyze_conllu[assets/texts/long-token-to-text.conllu]
   set({
-    'sent_id',
     'sentence',
+    'sentence:sent_id',
     'text',
     'token',
+    'token:baseform',
+    'token:dephead',
+    'token:deprel',
+    'token:deps',
+    'token:misc',
+    'token:ufeats',
+    'token:upos',
+    'token:xpos',
   })
 # ---
 # name: test_analyze_conllu[assets/texts/multiword.conllu]
   set({
+    'sentence',
     'text',
     'token',
+    'token:baseform',
+  })
+# ---
+# name: test_analyze_conllu[assets/texts/paragraph-and-document.conllu]
+  set({
+    'document',
+    'document:id',
+    'paragraph',
+    'paragraph:id',
+    'sentence',
+    'sentence:sent_id',
+    'text',
+    'token',
+    'token:baseform',
+    'token:dephead',
+    'token:deprel',
+    'token:misc',
+    'token:ufeats',
+    'token:upos',
+    'token:xpos',
+  })
+# ---
+# name: test_analyze_conllu[assets/texts/paragraph-in-sentence.conllu]
+  set({
+    'paragraph',
+    'sentence',
+    'sentence:sent_id',
+    'text',
+    'token',
+    'token:baseform',
+    'token:dephead',
+    'token:deprel',
+    'token:misc',
+    'token:upos',
   })
 # ---
 # name: test_analyze_conllu[assets/texts/space-after-no.conllu]
   set({
+    'sentence',
     'text',
     'token',
+    'token:baseform',
+    'token:misc',
+    'token:upos',
   })
 # ---
 # name: test_parse[empty-node]
@@ -41,12 +110,55 @@
     _Call(
       tuple(
         list([
+          'document',
+          'paragraph',
           'sentence',
           'sentence',
           'text',
           'token',
           'token:baseform',
           'token:id',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+  ])
+# ---
+# name: test_parse[en_ewt-ud-test_excerp]
+  _CallList([
+    _Call(
+      tuple(
+        "What if Google Morphed Into GoogleOS? What if Google expanded on its search-engine (and now e-mail) wares into a full-fledged operating system? [via Microsoft Watch from Mary Jo Foley ] (And, by the way, is anybody else just a little nostalgic for the days when that was a good thing?) This BuzzMachine post argues that Google's rush toward ubiquity might backfire -- which we've all heard before, but it's particularly well-put in this post. Google is a nice search engine. Does anybody use it for anything else? They own blogger, of course. Is that a money maker? I'm staying away from the stock.",
+      ),
+      dict({
+      }),
+    ),
+  ])
+# ---
+# name: test_parse[en_ewt-ud-test_excerp].1
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'document',
+          'document:id',
+          'paragraph',
+          'paragraph:id',
+          'sentence',
+          'sentence',
+          'sentence:sent_id',
+          'text',
+          'token',
+          'token:baseform',
+          'token:dephead',
+          'token:deprel',
+          'token:deps',
+          'token:id',
+          'token:misc',
+          'token:ufeats',
+          'token:upos',
+          'token:xpos',
         ]),
       ),
       dict({
@@ -70,6 +182,8 @@
     _Call(
       tuple(
         list([
+          'document',
+          'paragraph',
           'sentence',
           'sentence',
           'sentence:sent_id',
@@ -107,12 +221,90 @@
     _Call(
       tuple(
         list([
+          'document',
+          'paragraph',
           'sentence',
           'sentence',
           'text',
           'token',
           'token:baseform',
           'token:id',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+  ])
+# ---
+# name: test_parse[paragraph-and-document]
+  _CallList([
+    _Call(
+      tuple(
+        'Slovenská ústava: pro i proti',
+      ),
+      dict({
+      }),
+    ),
+  ])
+# ---
+# name: test_parse[paragraph-and-document].1
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'document',
+          'document:id',
+          'paragraph',
+          'paragraph:id',
+          'sentence',
+          'sentence',
+          'sentence:sent_id',
+          'text',
+          'token',
+          'token:baseform',
+          'token:dephead',
+          'token:deprel',
+          'token:id',
+          'token:misc',
+          'token:ufeats',
+          'token:upos',
+          'token:xpos',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+  ])
+# ---
+# name: test_parse[paragraph-in-sentence]
+  _CallList([
+    _Call(
+      tuple(
+        'På högstadiet skall varje elev välja ett av fyra tillvalsämnen: * språk (franska eller tyska) * ekonomi * teknik * konst',
+      ),
+      dict({
+      }),
+    ),
+  ])
+# ---
+# name: test_parse[paragraph-in-sentence].1
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'document',
+          'paragraph',
+          'sentence',
+          'sentence',
+          'sentence:sent_id',
+          'text',
+          'token',
+          'token:baseform',
+          'token:dephead',
+          'token:deprel',
+          'token:id',
+          'token:misc',
+          'token:upos',
         ]),
       ),
       dict({
@@ -136,6 +328,8 @@
     _Call(
       tuple(
         list([
+          'document',
+          'paragraph',
           'sentence',
           'sentence',
           'text',

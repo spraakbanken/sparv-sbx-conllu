@@ -243,3 +243,16 @@ snapshot-update-example-en_ewt-ud-test: \
 assets/en_ewt-ud-test/en_ewt-ud-test_excerp_export.gold.xml: \
 		examples/en_ewt-ud-test/export/xml_export.pretty/en_ewt-ud-test_excerp_export.xml
 	@cp "$<" "$@"
+
+test-example-paragraph-in-sentence:
+	rm -rf examples/paragraph-in-sentence/export examples/paragraph-in-sentence/sparv-workdir examples/paragraph-in-sentence/.snakemake
+	cd examples/paragraph-in-sentence; ${INVENV} sparv run --stats --log-to-file debug
+	diff assets/paragraph-in-sentence/paragraph-in-sentence_export.gold.xml \
+	examples/paragraph-in-sentence/export/xml_export.pretty/paragraph-in-sentence_export.xml
+
+snapshot-update-example-paragraph-in-sentence: \
+	assets/paragraph-in-sentence/paragraph-in-sentence_export.gold.xml
+
+assets/paragraph-in-sentence/paragraph-in-sentence_export.gold.xml: \
+		examples/paragraph-in-sentence/export/xml_export.pretty/paragraph-in-sentence_export.xml
+	@cp "$<" "$@"

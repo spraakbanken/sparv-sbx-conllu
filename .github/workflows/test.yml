@@ -135,6 +135,7 @@ jobs:
           - no-metadata
           - en_ewt-ud-test
           - paragraph-and-document
+          - paragraph-in-sentence
     steps:
       - uses: actions/checkout@ff7abcd0c3c05ccf6adc123a8cd1fd4fb30fb493 # v5.0.0
         with:

@@ -1,0 +1,33 @@
+metadata:
+  id: conllu-import-test
+  name:
+    eng: CoNLL-U import test corpora
+    swe: ""
+  language: swe
+  description:
+    eng: |+
+      Copied from https://universaldependencies.org/misc.html#newpar
+
+classes:
+  sentence: sentence
+  token: token
+import:
+  # source_dir: source
+  importer: sbx_conllu:parse
+  # text_annotation: text
+
+sbx_conllu:
+  import_attributes:
+    - text
+    - sentence
+    - token
+
+export:
+  default:
+    # - conll_export:conllu
+    - csv_export:csv
+    - xml_export:pretty
+    - xml_export:preserved_format
+  annotations:
+    # - <sentence>:misc.id
+    - <token>:misc.word

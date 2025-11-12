@@ -3,6 +3,7 @@
 import operator
 import typing as t
 from collections import defaultdict
+from dataclasses import dataclass
 from pathlib import Path
 
 import conllu
@@ -96,25 +97,24 @@ class _Element(t.TypedDict):
     elements: list[_Instance]
 
 
-# TEXT_SUBPOS_START should always be smallest
+@dataclass
+class _Subpos:
+    start: int
+    end: int
+
+
+# TEXT_SUBPOS.start should always be smallest
 # and all others should have lower values than
 # there included structures
-TEXT_SUBPOS_START: int = 0
-DOCUMENT_SUBPOS_START: int = 1
-PARAGRAPH_SUBPOS_START: int = 2
-SENTENCE_SUBPOS_START: int = 3
-PARAGRAPH_IN_SENTENCE_SUBPOS_START: int = 4
-TOKEN_SUBPOS_START: int = 5
-
-# TEXT_SUBPOS_END should always be greatest
+# TEXT_SUBPOS.end should always be greatest
 # and all others should have higher values than
 # there included structures
-TEXT_SUBPOS_END: int = 5
-DOCUMENT_SUBPOS_END: int = 4
-PARAGRAPH_SUBPOS_END: int = 3
-SENTENCE_SUBPOS_END: int = 2
-PARAGRAPH_IN_SENTENCE_SUBPOS_END: int = 1
-TOKEN_SUBPOS_END: int = 0
+TEXT_SUBPOS: _Subpos = _Subpos(start=0, end=5)
+DOCUMENT_SUBPOS: _Subpos = _Subpos(start=1, end=4)
+PARAGRAPH_SUBPOS: _Subpos = _Subpos(start=2, end=3)
+SENTENCE_SUBPOS: _Subpos = _Subpos(start=3, end=2)
+PARAGRAPH_IN_SENTENCE_SUBPOS: _Subpos = _Subpos(start=4, end=1)
+TOKEN_SUBPOS: _Subpos = _Subpos(start=5, end=0)
 
 
 class SparvCoNLLUParser:
@@ -149,57 +149,24 @@ class SparvCoNLLUParser:
                     if key.startswith("newdoc")
                 }
                 if document_attrs:
-                    self.data["document"]["attrs"].update(document_attrs.keys())
                     if self.data["document"]["elements"]:
-                        self.data["document"]["elements"][-1]["end"] = (end_pos - 1, PARAGRAPH_SUBPOS_END)
-                        logger.debug(
-                            "added document start=%s, end=(%d, %d)",
-                            self.data["document"]["elements"][-1]["start"],
-                            end_pos - 1,
-                            DOCUMENT_SUBPOS_END,
-                        )
-                    self.data["document"]["elements"].append(
-                        {
-                            "name": "document",
-                            "start": (start_pos, DOCUMENT_SUBPOS_START),
-                            "end": (start_pos, DOCUMENT_SUBPOS_END),
-                            "attrs": document_attrs,
-                        }
-                    )
+                        self._close_span("document", end_pos - 1, DOCUMENT_SUBPOS)
+                    self._open_span("document", start_pos, document_attrs, DOCUMENT_SUBPOS)
+
                 paragraph_attrs = {
                     key[(len("newpar") + 1) :]: value
                     for key, value in sentence.metadata.items()
                     if key.startswith("newpar")
                 }
                 if paragraph_attrs:
-                    self.data["paragraph"]["attrs"].update(paragraph_attrs.keys())
                     if self.data["paragraph"]["elements"]:
-                        self.data["paragraph"]["elements"][-1]["end"] = (end_pos - 1, PARAGRAPH_SUBPOS_END)
-                        logger.debug(
-                            "added paragraph start=%s, end=(%d, %d)",
-                            self.data["paragraph"]["elements"][-1]["start"],
-                            end_pos - 1,
-                            PARAGRAPH_SUBPOS_END,
-                        )
-                    self.data["paragraph"]["elements"].append(
-                        {
-                            "name": "paragraph",
-                            "start": (start_pos, PARAGRAPH_SUBPOS_START),
-                            "end": (start_pos, PARAGRAPH_SUBPOS_END),
-                            "attrs": paragraph_attrs,
-                        }
-                    )
+                        self._close_span("paragraph", end_pos - 1, PARAGRAPH_SUBPOS)
+                    self._open_span("paragraph", start_pos, paragraph_attrs, PARAGRAPH_SUBPOS)
+
                 sentence_meta_text: str | None = sentence.metadata.get("text")
                 sentence_attrs = {key: value for key, value in sentence.metadata.items() if key.startswith("sent_")}
-                self.data["sentence"]["attrs"].update(sentence_attrs.keys())
-                self.data["sentence"]["elements"].append(
-                    {
-                        "name": "sentence",
-                        "start": (start_pos, SENTENCE_SUBPOS_START),
-                        "end": (end_pos, SENTENCE_SUBPOS_END),
-                        "attrs": sentence_attrs,
-                    }
-                )
+
+                self._open_span("sentence", start_pos, sentence_attrs, SENTENCE_SUBPOS)
 
                 next_id = 0
                 sentence_form_text = ""
@@ -235,7 +202,7 @@ class SparvCoNLLUParser:
                     misc: dict[str, str] | None = token.get("misc")
                     if misc and misc.get("NewPar") == "Yes":
                         if paragraph_in_sentence is not None:
-                            paragraph_in_sentence["end"] = (token_start, PARAGRAPH_IN_SENTENCE_SUBPOS_END)
+                            paragraph_in_sentence["end"] = (token_start, PARAGRAPH_IN_SENTENCE_SUBPOS.end)
                             self.data["paragraph"]["elements"].append(paragraph_in_sentence)
                             logger.debug(
                                 "added paragraph with start=%s, end=%s",
@@ -244,8 +211,8 @@ class SparvCoNLLUParser:
                             )
                         paragraph_in_sentence = {
                             "name": "paragraph",
-                            "start": (token_start, PARAGRAPH_IN_SENTENCE_SUBPOS_START),
-                            "end": (token_start, PARAGRAPH_IN_SENTENCE_SUBPOS_END),
+                            "start": (token_start, PARAGRAPH_IN_SENTENCE_SUBPOS.start),
+                            "end": (token_start, PARAGRAPH_IN_SENTENCE_SUBPOS.end),
                             "attrs": {},
                         }
                     space = "" if misc and misc.get("SpaceAfter") == "No" else " "
@@ -274,25 +241,12 @@ class SparvCoNLLUParser:
                         if misc_str:
                             token_attrs["misc"] = f"|{misc_str}|"
                     token_end = token_start + len(form)
-                    self.data["token"]["attrs"].update(token_attrs.keys())
-                    self.data["token"]["elements"].append(
-                        {
-                            "name": "token",
-                            "start": (token_start, TOKEN_SUBPOS_START),
-                            "end": (token_end, TOKEN_SUBPOS_END),
-                            "attrs": token_attrs,
-                        }
-                    )
-                    logger.debug(
-                        "added token id=%s start=%s, end=%s",
-                        token_attrs["id"],
-                        self.data["token"]["elements"][-1]["start"],
-                        self.data["token"]["elements"][-1]["end"],
-                    )
+                    self._add_span("token", token_start, token_end, token_attrs, TOKEN_SUBPOS)
+
                     token_start = token_end + len(space)
 
                 if paragraph_in_sentence is not None:
-                    paragraph_in_sentence["end"] = (token_start, PARAGRAPH_IN_SENTENCE_SUBPOS_END)
+                    paragraph_in_sentence["end"] = (token_start, PARAGRAPH_IN_SENTENCE_SUBPOS.end)
                     self.data["paragraph"]["elements"].append(paragraph_in_sentence)
                     logger.debug(
                         "added paragraph with start=%s, end=%s",
@@ -305,32 +259,15 @@ class SparvCoNLLUParser:
                 sentence_length = len(sentence_text)
                 end_pos += sentence_length
                 # update end_pos for sentence
-                self.data["sentence"]["elements"][-1]["end"] = (end_pos, SENTENCE_SUBPOS_END)
-                logger.debug(
-                    "added sentence start=%s, end=(%d, %d)",
-                    self.data["sentence"]["elements"][-1]["start"],
-                    end_pos,
-                    SENTENCE_SUBPOS_END,
-                )
+                self._close_span("sentence", end_pos, SENTENCE_SUBPOS, id_key="sent_id")
                 # handle whitespace between sentences
                 end_pos += 1
                 start_pos = end_pos
         if self.data["paragraph"]["elements"]:
-            self.data["paragraph"]["elements"][-1]["end"] = (end_pos - 1, PARAGRAPH_SUBPOS_END)
-            logger.debug(
-                "added paragraph start=%s, end=(%d, %d)",
-                self.data["paragraph"]["elements"][-1]["start"],
-                end_pos - 1,
-                PARAGRAPH_SUBPOS_END,
-            )
+            self._close_span("paragraph", end_pos - 1, PARAGRAPH_SUBPOS)
+
         if self.data["document"]["elements"]:
-            self.data["document"]["elements"][-1]["end"] = (end_pos - 1, DOCUMENT_SUBPOS_END)
-            logger.debug(
-                "added document start=%s, end=(%d, %d)",
-                self.data["document"]["elements"][-1]["start"],
-                end_pos - 1,
-                DOCUMENT_SUBPOS_END,
-            )
+            self._close_span("document", end_pos - 1, DOCUMENT_SUBPOS)
 
     def save(self) -> None:
         """Save text data and annotation files to disk."""
@@ -345,7 +282,7 @@ class SparvCoNLLUParser:
 
         logger.debug("writing text spans from filename=%s", file)
         full_element = "text"
-        spans = [((0, TEXT_SUBPOS_START), (len(text), TEXT_SUBPOS_END))]
+        spans = [((0, TEXT_SUBPOS.start), (len(text), TEXT_SUBPOS.end))]
         Output(full_element, source_file=file).write(spans)
 
         structure: list[str] = ["text", "sentence"]
@@ -382,6 +319,39 @@ class SparvCoNLLUParser:
         # Save list of all elements and attributes to a file (needed for export)
         structure.sort()
         SourceStructure(file).write(structure)
+
+    def _add_span(
+        self, name: str, start: int, end: int, attrs: dict[str, str], subpos: _Subpos, id_key: str = "id"
+    ) -> None:
+        self._open_span(name, start, attrs, subpos)
+        if start == end:
+            # log this in _close_span instead
+            return
+
+        self._close_span(name, end, subpos, id_key)
+
+    def _open_span(self, name: str, start: int, attrs: dict[str, str], subpos: _Subpos) -> None:
+        self.data[name]["attrs"].update(attrs.keys())
+        self.data[name]["elements"].append(
+            {
+                "name": name,
+                "start": (start, subpos.start),
+                "end": (start, subpos.end),
+                "attrs": attrs,
+            }
+        )
+
+    def _close_span(self, name: str, end_pos: int, subpos: _Subpos, id_key: str = "id") -> None:
+        new_end_pos = (end_pos, subpos.end)
+        self.data[name]["elements"][-1]["end"] = new_end_pos
+        logger.debug(
+            "added %s %s=%s start=%s, end=%s",
+            name,
+            id_key,
+            self.data[name]["elements"][-1]["attrs"].get(id_key, "<NO ID>"),
+            self.data[name]["elements"][-1]["start"],
+            new_end_pos,
+        )
 
 
 def _fmt_id(id_: int | tuple[int, str, int]) -> str:

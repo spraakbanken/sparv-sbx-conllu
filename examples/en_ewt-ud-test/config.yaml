@@ -3,11 +3,10 @@ metadata:
   name:
     eng: CoNLL-U import test corpora
     swe: ""
-  language: est
+  language: eng
   description:
     eng: |+
-      Copied from https://github.com/UniversalDependencies/tools/blob/master/example-data/long-token-to-text.conllu
-    swe: |2+
+      Copied from https://github.com/UniversalDependencies/UD_English-EWT/blob/master/en_ewt-ud-test.conllu
 
 classes:
   sentence: sentence
@@ -35,6 +34,3 @@ export:
     # - <sentence>:misc.id
     - <token>:misc.word
     - <text>:readability.lix
-# dateformat:
-#   datetime_from: date
-#   datetime_informat: ""

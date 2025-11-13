@@ -1,18 +1,12 @@
 metadata:
-  id: conllu-import-test
+  id: conllu-paragraph-and-document
   name:
-    eng: CoNLL-U import test corpora
-    swe: ""
-  language: est
-  description:
-    eng: |+
-      Copied from https://github.com/UniversalDependencies/tools/blob/master/example-data/long-token-to-text.conllu
-    swe: |2+
+    eng: CoNLL-U import test corpus paragraph-and-document
+  language: slk
 
 classes:
   sentence: sentence
   token: token
-  "token:pos": token:xpos
 import:
   # source_dir: source
   importer: sbx_conllu:parse
@@ -34,7 +28,3 @@ export:
   annotations:
     # - <sentence>:misc.id
     - <token>:misc.word
-    - <text>:readability.lix
-# dateformat:
-#   datetime_from: date
-#   datetime_informat: ""

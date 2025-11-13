@@ -3,16 +3,14 @@ metadata:
   name:
     eng: CoNLL-U import test corpora
     swe: ""
-  language: est
+  language: swe
   description:
     eng: |+
-      Copied from https://github.com/UniversalDependencies/tools/blob/master/example-data/long-token-to-text.conllu
-    swe: |2+
+      Copied from https://universaldependencies.org/misc.html#newpar
 
 classes:
   sentence: sentence
   token: token
-  "token:pos": token:xpos
 import:
   # source_dir: source
   importer: sbx_conllu:parse
@@ -23,7 +21,6 @@ sbx_conllu:
     - text
     - sentence
     - token
-    - token:xpos
 
 export:
   default:
@@ -34,7 +31,3 @@ export:
   annotations:
     # - <sentence>:misc.id
     - <token>:misc.word
-    - <text>:readability.lix
-# dateformat:
-#   datetime_from: date
-#   datetime_informat: ""

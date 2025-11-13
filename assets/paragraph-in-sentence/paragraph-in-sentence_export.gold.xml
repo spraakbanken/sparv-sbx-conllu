@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<text>
+  <sentence sent_id="sv-ud-train-477">
+    <token baseform="på" dephead="2" deprel="case" id="1" word="På" upos="ADP">På</token>
+    <token baseform="högstadium" dephead="6" deprel="obl" id="2" word="högstadiet" upos="NOUN">högstadiet</token>
+    <token baseform="skola" dephead="6" deprel="aux" id="3" word="skall" upos="AUX">skall</token>
+    <token baseform="varje" dephead="5" deprel="det" id="4" word="varje" upos="DET">varje</token>
+    <token baseform="elev" dephead="6" deprel="nsubj" id="5" word="elev" upos="NOUN">elev</token>
+    <token baseform="välja" deprel="root" id="6" word="välja" upos="VERB">välja</token>
+    <token baseform="en" dephead="6" deprel="obj" id="7" word="ett" upos="NUM">ett</token>
+    <token baseform="av" dephead="10" deprel="case" id="8" word="av" upos="ADP">av</token>
+    <token baseform="fyra" dephead="10" deprel="nummod" id="9" word="fyra" upos="NUM">fyra</token>
+    <token baseform="tillvalsämne" dephead="7" deprel="nmod" id="10" misc="|SpaceAfter=No|" word="tillvalsämnen" upos="NOUN">tillvalsämnen</token>
+    <token baseform=":" dephead="10" deprel="punct" id="11" word=":" upos="PUNCT">:</token>
+    <paragraph>
+      <token baseform="*" dephead="13" deprel="punct" id="12" misc="|NewPar=Yes|" word="*" upos="PUNCT">*</token>
+      <token baseform="språk" dephead="10" deprel="appos" id="13" word="språk" upos="NOUN">språk</token>
+      <token baseform="(" dephead="13" deprel="punct" id="14" misc="|SpaceAfter=No|" word="(" upos="PUNCT">(</token>
+      <token baseform="fransk" dephead="13" deprel="appos" id="15" word="franska" upos="NOUN">franska</token>
+      <token baseform="eller" dephead="17" deprel="cc" id="16" word="eller" upos="CCONJ">eller</token>
+      <token baseform="tysk" dephead="15" deprel="conj" id="17" misc="|SpaceAfter=No|" word="tyska" upos="NOUN">tyska</token>
+      <token baseform=")" dephead="13" deprel="punct" id="18" word=")" upos="PUNCT">)</token>
+    </paragraph>
+    <paragraph>
+      <token baseform="*" dephead="20" deprel="punct" id="19" misc="|NewPar=Yes|" word="*" upos="PUNCT">*</token>
+      <token baseform="ekonomi" dephead="13" deprel="conj" id="20" word="ekonomi" upos="NOUN">ekonomi</token>
+    </paragraph>
+    <paragraph>
+      <token baseform="*" dephead="22" deprel="punct" id="21" misc="|NewPar=Yes|" word="*" upos="PUNCT">*</token>
+      <token baseform="teknik" dephead="13" deprel="conj" id="22" word="teknik" upos="NOUN">teknik</token>
+    </paragraph>
+    <paragraph>
+      <token baseform="*" dephead="24" deprel="punct" id="23" misc="|NewPar=Yes|" word="*" upos="PUNCT">*</token>
+      <token baseform="konst" dephead="13" deprel="conj" id="24" word="konst" upos="NOUN">konst</token>
+    </paragraph>
+  </sentence>
+</text>

@@ -369,22 +369,39 @@ def analyze_conllu(source_file: Path) -> set[str]:
     Returns:
         A set of elements and attributes found in the XML file.
     """
-    elements = {"text", "token"}
+    elements = {"text", "token", "sentence"}
 
     with source_file.open(encoding="utf-8") as fp:
-        for line in fp:
-            if line.startswith("#"):
-                attr = line[1:].split("=")[0].strip()
-                if attr == "text":
-                    elements.add(attr)
-                elif attr.startswith("sent_"):
-                    elements.add("sentence")
-                    elements.add(f"{attr}")
+        for sentence in conllu.parse_incr(fp):
+            for attr in sentence.metadata:
+                if attr.startswith("sent_"):
+                    elements.add(f"sentence:{attr}")
                 elif attr.startswith("newpar"):
                     elements.add("paragraph")
+                    attr_name = attr.split()[1]
+                    elements.add(f"paragraph:{attr_name}")
                 elif attr.startswith("newdoc"):
                     elements.add("document")
-                else:
-                    logger.warning("Unknown attribute '%s', skipping ...", attr)
+                    attr_name = attr.split()[1]
+                    elements.add(f"document:{attr_name}")
+            for token in sentence:
+                if token.get("lemma"):
+                    elements.add("token:baseform")
+                if token.get("upos"):
+                    elements.add("token:upos")
+                if token.get("xpos"):
+                    elements.add("token:xpos")
+                if token.get("feats"):
+                    elements.add("token:ufeats")
+                if token.get("head"):
+                    elements.add("token:dephead")
+                if token.get("deprel"):
+                    elements.add("token:deprel")
+                if token.get("deps"):
+                    elements.add("token:deps")
+                if misc := token.get("misc"):
+                    if misc.get("NewPar") == "Yes":
+                        elements.add("paragraph")
+                    elements.add("token:misc")
 
     return elements

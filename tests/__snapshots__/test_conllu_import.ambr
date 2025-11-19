@@ -1,6 +1,7 @@
 # serializer version: 1
 # name: test_analyze_conllu[assets/texts/empty-node.conllu]
   set({
+    'document',
     'sentence',
     'text',
     'token',
@@ -29,6 +30,7 @@
 # ---
 # name: test_analyze_conllu[assets/texts/long-token-to-text.conllu]
   set({
+    'document',
     'sentence',
     'sentence:sent_id',
     'text',
@@ -45,6 +47,7 @@
 # ---
 # name: test_analyze_conllu[assets/texts/multiword.conllu]
   set({
+    'document',
     'sentence',
     'text',
     'token',
@@ -72,6 +75,7 @@
 # ---
 # name: test_analyze_conllu[assets/texts/paragraph-in-sentence.conllu]
   set({
+    'document',
     'paragraph',
     'sentence',
     'sentence:sent_id',
@@ -86,6 +90,7 @@
 # ---
 # name: test_analyze_conllu[assets/texts/space-after-no.conllu]
   set({
+    'document',
     'sentence',
     'text',
     'token',

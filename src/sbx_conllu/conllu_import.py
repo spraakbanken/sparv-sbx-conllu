@@ -141,6 +141,7 @@ class SparvCoNLLUParser:
 
         start_pos: int = 0
         end_pos: int = 0
+        start: bool = True
         with source_file.open(encoding="utf-8") as fp:
             for sentence in conllu.parse_incr(fp):
                 document_attrs = {
@@ -148,10 +149,11 @@ class SparvCoNLLUParser:
                     for key, value in sentence.metadata.items()
                     if key.startswith("newdoc")
                 }
-                if document_attrs:
+                if start or document_attrs:
                     if self.data["document"]["elements"]:
                         self._close_span("document", end_pos - 1, DOCUMENT_SUBPOS)
                     self._open_span("document", start_pos, document_attrs, DOCUMENT_SUBPOS)
+                start = False
 
                 paragraph_attrs = {
                     key[(len("newpar") + 1) :]: value
@@ -369,7 +371,7 @@ def analyze_conllu(source_file: Path) -> set[str]:
     Returns:
         A set of elements and attributes found in the XML file.
     """
-    elements = {"text", "token", "sentence"}
+    elements = {"text", "token", "sentence", "document"}
 
     with source_file.open(encoding="utf-8") as fp:
         for sentence in conllu.parse_incr(fp):

@@ -2,7 +2,7 @@
 <text>
   <document id="mf920901-001">
     <paragraph id="mf920901-001-p1">
-      <sentence sent_id="mf920901-001-p1s1A">
+      <sentence sent_id="mf920901-001-p1s1A" text_en="Slovak constitution: pros and cons">
         <token baseform="slovenský" dephead="2" deprel="amod" id="1" word="Slovenská" ufeats="|Case=Nom|Degree=Pos|Gender=Fem|Number=Sing|Polarity=Pos|" upos="ADJ" xpos="AAFS1----1A----">Slovenská</token>
         <token baseform="ústava" deprel="root" id="2" misc="|SpaceAfter=No|" word="ústava" ufeats="|Case=Nom|Gender=Fem|Number=Sing|Polarity=Pos|" upos="NOUN" xpos="NNFS1-----A----">ústava</token>
         <token baseform=":" dephead="2" deprel="punct" id="3" word=":" upos="PUNCT" xpos="Z:-------------">:</token>

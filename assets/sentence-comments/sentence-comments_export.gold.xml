@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<text>
+  <document>
+    <sentence sent_id="1">
+      <token baseform="they" dephead="2" deprel="nsubj" deps="|nsubj=2|nsubj=4|" id="1" word="They" ufeats="|Case=Nom|Number=Plur|" upos="PRON" xpos="PRP">They</token>
+      <token baseform="buy" deprel="root" deps="|root=0|" id="2" word="buy" ufeats="|Number=Plur|Person=3|Tense=Pres|" upos="VERB" xpos="VBP">buy</token>
+      <token baseform="and" dephead="4" deprel="cc" deps="|cc=4|" id="3" word="and" upos="CCONJ" xpos="CC">and</token>
+      <token baseform="sell" dephead="2" deprel="conj" deps="|root=0|conj=2|" id="4" word="sell" ufeats="|Number=Plur|Person=3|Tense=Pres|" upos="VERB" xpos="VBP">sell</token>
+      <token baseform="book" dephead="2" deprel="obj" deps="|obj=2|obj=4|" id="5" misc="|SpaceAfter=No|" word="books" ufeats="|Number=Plur|" upos="NOUN" xpos="NNS">books</token>
+      <token baseform="." dephead="2" deprel="punct" deps="|punct=2|" id="6" word="." upos="PUNCT" xpos=".">.</token>
+    </sentence>
+    <sentence sent_id="2">
+      <token baseform="I" dephead="2" deprel="nsubj" id="1" word="I" ufeats="|Case=Nom|Number=Sing|Person=1|" upos="PRON" xpos="PRP">I</token>
+      <token baseform="have" deprel="root" id="2" word="have" ufeats="|Number=Sing|Person=1|Tense=Pres|" upos="VERB" xpos="VBP">have</token>
+      <token baseform="no" dephead="4" deprel="det" id="3" word="no" ufeats="|PronType=Neg|" upos="DET" xpos="DT">no</token>
+      <token baseform="clue" dephead="2" deprel="obj" id="4" misc="|SpaceAfter=No|" word="clue" ufeats="|Number=Sing|" upos="NOUN" xpos="NN">clue</token>
+      <token baseform="." dephead="2" deprel="punct" id="5" word="." upos="PUNCT" xpos=".">.</token>
+    </sentence>
+    <sentence sent_id="panc0.s4" text_en="This is what is heard." text_fr="Voilà ce qui nous est parvenu par la tradition orale." translit="tat yathānuśrūyate.">
+      <token baseform="तद्" dephead="3" deprel="nsubj" id="1" misc="|Translit=tat|LTranslit=tad|Gloss=it|" word="तत्" ufeats="|Case=Nom|…=|PronType=Dem|" upos="DET">तत्</token>
+      <token id="2-3" misc="|SpaceAfter=No|" word="यथानुश्रूयते">यथानुश्रूयते</token>
+      <token baseform="।" dephead="3" deprel="punct" id="4" misc="|Translit=.|LTranslit=.|Gloss=.|" word="।" upos="PUNCT">।</token>
+    </sentence>
+  </document>
+</text>

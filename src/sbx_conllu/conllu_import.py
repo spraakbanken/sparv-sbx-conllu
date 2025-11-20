@@ -144,29 +144,31 @@ class SparvCoNLLUParser:
         start: bool = True
         with source_file.open(encoding="utf-8") as fp:
             for sentence in conllu.parse_incr(fp):
-                document_attrs = {
-                    key[(len("newdoc") + 1) :]: value
-                    for key, value in sentence.metadata.items()
-                    if key.startswith("newdoc")
-                }
+                document_attrs = {}
+                paragraph_attrs = {}
+                sentence_attrs = {}
+                for key, value in sentence.metadata.items():
+                    if key.startswith("newdoc"):
+                        doc_key = key[(len("newdoc") + 1) :]
+                        document_attrs[doc_key] = value
+                    elif key.startswith("newpar"):
+                        par_key = key[(len("newpar") + 1) :]
+                        paragraph_attrs[par_key] = value
+                    elif key != "text":
+                        sentence_attrs[key] = value
+
                 if start or document_attrs:
                     if self.data["document"]["elements"]:
                         self._close_span("document", end_pos - 1, DOCUMENT_SUBPOS)
                     self._open_span("document", start_pos, document_attrs, DOCUMENT_SUBPOS)
                 start = False
 
-                paragraph_attrs = {
-                    key[(len("newpar") + 1) :]: value
-                    for key, value in sentence.metadata.items()
-                    if key.startswith("newpar")
-                }
                 if paragraph_attrs:
                     if self.data["paragraph"]["elements"]:
                         self._close_span("paragraph", end_pos - 1, PARAGRAPH_SUBPOS)
                     self._open_span("paragraph", start_pos, paragraph_attrs, PARAGRAPH_SUBPOS)
 
                 sentence_meta_text: str | None = sentence.metadata.get("text")
-                sentence_attrs = {key: value for key, value in sentence.metadata.items() if key.startswith("sent_")}
 
                 self._open_span("sentence", start_pos, sentence_attrs, SENTENCE_SUBPOS)
 

@@ -32,6 +32,7 @@ EXAMPLE_NO_TEXT: str = """
         "paragraph-and-document",
         "en_ewt-ud-test_excerp",
         "paragraph-in-sentence",
+        "sentence-comments",
     ],
 )
 def test_parse(
@@ -61,6 +62,7 @@ def test_parse(
         "assets/texts/paragraph-and-document.conllu",
         "assets/texts/en_ewt-ud-test_excerp.conllu",
         "assets/texts/paragraph-in-sentence.conllu",
+        "assets/texts/sentence-comments.conllu",
     ],
 )
 def test_analyze_conllu(filename: str, snapshot: SnapshotAssertion) -> None:

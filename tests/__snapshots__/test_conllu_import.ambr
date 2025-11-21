@@ -88,6 +88,23 @@
     'token:upos',
   })
 # ---
+# name: test_analyze_conllu[assets/texts/sentence-comments.conllu]
+  set({
+    'document',
+    'sentence',
+    'sentence:sent_id',
+    'text',
+    'token',
+    'token:baseform',
+    'token:dephead',
+    'token:deprel',
+    'token:deps',
+    'token:misc',
+    'token:ufeats',
+    'token:upos',
+    'token:xpos',
+  })
+# ---
 # name: test_analyze_conllu[assets/texts/space-after-no.conllu]
   set({
     'document',
@@ -264,6 +281,7 @@
           'sentence',
           'sentence',
           'sentence:sent_id',
+          'sentence:text_en',
           'text',
           'token',
           'token:baseform',
@@ -310,6 +328,48 @@
           'token:id',
           'token:misc',
           'token:upos',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+  ])
+# ---
+# name: test_parse[sentence-comments]
+  _CallList([
+    _Call(
+      tuple(
+        'They buy and sell books. I have no clue. तत् यथानुश्रूयते।',
+      ),
+      dict({
+      }),
+    ),
+  ])
+# ---
+# name: test_parse[sentence-comments].1
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'document',
+          'paragraph',
+          'sentence',
+          'sentence',
+          'sentence:sent_id',
+          'sentence:text_en',
+          'sentence:text_fr',
+          'sentence:translit',
+          'text',
+          'token',
+          'token:baseform',
+          'token:dephead',
+          'token:deprel',
+          'token:deps',
+          'token:id',
+          'token:misc',
+          'token:ufeats',
+          'token:upos',
+          'token:xpos',
         ]),
       ),
       dict({

@@ -262,3 +262,16 @@ snapshot-update-example-paragraph-in-sentence: \
 assets/paragraph-in-sentence/paragraph-in-sentence_export.gold.xml: \
 		examples/paragraph-in-sentence/export/xml_export.pretty/paragraph-in-sentence_export.xml
 	@cp "$<" "$@"
+
+test-example-sentence-comments:
+	rm -rf examples/sentence-comments/export examples/sentence-comments/sparv-workdir examples/sentence-comments/.snakemake
+	cd examples/sentence-comments; ${INVENV} sparv run --stats --log-to-file debug
+	${DIFF} assets/sentence-comments/sentence-comments_export.gold.xml \
+	examples/sentence-comments/export/xml_export.pretty/sentence-comments_export.xml
+
+snapshot-update-example-sentence-comments: \
+	assets/sentence-comments/sentence-comments_export.gold.xml
+
+assets/sentence-comments/sentence-comments_export.gold.xml: \
+		examples/sentence-comments/export/xml_export.pretty/sentence-comments_export.xml
+	@cp "$<" "$@"

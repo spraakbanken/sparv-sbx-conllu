@@ -62,11 +62,10 @@ class XMLStructure(SourceStructureParser):
 @importer(
     "Import CoNLL-U files",
     file_extension=CONLLU_EXTENSION_NAME,
-    outputs=[Config("sbx_conllu.import_attributes")],
+    outputs=["text", "document", "sentence", "token", Config("sbx_conllu.import_attributes")],
     config=[
         Config(
             "sbx_conllu.import_attributes",
-            ["text"],
             description="List of attributes that is needed for other analysis.",
             datatype=list[str],
         )

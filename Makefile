@@ -68,6 +68,12 @@ else
   INVENV =
 endif
 
+ifeq (${CI},)
+  DIFF = difft --exit-code
+else
+  DIFF = diff
+endif
+
 default_cov := "--cov=${PROJECT_SRC}"
 cov_report := "term-missing"
 cov := ${default_cov}
@@ -172,11 +178,11 @@ snapshot-update:
 
 ### === project targets below this line ===
 test-example-long-token-to-text:
-	rm -rf examples/long-token-to-text/export examples/long-token-to-text/sparv-workdir
+	rm -rf examples/long-token-to-text/export examples/long-token-to-text/sparv-workdir examples/long-token-to-text/.snakemake
 	cd examples/long-token-to-text; ${INVENV} sparv run --stats --log-to-file debug
-	diff assets/long-token-to-text/long-token-to-text_export.gold.xml \
+	${DIFF} assets/long-token-to-text/long-token-to-text_export.gold.xml \
 	    examples/long-token-to-text/export/xml_export.pretty/long-token-to-text_export.xml
-	diff assets/long-token-to-text/preserved_format/long-token-to-text_export.gold.xml \
+	${DIFF} assets/long-token-to-text/preserved_format/long-token-to-text_export.gold.xml \
 	    examples/long-token-to-text/export/xml_export.preserved_format/long-token-to-text_export.xml
 
 snapshot-update-example-long-token-to-text: \
@@ -192,13 +198,13 @@ assets/long-token-to-text/preserved_format/long-token-to-text_export.gold.xml: \
 	@cp "$<" "$@"
 
 test-example-no-metadata:
-	rm -rf examples/no-metadata/export examples/no-metadata/sparv-workdir
+	rm -rf examples/no-metadata/export examples/no-metadata/sparv-workdir examples/no-metadata/.snakemake
 	cd examples/no-metadata; ${INVENV} sparv run --stats --log-to-file debug
-	diff assets/no-metadata/preserved_format/empty-node_export.gold.xml \
+	${DIFF} assets/no-metadata/preserved_format/empty-node_export.gold.xml \
 	    examples/no-metadata/export/xml_export.preserved_format/empty-node_export.xml
-	diff assets/no-metadata/preserved_format/multiword_export.gold.xml \
+	${DIFF} assets/no-metadata/preserved_format/multiword_export.gold.xml \
 	    examples/no-metadata/export/xml_export.preserved_format/multiword_export.xml
-	diff assets/no-metadata/preserved_format/space-after-no_export.gold.xml \
+	${DIFF} assets/no-metadata/preserved_format/space-after-no_export.gold.xml \
 	    examples/no-metadata/export/xml_export.preserved_format/space-after-no_export.xml
 
 snapshot-update-example-no-metadata: \
@@ -216,4 +222,56 @@ assets/no-metadata/preserved_format/multiword_export.gold.xml: \
 
 assets/no-metadata/preserved_format/space-after-no_export.gold.xml: \
 	    examples/no-metadata/export/xml_export.preserved_format/space-after-no_export.xml
+	@cp "$<" "$@"
+
+test-example-paragraph-and-document:
+	rm -rf examples/paragraph-and-document/export examples/paragraph-and-document/sparv-workdir examples/paragraph-and-document/.snakemake
+	cd examples/paragraph-and-document; ${INVENV} sparv run --stats --log-to-file debug
+	${DIFF} assets/paragraph-and-document/paragraph-and-document_export.gold.xml \
+	examples/paragraph-and-document/export/xml_export.pretty/paragraph-and-document_export.xml
+
+snapshot-update-example-paragraph-and-document: \
+	assets/paragraph-and-document/paragraph-and-document_export.gold.xml
+
+assets/paragraph-and-document/paragraph-and-document_export.gold.xml: \
+		examples/paragraph-and-document/export/xml_export.pretty/paragraph-and-document_export.xml
+	@cp "$<" "$@"
+
+test-example-en_ewt-ud-test:
+	rm -rf examples/en_ewt-ud-test/export examples/en_ewt-ud-test/sparv-workdir examples/en_ewt-ud-test/.snakemake
+	cd examples/en_ewt-ud-test; ${INVENV} sparv run --stats --log-to-file debug
+	${DIFF} assets/en_ewt-ud-test/en_ewt-ud-test_excerp_export.gold.xml \
+	examples/en_ewt-ud-test/export/xml_export.pretty/en_ewt-ud-test_excerp_export.xml
+
+snapshot-update-example-en_ewt-ud-test: \
+	assets/en_ewt-ud-test/en_ewt-ud-test_excerp_export.gold.xml
+
+assets/en_ewt-ud-test/en_ewt-ud-test_excerp_export.gold.xml: \
+		examples/en_ewt-ud-test/export/xml_export.pretty/en_ewt-ud-test_excerp_export.xml
+	@cp "$<" "$@"
+
+test-example-paragraph-in-sentence:
+	rm -rf examples/paragraph-in-sentence/export examples/paragraph-in-sentence/sparv-workdir examples/paragraph-in-sentence/.snakemake
+	cd examples/paragraph-in-sentence; ${INVENV} sparv run --stats --log-to-file debug
+	${DIFF} assets/paragraph-in-sentence/paragraph-in-sentence_export.gold.xml \
+	examples/paragraph-in-sentence/export/xml_export.pretty/paragraph-in-sentence_export.xml
+
+snapshot-update-example-paragraph-in-sentence: \
+	assets/paragraph-in-sentence/paragraph-in-sentence_export.gold.xml
+
+assets/paragraph-in-sentence/paragraph-in-sentence_export.gold.xml: \
+		examples/paragraph-in-sentence/export/xml_export.pretty/paragraph-in-sentence_export.xml
+	@cp "$<" "$@"
+
+test-example-sentence-comments:
+	rm -rf examples/sentence-comments/export examples/sentence-comments/sparv-workdir examples/sentence-comments/.snakemake
+	cd examples/sentence-comments; ${INVENV} sparv run --stats --log-to-file debug
+	${DIFF} assets/sentence-comments/sentence-comments_export.gold.xml \
+	examples/sentence-comments/export/xml_export.pretty/sentence-comments_export.xml
+
+snapshot-update-example-sentence-comments: \
+	assets/sentence-comments/sentence-comments_export.gold.xml
+
+assets/sentence-comments/sentence-comments_export.gold.xml: \
+		examples/sentence-comments/export/xml_export.pretty/sentence-comments_export.xml
 	@cp "$<" "$@"

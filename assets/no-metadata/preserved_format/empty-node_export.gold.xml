@@ -1,2 +1,2 @@
 <?xml version='1.0' encoding='utf-8'?>
-<text lix="6.00"><sentence id="6e5"><token word="Sue">Sue</token> <token word="likes">likes</token> <token word="coffee">coffee</token> <token word="and">and</token> <token word="Bill">Bill</token> <token word="tea">tea</token></sentence> </text>
+<text lix="6.00"><document><sentence id="6e6"><token baseform="Sue" id="1" word="Sue">Sue</token> <token baseform="like" id="2" word="likes">likes</token> <token baseform="coffee" id="3" word="coffee">coffee</token> <token baseform="and" id="4" word="and">and</token> <token baseform="Bill" id="5" word="Bill">Bill</token> <token baseform="tea" id="6" word="tea">tea</token> </sentence></document></text>

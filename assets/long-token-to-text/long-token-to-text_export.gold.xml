@@ -1,52 +1,47 @@
 <?xml version='1.0' encoding='utf-8'?>
-<sentence id="c9">
-  <text lix="83.17">
-    <token word="Moodymanni">Moodymanni</token>
-    <token word="ehk">ehk</token>
-    <token word="Kenny">Kenny</token>
-    <token word="Dixon">Dixon</token>
-    <token word="Jnr">Jnr</token>
-    <token word="võid">võid</token>
-    <token word="näha">näha</token>
-    <token word="ja">ja</token>
-    <token word="lausa">lausa</token>
-    <token word="liigutamas">liigutamas</token>
-    <token word="aadressil">aadressil</token>
-    <token word="proto.groovetech.com">proto.groovetech.com</token>
-    <token word="/">/</token>
-    <token word="mk-demf.rxml">mk-demf.rxml</token>
-    <token word="?file=">?file=</token>
-    <token word="/">/</token>
-    <token word="demf">demf</token>
-    <token word="/">/</token>
-    <token word="mainstage">mainstage</token>
-    <token word="/">/</token>
-    <token word="day2">day2</token>
-    <token word="/">/</token>
-    <token word="mainstageday2-kennydixonjr.rm">mainstageday2-kennydixonjr.rm</token>
-    <token word="(">(</token>
-    <token word="Antes">Antes</token>
-    <token word="Edition">Edition</token>
-    <token word=")">)</token>
-    <token word="Filmimuusika">Filmimuusika</token>
-    <token word="loomine">loomine</token>
-    <token word="on">on</token>
-    <token word="mitmes">mitmes</token>
-    <token word="mõttes">mõttes</token>
-    <token word="erinev">erinev</token>
-    <token word="kontserdisaalis">kontserdisaalis</token>
-    <token word="ette">ette</token>
-    <token word="kantava">kantava</token>
-    <token word="teose">teose</token>
-    <token word="kirjutamisest">kirjutamisest</token>
-    <token word=",">,</token>
-    <token word="sisaldades">sisaldades</token>
-    <token word="nii">nii</token>
-    <token word="kitsendusi">kitsendusi</token>
-    <token word="kui">kui</token>
-    <token word="ka">ka</token>
-    <token word="ahvatlevaid">ahvatlevaid</token>
-    <token word="võimalusi">võimalusi</token>
-    <token word=".">.</token>
-  </text>
-</sentence>
+<text lix="50.89">
+  <document>
+    <sentence sent_id="aja_ee200110_3121">
+      <token baseform="Moodymann" dephead="7" deprel="obj" deps="|obj=7|" id="1" word="Moodymanni" ufeats="|Case=Par|Number=Sing|" upos="PROPN" xpos="S">Moodymanni</token>
+      <token baseform="ehk" dephead="3" deprel="cc" deps="|cc=3|" id="2" word="ehk" upos="CCONJ" xpos="J">ehk</token>
+      <token baseform="Kenny" dephead="1" deprel="conj" deps="|conj=1|" id="3" word="Kenny" ufeats="|Case=Nom|Number=Sing|" upos="PROPN" xpos="S">Kenny</token>
+      <token baseform="Dixon" dephead="3" deprel="flat" deps="|flat=3|" id="4" word="Dixon" ufeats="|Case=Nom|Number=Sing|" upos="PROPN" xpos="S">Dixon</token>
+      <token baseform="Jnr" dephead="3" deprel="flat" deps="|flat=3|" id="5" word="Jnr" ufeats="|Case=Nom|Number=Sing|" upos="PROPN" xpos="S">Jnr</token>
+      <token baseform="võima" dephead="7" deprel="aux" deps="|aux=7|" id="6" word="võid" ufeats="|Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin|Voice=Act|" upos="AUX" xpos="V">võid</token>
+      <token baseform="nägema" deprel="root" deps="|root=0|" id="7" word="näha" ufeats="|VerbForm=Inf|" upos="VERB" xpos="V">näha</token>
+      <token baseform="ja" dephead="10" deprel="cc" deps="|cc=10|" id="8" word="ja" upos="CCONJ" xpos="J">ja</token>
+      <token baseform="lausa" dephead="10" deprel="advmod" deps="|advmod=10|" id="9" word="lausa" upos="ADV" xpos="D">lausa</token>
+      <token baseform="liigutama" dephead="7" deprel="conj" deps="|conj=7|" id="10" word="liigutamas" ufeats="|Case=Ine|VerbForm=Sup|Voice=Act|" upos="VERB" xpos="V">liigutamas</token>
+      <token baseform="aadress" dephead="7" deprel="obl" deps="|obl:ade=7|" id="11" word="aadressil" ufeats="|Case=Ade|Number=Sing|" upos="NOUN" xpos="S">aadressil</token>
+      <token baseform="proto.groovetech.com/mk-demf.rxml" dephead="11" deprel="appos" deps="|appos=11|" id="12" misc="|SpaceAfter=No|" word="proto.groovetech.com/mk-demf.rxml?file=/demf/mainstage/day2/mainstageday2-kennydixonjr.rm" ufeats="|Abbr=Yes|" upos="SYM" xpos="Y">proto.groovetech.com/mk-demf.rxml?file=/demf/mainstage/day2/mainstageday2-kennydixonjr.rm</token>
+    </sentence>
+    <sentence sent_id="aja_ee200110_3122">
+      <token baseform="(" dephead="2" deprel="punct" deps="|punct=2|" id="1" misc="|SpaceAfter=No|" word="(" upos="PUNCT" xpos="Z">(</token>
+      <token baseform="Antes" deprel="root" deps="|root=0|" id="2" word="Antes" ufeats="|Case=Nom|Number=Sing|" upos="PROPN" xpos="S">Antes</token>
+      <token baseform="Edition" dephead="2" deprel="flat" deps="|flat=2|" id="3" misc="|SpaceAfter=No|" word="Edition" ufeats="|Case=Nom|Number=Sing|" upos="PROPN" xpos="S">Edition</token>
+      <token baseform=")" dephead="2" deprel="punct" deps="|punct=2|" id="4" word=")" upos="PUNCT" xpos="Z">)</token>
+    </sentence>
+    <sentence sent_id="aja_ee200110_3123">
+      <token baseform="filmi_muusika" dephead="2" deprel="nmod" deps="|nmod:gen=2|" id="1" word="Filmimuusika" ufeats="|Case=Gen|Number=Sing|" upos="NOUN" xpos="S">Filmimuusika</token>
+      <token baseform="loomine" dephead="6" deprel="nsubj:cop" deps="|nsubj=6|" id="2" word="loomine" ufeats="|Case=Nom|Number=Sing|" upos="NOUN" xpos="S">loomine</token>
+      <token baseform="olema" dephead="6" deprel="cop" deps="|cop=6|" id="3" word="on" ufeats="|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act|" upos="AUX" xpos="V">on</token>
+      <token baseform="mitu" dephead="5" deprel="det" deps="|det=5|" id="4" word="mitmes" ufeats="|Case=Ine|Number=Sing|PronType=Ind|" upos="DET" xpos="P">mitmes</token>
+      <token baseform="mõte" dephead="6" deprel="obl" deps="|obl:ine=6|" id="5" word="mõttes" ufeats="|Case=Ine|Number=Sing|" upos="NOUN" xpos="S">mõttes</token>
+      <token baseform="erinev" deprel="root" deps="|root=0|" id="6" word="erinev" ufeats="|Case=Nom|Degree=Pos|Number=Sing|Tense=Pres|VerbForm=Part|Voice=Act|" upos="ADJ" xpos="A">erinev</token>
+      <token baseform="kontserdi_saal" dephead="9" deprel="obl" deps="|obl:ine=9|" id="7" word="kontserdisaalis" ufeats="|Case=Ine|Number=Sing|" upos="NOUN" xpos="S">kontserdisaalis</token>
+      <token baseform="ette" dephead="9" deprel="advmod" deps="|advmod=9|" id="8" word="ette" upos="ADV" xpos="D">ette</token>
+      <token baseform="kantav" dephead="10" deprel="acl" deps="|acl=10|" id="9" word="kantava" ufeats="|Case=Gen|Degree=Pos|Number=Sing|Tense=Pres|VerbForm=Part|Voice=Act|" upos="ADJ" xpos="A">kantava</token>
+      <token baseform="teos" dephead="11" deprel="nmod" deps="|nmod:gen=11|" id="10" word="teose" ufeats="|Case=Gen|Number=Sing|" upos="NOUN" xpos="S">teose</token>
+      <token baseform="kirjutamine" dephead="6" deprel="obl" deps="|obl:ela=6|" id="11" misc="|SpaceAfter=No|" word="kirjutamisest" ufeats="|Case=Ela|Number=Sing|" upos="NOUN" xpos="S">kirjutamisest</token>
+      <token baseform="," dephead="13" deprel="punct" deps="|punct=13|" id="12" word="," upos="PUNCT" xpos="Z">,</token>
+      <token baseform="sisaldama" dephead="6" deprel="advcl" deps="|advcl=6|" id="13" word="sisaldades" ufeats="|VerbForm=Conv|" upos="VERB" xpos="V">sisaldades</token>
+      <token baseform="nii" dephead="15" deprel="cc:preconj" deps="|cc=15|" id="14" word="nii" upos="ADV" xpos="D">nii</token>
+      <token baseform="kitsendus" dephead="13" deprel="obj" deps="|obj=13|" id="15" word="kitsendusi" ufeats="|Case=Par|Number=Plur|" upos="NOUN" xpos="S">kitsendusi</token>
+      <token baseform="kui" dephead="19" deprel="cc" deps="|cc=19|" id="16" word="kui" upos="CCONJ" xpos="J">kui</token>
+      <token baseform="ka" dephead="19" deprel="advmod" deps="|advmod=19|" id="17" word="ka" upos="ADV" xpos="D">ka</token>
+      <token baseform="ahvatlev" dephead="19" deprel="acl" deps="|acl=19|" id="18" word="ahvatlevaid" ufeats="|Case=Par|Degree=Pos|Number=Plur|Tense=Pres|VerbForm=Part|Voice=Act|" upos="ADJ" xpos="A">ahvatlevaid</token>
+      <token baseform="võimalus" dephead="15" deprel="conj" deps="|conj=15|" id="19" misc="|SpaceAfter=No|" word="võimalusi" ufeats="|Case=Par|Number=Plur|" upos="NOUN" xpos="S">võimalusi</token>
+      <token baseform="." dephead="6" deprel="punct" deps="|punct=6|" id="20" word="." upos="PUNCT" xpos="Z">.</token>
+    </sentence>
+  </document>
+</text>

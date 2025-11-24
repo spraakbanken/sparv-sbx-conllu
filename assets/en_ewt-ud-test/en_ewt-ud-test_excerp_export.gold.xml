@@ -1,0 +1,160 @@
+<?xml version='1.0' encoding='utf-8'?>
+<text lix="26.09">
+  <document id="weblog-blogspot.com_zentelligence_20040423000200_ENG_20040423_000200">
+    <paragraph id="weblog-blogspot.com_zentelligence_20040423000200_ENG_20040423_000200-p0001">
+      <sentence sent_id="weblog-blogspot.com_zentelligence_20040423000200_ENG_20040423_000200-0001">
+        <token baseform="what" deprel="root" deps="|root=0|" id="1" misc="|Cxn=Conditional-Interrogative|CxnElt=1:Conditional-Interrogative.Apodosis|" word="What" ufeats="|PronType=Int|" upos="PRON" xpos="WP">What</token>
+        <token baseform="if" dephead="4" deprel="mark" deps="|mark=4|" id="2" word="if" upos="SCONJ" xpos="IN">if</token>
+        <token baseform="Google" dephead="4" deprel="nsubj" deps="|nsubj=4|" id="3" word="Google" ufeats="|Number=Sing|" upos="PROPN" xpos="NNP">Google</token>
+        <token baseform="morph" dephead="1" deprel="advcl" deps="|advcl:if=1|" id="4" misc="|CxnElt=1:Conditional-Interrogative.Protasis|" word="Morphed" ufeats="|Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin|" upos="VERB" xpos="VBD">Morphed</token>
+        <token baseform="into" dephead="6" deprel="case" deps="|case=6|" id="5" word="Into" upos="ADP" xpos="IN">Into</token>
+        <token baseform="GoogleOS" dephead="4" deprel="obl" deps="|obl:into=4|" id="6" misc="|SpaceAfter=No|" word="GoogleOS" ufeats="|Number=Sing|" upos="PROPN" xpos="NNP">GoogleOS</token>
+        <token baseform="?" dephead="4" deprel="punct" deps="|punct=4|" id="7" word="?" upos="PUNCT" xpos=".">?</token>
+      </sentence>
+      <sentence sent_id="weblog-blogspot.com_zentelligence_20040423000200_ENG_20040423_000200-0002">
+        <token baseform="what" deprel="root" deps="|root=0|" id="1" misc="|Cxn=Conditional-Interrogative|CxnElt=1:Conditional-Interrogative.Apodosis|" word="What" ufeats="|PronType=Int|" upos="PRON" xpos="WP">What</token>
+        <token baseform="if" dephead="4" deprel="mark" deps="|mark=4|" id="2" word="if" upos="SCONJ" xpos="IN">if</token>
+        <token baseform="Google" dephead="4" deprel="nsubj" deps="|nsubj=4|" id="3" word="Google" ufeats="|Number=Sing|" upos="PROPN" xpos="NNP">Google</token>
+        <token baseform="expand" dephead="1" deprel="advcl" deps="|advcl:if=1|" id="4" misc="|CxnElt=1:Conditional-Interrogative.Protasis|" word="expanded" ufeats="|Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin|" upos="VERB" xpos="VBD">expanded</token>
+        <token baseform="on" dephead="15" deprel="case" deps="|case=15|" id="5" word="on" upos="ADP" xpos="IN">on</token>
+        <token baseform="its" dephead="15" deprel="nmod:poss" deps="|nmod:poss=15|" id="6" word="its" ufeats="|Case=Gen|Gender=Neut|Number=Sing|Person=3|Poss=Yes|PronType=Prs|" upos="PRON" xpos="PRP$">its</token>
+        <token baseform="search" dephead="9" deprel="compound" deps="|compound=9|" id="7" misc="|SpaceAfter=No|" word="search" ufeats="|Number=Sing|" upos="NOUN" xpos="NN">search</token>
+        <token baseform="-" dephead="7" deprel="punct" deps="|punct=7|" id="8" misc="|SpaceAfter=No|" word="-" upos="PUNCT" xpos="HYPH">-</token>
+        <token baseform="engine" dephead="15" deprel="compound" deps="|compound=15|" id="9" word="engine" ufeats="|Number=Sing|" upos="NOUN" xpos="NN">engine</token>
+        <token baseform="(" dephead="13" deprel="punct" deps="|punct=13|" id="10" misc="|SpaceAfter=No|" word="(" upos="PUNCT" xpos="-LRB-">(</token>
+        <token baseform="and" dephead="13" deprel="cc" deps="|cc=13|" id="11" word="and" upos="CCONJ" xpos="CC">and</token>
+        <token baseform="now" dephead="13" deprel="advmod" deps="|advmod=13|" id="12" word="now" ufeats="|PronType=Dem|" upos="ADV" xpos="RB">now</token>
+        <token baseform="e-mail" dephead="9" deprel="conj" deps="|conj:and=9|compound=15|" id="13" misc="|SpaceAfter=No|" word="e-mail" ufeats="|Number=Sing|" upos="NOUN" xpos="NN">e-mail</token>
+        <token baseform=")" dephead="13" deprel="punct" deps="|punct=13|" id="14" word=")" upos="PUNCT" xpos="-RRB-">)</token>
+        <token baseform="wares" dephead="4" deprel="obl" deps="|obl:on=4|" id="15" word="wares" ufeats="|Number=Ptan|" upos="NOUN" xpos="NNS">wares</token>
+        <token baseform="into" dephead="22" deprel="case" deps="|case=22|" id="16" word="into" upos="ADP" xpos="IN">into</token>
+        <token baseform="a" dephead="22" deprel="det" deps="|det=22|" id="17" word="a" ufeats="|Definite=Ind|PronType=Art|" upos="DET" xpos="DT">a</token>
+        <token baseform="full" dephead="20" deprel="advmod" deps="|advmod=20|" id="18" misc="|SpaceAfter=No|" word="full" upos="ADV" xpos="RB">full</token>
+        <token baseform="-" dephead="18" deprel="punct" deps="|punct=18|" id="19" misc="|SpaceAfter=No|" word="-" upos="PUNCT" xpos="HYPH">-</token>
+        <token baseform="fledged" dephead="22" deprel="amod" deps="|amod=22|" id="20" word="fledged" ufeats="|Degree=Pos|" upos="ADJ" xpos="JJ">fledged</token>
+        <token baseform="operating" dephead="22" deprel="compound" deps="|compound=22|" id="21" word="operating" ufeats="|Number=Sing|" upos="NOUN" xpos="NN">operating</token>
+        <token baseform="system" dephead="4" deprel="obl" deps="|obl:into=4|" id="22" misc="|SpaceAfter=No|" word="system" ufeats="|Number=Sing|" upos="NOUN" xpos="NN">system</token>
+        <token baseform="?" dephead="4" deprel="punct" deps="|punct=4|" id="23" word="?" upos="PUNCT" xpos=".">?</token>
+      </sentence>
+      <sentence sent_id="weblog-blogspot.com_zentelligence_20040423000200_ENG_20040423_000200-0003">
+        <token baseform="[" dephead="4" deprel="punct" deps="|punct=4|" id="1" misc="|SpaceAfter=No|" word="[" upos="PUNCT" xpos="-LRB-">[</token>
+        <token baseform="via" dephead="4" deprel="case" deps="|case=4|" id="2" word="via" upos="ADP" xpos="IN">via</token>
+        <token baseform="Microsoft" dephead="4" deprel="compound" deps="|compound=4|" id="3" word="Microsoft" ufeats="|Number=Sing|" upos="PROPN" xpos="NNP">Microsoft</token>
+        <token baseform="Watch" deprel="root" deps="|root=0|" id="4" word="Watch" ufeats="|Number=Sing|" upos="PROPN" xpos="NNP">Watch</token>
+        <token baseform="from" dephead="6" deprel="case" deps="|case=6|" id="5" word="from" upos="ADP" xpos="IN">from</token>
+        <token baseform="Mary" dephead="4" deprel="nmod" deps="|nmod:from=4|" id="6" word="Mary" ufeats="|Number=Sing|" upos="PROPN" xpos="NNP">Mary</token>
+        <token baseform="Jo" dephead="6" deprel="flat" deps="|flat=6|" id="7" word="Jo" ufeats="|Number=Sing|" upos="PROPN" xpos="NNP">Jo</token>
+        <token baseform="Foley" dephead="6" deprel="flat" deps="|flat=6|" id="8" word="Foley" ufeats="|Number=Sing|" upos="PROPN" xpos="NNP">Foley</token>
+        <token baseform="]" dephead="4" deprel="punct" deps="|punct=4|" id="9" word="]" upos="PUNCT" xpos="-RRB-">]</token>
+      </sentence>
+    </paragraph>
+  </document>
+  <document id="weblog-blogspot.com_marketview_20050511222700_ENG_20050511_222700">
+    <paragraph id="weblog-blogspot.com_marketview_20050511222700_ENG_20050511_222700-p0001">
+      <sentence sent_id="weblog-blogspot.com_marketview_20050511222700_ENG_20050511_222700-0001">
+        <token baseform="(" dephead="14" deprel="punct" deps="|punct=14|" id="1" misc="|SpaceAfter=No|" word="(" upos="PUNCT" xpos="-LRB-">(</token>
+        <token baseform="and" dephead="14" deprel="cc" deps="|cc=14|" id="2" misc="|SpaceAfter=No|" word="And" upos="CCONJ" xpos="CC">And</token>
+        <token baseform="," dephead="2" deprel="punct" deps="|punct=2|" id="3" word="," upos="PUNCT" xpos=",">,</token>
+        <token baseform="by" dephead="6" deprel="case" deps="|case=6|" id="4" word="by" upos="ADP" xpos="IN">by</token>
+        <token baseform="the" dephead="6" deprel="det" deps="|det=6|" id="5" word="the" ufeats="|Definite=Def|PronType=Art|" upos="DET" xpos="DT">the</token>
+        <token baseform="way" dephead="14" deprel="obl" deps="|obl:by=14|" id="6" misc="|SpaceAfter=No|" word="way" ufeats="|Number=Sing|" upos="NOUN" xpos="NN">way</token>
+        <token baseform="," dephead="6" deprel="punct" deps="|punct=6|" id="7" word="," upos="PUNCT" xpos=",">,</token>
+        <token baseform="be" dephead="14" deprel="cop" deps="|cop=14|" id="8" word="is" ufeats="|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|" upos="AUX" xpos="VBZ">is</token>
+        <token baseform="anybody" dephead="14" deprel="nsubj" deps="|nsubj=14|" id="9" word="anybody" ufeats="|Number=Sing|PronType=Ind|" upos="PRON" xpos="NN">anybody</token>
+        <token baseform="else" dephead="9" deprel="advmod" deps="|advmod=9|" id="10" word="else" upos="ADV" xpos="RB">else</token>
+        <token baseform="just" dephead="13" deprel="advmod" deps="|advmod=13|" id="11" word="just" upos="ADV" xpos="RB">just</token>
+        <token baseform="a" dephead="13" deprel="det" deps="|det=13|" id="12" word="a" ufeats="|Definite=Ind|PronType=Art|" upos="DET" xpos="DT">a</token>
+        <token baseform="little" dephead="14" deprel="obl:unmarked" deps="|obl:unmarked=14|" id="13" word="little" ufeats="|Degree=Pos|" upos="ADJ" xpos="JJ">little</token>
+        <token baseform="nostalgic" deprel="root" deps="|root=0|" id="14" misc="|Cxn=Interrogative-Polar-Direct|CxnElt=14:Interrogative-Polar-Direct.Clause|" word="nostalgic" ufeats="|Degree=Pos|" upos="ADJ" xpos="JJ">nostalgic</token>
+        <token baseform="for" dephead="17" deprel="case" deps="|case=17|" id="15" word="for" upos="ADP" xpos="IN">for</token>
+        <token baseform="the" dephead="17" deprel="det" deps="|det=17|" id="16" word="the" ufeats="|Definite=Def|PronType=Art|" upos="DET" xpos="DT">the</token>
+        <token baseform="day" dephead="14" deprel="obl" deps="|obl:for=14|obl:unmarked=23|" id="17" word="days" ufeats="|Number=Plur|" upos="NOUN" xpos="NNS">days</token>
+        <token baseform="when" dephead="23" deprel="advmod" deps="|ref=17|" id="18" word="when" ufeats="|PronType=Rel|" upos="ADV" xpos="WRB">when</token>
+        <token baseform="that" dephead="23" deprel="nsubj" deps="|nsubj=23|" id="19" word="that" ufeats="|Number=Sing|PronType=Dem|" upos="PRON" xpos="DT">that</token>
+        <token baseform="be" dephead="23" deprel="cop" deps="|cop=23|" id="20" word="was" ufeats="|Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin|" upos="AUX" xpos="VBD">was</token>
+        <token baseform="a" dephead="23" deprel="det" deps="|det=23|" id="21" word="a" ufeats="|Definite=Ind|PronType=Art|" upos="DET" xpos="DT">a</token>
+        <token baseform="good" dephead="23" deprel="amod" deps="|amod=23|" id="22" word="good" ufeats="|Degree=Pos|" upos="ADJ" xpos="JJ">good</token>
+        <token baseform="thing" dephead="17" deprel="acl:relcl" deps="|acl:relcl=17|" id="23" misc="|Cxn=rc-wh-obl:unmarked|SpaceAfter=No|" word="thing" ufeats="|Number=Sing|" upos="NOUN" xpos="NN">thing</token>
+        <token baseform="?" dephead="14" deprel="punct" deps="|punct=14|" id="24" misc="|SpaceAfter=No|" word="?" upos="PUNCT" xpos=".">?</token>
+        <token baseform=")" dephead="14" deprel="punct" deps="|punct=14|" id="25" word=")" upos="PUNCT" xpos="-RRB-">)</token>
+      </sentence>
+      <sentence sent_id="weblog-blogspot.com_marketview_20050511222700_ENG_20050511_222700-0002">
+        <token baseform="this" dephead="3" deprel="det" deps="|det=3|" id="1" word="This" ufeats="|Number=Sing|PronType=Dem|" upos="DET" xpos="DT">This</token>
+        <token baseform="BuzzMachine" dephead="3" deprel="compound" deps="|compound=3|" id="2" word="BuzzMachine" ufeats="|Number=Sing|" upos="PROPN" xpos="NNP">BuzzMachine</token>
+        <token baseform="post" dephead="4" deprel="nsubj" deps="|nsubj=4|" id="3" word="post" ufeats="|Number=Sing|" upos="NOUN" xpos="NN">post</token>
+        <token baseform="argue" deprel="root" deps="|root=0|" id="4" word="argues" ufeats="|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|" upos="VERB" xpos="VBZ">argues</token>
+        <token baseform="that" dephead="12" deprel="mark" deps="|mark=12|" id="5" word="that" upos="SCONJ" xpos="IN">that</token>
+        <token id="6-7" word="Google's">Google's</token>
+        <token baseform="rush" dephead="12" deprel="nsubj" deps="|nsubj=12|" id="8" word="rush" ufeats="|Number=Sing|" upos="NOUN" xpos="NN">rush</token>
+        <token baseform="toward" dephead="10" deprel="case" deps="|case=10|" id="9" word="toward" upos="ADP" xpos="IN">toward</token>
+        <token baseform="ubiquity" dephead="8" deprel="nmod" deps="|nmod:toward=8|" id="10" word="ubiquity" ufeats="|Number=Sing|" upos="NOUN" xpos="NN">ubiquity</token>
+        <token baseform="might" dephead="12" deprel="aux" deps="|aux=12|" id="11" word="might" ufeats="|VerbForm=Fin|" upos="AUX" xpos="MD">might</token>
+        <token baseform="backfire" dephead="4" deprel="ccomp" deps="|ccomp=4|ccomp=18|" id="12" word="backfire" ufeats="|VerbForm=Inf|" upos="VERB" xpos="VB">backfire</token>
+        <token baseform="--" dephead="18" deprel="punct" deps="|punct=18|" id="13" word="--" upos="PUNCT" xpos=",">--</token>
+        <token baseform="which" dephead="18" deprel="obj" deps="|ref=12|" id="14" word="which" ufeats="|PronType=Rel|" upos="PRON" xpos="WDT">which</token>
+        <token id="15-16" word="we've">we've</token>
+        <token baseform="all" dephead="18" deprel="advmod" deps="|advmod=18|" id="17" word="all" upos="ADV" xpos="RB">all</token>
+        <token baseform="hear" dephead="12" deprel="advcl:relcl" deps="|advcl:relcl=12|" id="18" misc="|Cxn=rc-wh-ccomp|" word="heard" ufeats="|Tense=Past|VerbForm=Part|" upos="VERB" xpos="VBN">heard</token>
+        <token baseform="before" dephead="18" deprel="advmod" deps="|advmod=18|" id="19" misc="|SpaceAfter=No|" word="before" upos="ADV" xpos="RB">before</token>
+        <token baseform="," dephead="27" deprel="punct" deps="|punct=27|" id="20" word="," upos="PUNCT" xpos=",">,</token>
+        <token baseform="but" dephead="27" deprel="cc" deps="|cc=27|" id="21" word="but" upos="CCONJ" xpos="CC">but</token>
+        <token id="22-23" word="it's">it's</token>
+        <token baseform="particularly" dephead="27" deprel="advmod" deps="|advmod=27|" id="24" word="particularly" upos="ADV" xpos="RB">particularly</token>
+        <token baseform="well" dephead="27" deprel="advmod" deps="|advmod=27|" id="25" misc="|SpaceAfter=No|" word="well" ufeats="|Degree=Pos|" upos="ADV" xpos="RB">well</token>
+        <token baseform="-" dephead="25" deprel="punct" deps="|punct=25|" id="26" misc="|SpaceAfter=No|" word="-" upos="PUNCT" xpos="HYPH">-</token>
+        <token baseform="put" dephead="4" deprel="conj" deps="|conj:but=4|" id="27" word="put" ufeats="|Tense=Past|VerbForm=Part|Voice=Pass|" upos="VERB" xpos="VBN">put</token>
+        <token baseform="in" dephead="30" deprel="case" deps="|case=30|" id="28" word="in" upos="ADP" xpos="IN">in</token>
+        <token baseform="this" dephead="30" deprel="det" deps="|det=30|" id="29" word="this" ufeats="|Number=Sing|PronType=Dem|" upos="DET" xpos="DT">this</token>
+        <token baseform="post" dephead="27" deprel="obl" deps="|obl:in=27|" id="30" misc="|SpaceAfter=No|" word="post" ufeats="|Number=Sing|" upos="NOUN" xpos="NN">post</token>
+        <token baseform="." dephead="4" deprel="punct" deps="|punct=4|" id="31" word="." upos="PUNCT" xpos=".">.</token>
+      </sentence>
+      <sentence sent_id="weblog-blogspot.com_marketview_20050511222700_ENG_20050511_222700-0003">
+        <token baseform="Google" dephead="6" deprel="nsubj" deps="|nsubj=6|" id="1" word="Google" ufeats="|Number=Sing|" upos="PROPN" xpos="NNP">Google</token>
+        <token baseform="be" dephead="6" deprel="cop" deps="|cop=6|" id="2" word="is" ufeats="|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|" upos="AUX" xpos="VBZ">is</token>
+        <token baseform="a" dephead="6" deprel="det" deps="|det=6|" id="3" word="a" ufeats="|Definite=Ind|PronType=Art|" upos="DET" xpos="DT">a</token>
+        <token baseform="nice" dephead="6" deprel="amod" deps="|amod=6|" id="4" word="nice" ufeats="|Degree=Pos|" upos="ADJ" xpos="JJ">nice</token>
+        <token baseform="search" dephead="6" deprel="compound" deps="|compound=6|" id="5" word="search" ufeats="|Number=Sing|" upos="NOUN" xpos="NN">search</token>
+        <token baseform="engine" deprel="root" deps="|root=0|" id="6" misc="|SpaceAfter=No|" word="engine" ufeats="|Number=Sing|" upos="NOUN" xpos="NN">engine</token>
+        <token baseform="." dephead="6" deprel="punct" deps="|punct=6|" id="7" word="." upos="PUNCT" xpos=".">.</token>
+      </sentence>
+      <sentence sent_id="weblog-blogspot.com_marketview_20050511222700_ENG_20050511_222700-0004">
+        <token baseform="do" dephead="3" deprel="aux" deps="|aux=3|" id="1" word="Does" ufeats="|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|" upos="AUX" xpos="VBZ">Does</token>
+        <token baseform="anybody" dephead="3" deprel="nsubj" deps="|nsubj=3|" id="2" word="anybody" ufeats="|Number=Sing|PronType=Ind|" upos="PRON" xpos="NN">anybody</token>
+        <token baseform="use" deprel="root" deps="|root=0|" id="3" misc="|Cxn=Interrogative-Polar-Direct|CxnElt=3:Interrogative-Polar-Direct.Clause|" word="use" ufeats="|VerbForm=Inf|" upos="VERB" xpos="VB">use</token>
+        <token baseform="it" dephead="3" deprel="obj" deps="|obj=3|" id="4" word="it" ufeats="|Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs|" upos="PRON" xpos="PRP">it</token>
+        <token baseform="for" dephead="6" deprel="case" deps="|case=6|" id="5" word="for" upos="ADP" xpos="IN">for</token>
+        <token baseform="anything" dephead="3" deprel="obl" deps="|obl:for=3|" id="6" word="anything" ufeats="|Number=Sing|PronType=Ind|" upos="PRON" xpos="NN">anything</token>
+        <token baseform="else" dephead="6" deprel="advmod" deps="|advmod=6|" id="7" misc="|SpaceAfter=No|" word="else" upos="ADV" xpos="RB">else</token>
+        <token baseform="?" dephead="3" deprel="punct" deps="|punct=3|" id="8" word="?" upos="PUNCT" xpos=".">?</token>
+      </sentence>
+      <sentence sent_id="weblog-blogspot.com_marketview_20050511222700_ENG_20050511_222700-0005">
+        <token baseform="they" dephead="2" deprel="nsubj" deps="|nsubj=2|" id="1" word="They" ufeats="|Case=Nom|Number=Plur|Person=3|PronType=Prs|" upos="PRON" xpos="PRP">They</token>
+        <token baseform="own" deprel="root" deps="|root=0|" id="2" word="own" ufeats="|Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin|" upos="VERB" xpos="VBP">own</token>
+        <token baseform="blogger" dephead="2" deprel="obj" deps="|obj=2|" id="3" misc="|SpaceAfter=No|" word="blogger" ufeats="|Number=Sing|" upos="PROPN" xpos="NNP">blogger</token>
+        <token baseform="," dephead="5" deprel="punct" deps="|punct=5|" id="4" word="," upos="PUNCT" xpos=",">,</token>
+        <token baseform="of" dephead="2" deprel="advmod" deps="|advmod=2|" id="5" word="of" ufeats="|ExtPos=ADV|" upos="ADP" xpos="IN">of</token>
+        <token baseform="course" dephead="5" deprel="fixed" deps="|fixed=5|" id="6" misc="|SpaceAfter=No|" word="course" ufeats="|Number=Sing|" upos="NOUN" xpos="NN">course</token>
+        <token baseform="." dephead="2" deprel="punct" deps="|punct=2|" id="7" word="." upos="PUNCT" xpos=".">.</token>
+      </sentence>
+      <sentence sent_id="weblog-blogspot.com_marketview_20050511222700_ENG_20050511_222700-0006">
+        <token baseform="be" dephead="5" deprel="cop" deps="|cop=5|" id="1" word="Is" ufeats="|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|" upos="AUX" xpos="VBZ">Is</token>
+        <token baseform="that" dephead="5" deprel="nsubj" deps="|nsubj=5|" id="2" word="that" ufeats="|Number=Sing|PronType=Dem|" upos="PRON" xpos="DT">that</token>
+        <token baseform="a" dephead="5" deprel="det" deps="|det=5|" id="3" word="a" ufeats="|Definite=Ind|PronType=Art|" upos="DET" xpos="DT">a</token>
+        <token baseform="money" dephead="5" deprel="compound" deps="|compound=5|" id="4" word="money" ufeats="|Number=Sing|" upos="NOUN" xpos="NN">money</token>
+        <token baseform="maker" deprel="root" deps="|root=0|" id="5" misc="|Cxn=Interrogative-Polar-Direct|CxnElt=5:Interrogative-Polar-Direct.Clause|SpaceAfter=No|" word="maker" ufeats="|Number=Sing|" upos="NOUN" xpos="NN">maker</token>
+        <token baseform="?" dephead="5" deprel="punct" deps="|punct=5|" id="6" word="?" upos="PUNCT" xpos=".">?</token>
+      </sentence>
+    </paragraph>
+    <paragraph id="weblog-blogspot.com_marketview_20050511222700_ENG_20050511_222700-p0002">
+      <sentence sent_id="weblog-blogspot.com_marketview_20050511222700_ENG_20050511_222700-0007">
+        <token id="1-2" word="I'm">I'm</token>
+        <token baseform="stay" deprel="root" deps="|root=0|" id="3" word="staying" ufeats="|Tense=Pres|VerbForm=Part|" upos="VERB" xpos="VBG">staying</token>
+        <token baseform="away" dephead="3" deprel="advmod" deps="|advmod=3|" id="4" word="away" upos="ADV" xpos="RB">away</token>
+        <token baseform="from" dephead="7" deprel="case" deps="|case=7|" id="5" word="from" upos="ADP" xpos="IN">from</token>
+        <token baseform="the" dephead="7" deprel="det" deps="|det=7|" id="6" word="the" ufeats="|Definite=Def|PronType=Art|" upos="DET" xpos="DT">the</token>
+        <token baseform="stock" dephead="4" deprel="obl" deps="|obl:from=4|" id="7" misc="|SpaceAfter=No|" word="stock" ufeats="|Number=Sing|" upos="NOUN" xpos="NN">stock</token>
+        <token baseform="." dephead="3" deprel="punct" deps="|punct=3|" id="8" word="." upos="PUNCT" xpos=".">.</token>
+      </sentence>
+    </paragraph>
+  </document>
+</text>

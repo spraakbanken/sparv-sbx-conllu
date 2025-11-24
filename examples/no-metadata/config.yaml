@@ -4,16 +4,28 @@ metadata:
     eng: CoNLL-U import test corpora
     swe: ""
 
+classes:
+  sentence: sentence
+  token: token
+
 import:
-  source_dir: source
+  # source_dir: source
   importer: sbx_conllu:parse
-  text_annotation: text
+  # text_annotation: text
+
+sbx_conllu:
+  import_attributes:
+    - text
+    - sentence
+    - token
+
 export:
   default:
     # - conll_export:conllu
     - csv_export:csv
     - xml_export:pretty
     - xml_export:preserved_format
+
   annotations:
     - <sentence>:misc.id
     - <token>:misc.word

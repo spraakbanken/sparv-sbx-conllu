@@ -24,3 +24,6 @@ indent_size = 2
 [*.xml]
 indent_style = space
 indent_size = 3
+
+[*.conllu]
+indent_style = tab

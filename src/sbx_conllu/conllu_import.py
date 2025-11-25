@@ -14,6 +14,8 @@ logger = sparv.api.get_logger(__name__)
 
 CONLLU_EXTENSION_NAME: str = "conllu"
 CONLLU_EXTENSION: str = f".{CONLLU_EXTENSION_NAME}"
+TRACKING_ISSUE_EMPTY_NODE: str = "https://github.com/spraakbanken/sparv-sbx-conllu/issues/14"
+TRACKING_ISSUE_MULTIWORD: str = "https://github.com/spraakbanken/sparv-sbx-conllu/issues/15"
 
 
 class XMLStructure(SourceStructureParser):
@@ -132,6 +134,7 @@ class SparvCoNLLUParser:
         self.data: dict[str, _Element] = defaultdict(
             lambda: {"attrs": set(), "elements": []}
         )  # Metadata collected during parsing
+        self.warnings: dict[str, int] = defaultdict(int)
 
     def parse(self, file: SourceFilename) -> None:
         """Parse CoNLL-U file."""
@@ -186,8 +189,9 @@ class SparvCoNLLUParser:
                             _fmt_id(id_),
                             form,
                             source_file,
-                            "https://github.com/spraakbanken/sparv-sbx-conllu/issues/14",
+                            TRACKING_ISSUE_EMPTY_NODE,
                         )
+                        self.warnings["empty node"] += 1
                         continue
                     if isinstance(id_, tuple):
                         next_id = id_[2]
@@ -200,8 +204,9 @@ class SparvCoNLLUParser:
                             _fmt_id(id_),
                             form,
                             source_file,
-                            "https://github.com/spraakbanken/sparv-sbx-conllu/issues/15",
+                            TRACKING_ISSUE_MULTIWORD,
                         )
+                        self.warnings["multiword"] += 1
                         continue
                     misc: dict[str, str] | None = token.get("misc")
                     if misc and misc.get("NewPar") == "Yes":
@@ -323,6 +328,22 @@ class SparvCoNLLUParser:
         # Save list of all elements and attributes to a file (needed for export)
         structure.sort()
         SourceStructure(file).write(structure)
+        # log warnings statistics
+        if self.warnings:
+            total_warnings = sum(self.warnings.values())
+            logger.warning(
+                "The source file '%s' triggered %d warnings; %d for empty nodes, %d for multiword tokens",
+                file,
+                total_warnings,
+                self.warnings["empty node"],
+                self.warnings["multiword"],
+            )
+            for warning_class, tracking_issue in [
+                ("empty node", TRACKING_ISSUE_EMPTY_NODE),
+                ("multiword", TRACKING_ISSUE_MULTIWORD),
+            ]:
+                if self.warnings[warning_class]:
+                    logger.warning("Tracking issue for '%s': %s", warning_class, tracking_issue)
 
     def _add_span(
         self, name: str, start: int, end: int, attrs: dict[str, str], subpos: _Subpos, id_key: str = "id"

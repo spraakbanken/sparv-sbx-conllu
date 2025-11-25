@@ -167,7 +167,7 @@ pypdfium2==4.30.0
     # via sparv
 pyreadline3==3.5.4 ; sys_platform == 'win32'
     # via humanfriendly
-pytest==8.4.2
+pytest==9.0.1
     # via
     #   pytest-cov
     #   syrupy

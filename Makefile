@@ -177,6 +177,14 @@ snapshot-update:
 	${INVENV} pytest --snapshot-update
 
 ### === project targets below this line ===
+install-dev-metadata:
+	uv sync --all-packages --group metadata --dev
+
+.PHONY: generate-metadata
+generate-metadata: install-dev-metadata src/sbx_conllu/metadata.yaml
+	rm -rf assets/metadata/export/sbx_metadata
+	cd assets/metadata; ${INVENV} sparv run sbx_metadata:plugin_analysis_metadata_export
+
 test-examples: \
 	test-example-long-token-to-text \
 	test-example-no-metadata \

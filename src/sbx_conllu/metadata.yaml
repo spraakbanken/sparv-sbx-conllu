@@ -1,0 +1,34 @@
+id: sbx-mul-import-sparv-conllu
+short_description:
+  eng: Import of corpus data from the CoNLL-U format
+  swe: Import av korpusdata från CoNLL-U-formatet
+task: import
+keywords:
+  - conll-u
+sparv_processor: sbx_conllu:parse
+plugin_url: https://pypi.org/project/sparv-sbx-conllu
+other_references:
+  - "Repository: https://github.com/spraakbanken/sparv-sbx-conllu"
+created: 2025-11-25
+updated: 2025-11-25
+type: utility
+license: MIT
+example_output: |-
+  CoNLL-U imported and exported as xml.
+  ```xml
+  <?xml version='1.0' encoding='utf-8'?>
+  <text>
+    <document id="mf920901-001">
+      <paragraph id="mf920901-001-p1">
+        <sentence sent_id="mf920901-001-p1s1A" text_en="Slovak constitution: pros and cons">
+          <token baseform="slovenský" dephead="2" deprel="amod" id="1" ufeats="|Case=Nom|Degree=Pos|Gender=Fem|Number=Sing|Polarity=Pos|" upos="ADJ" xpos="AAFS1----1A----">Slovenská</token>
+          <token baseform="ústava" deprel="root" id="2" misc="|SpaceAfter=No|" ufeats="|Case=Nom|Gender=Fem|Number=Sing|Polarity=Pos|" upos="NOUN" xpos="NNFS1-----A----">ústava</token>
+          <token baseform=":" dephead="2" deprel="punct" id="3" upos="PUNCT" xpos="Z:-------------">:</token>
+          <token baseform="pro" dephead="2" deprel="appos" id="4" misc="|LId=pro-1|" ufeats="|Case=Acc|" upos="ADP" xpos="RR--4----------">pro</token>
+          <token baseform="i" dephead="6" deprel="cc" id="5" misc="|LId=i-1|" upos="CCONJ" xpos="J^-------------">i</token>
+          <token baseform="proti" dephead="4" deprel="conj" id="6" misc="|LId=proti-1|" ufeats="|Case=Dat|" upos="ADP" xpos="RR--3----------">proti</token>
+        </sentence>
+      </paragraph>
+    </document>
+  </text>
+  ```

@@ -14,9 +14,6 @@ import:
 
 sbx_conllu:
   import_attributes:
-    - text
-    - sentence
-    - token
     - token:xpos
 
 export:

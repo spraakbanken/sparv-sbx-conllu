@@ -13,12 +13,6 @@ import:
   importer: sbx_conllu:parse
   # text_annotation: text
 
-sbx_conllu:
-  import_attributes:
-    - text
-    - sentence
-    - token
-
 export:
   default:
     # - conll_export:conllu

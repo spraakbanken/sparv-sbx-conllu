@@ -5,7 +5,6 @@ description = "Add your description here"
 readme = "README.md"
 authors = [
     { name = "Språkbanken Text", email = "sb-info@svenska.gu.se" },
-    { name = "Kristoffer Andersson", email = "kristoffer.andersson@gu.se" }
 ]
 requires-python = ">=3.11"
 dependencies = [
@@ -36,6 +35,12 @@ classifiers = [
 
 [project.entry-points."sparv.plugin"]
 sbx_conllu = "sbx_conllu"
+
+[project.urls]
+Homepage = "https://spraakbanken.gu.se"
+Repository = "https://github.com/spraakbanken/sparv-sbx-conllu"
+Issues = "https://github.com/spraakbanken/sparv-sbx-conllu/issues"
+Changelog = "https://github.com/spraakbanken/sparv-sbx-conllu/blob/main/CHANGELOG.md"
 
 [build-system]
 requires = ["uv_build>=0.9,<0.10.0"]

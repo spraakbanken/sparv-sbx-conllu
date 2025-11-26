@@ -231,24 +231,25 @@ class SparvCoNLLUParser:
                     if lemma := token.get("lemma"):
                         token_attrs["baseform"] = "" if lemma == "_" else lemma
                     if upos := token.get("upos"):
-                        token_attrs["upos"] = "" if upos == "_" else upos
+                        token_attrs["pos_ud"] = "" if upos == "_" else upos
                     if xpos := token.get("xpos"):
                         token_attrs["xpos"] = xpos
                     if feats := token.get("feats"):
                         feats_str = "|".join(f"{feat}={value}" for feat, value in feats.items())
-                        token_attrs["ufeats"] = f"|{feats_str}|" if feats_str else "|"
-                    if head := token.get("head"):
-                        token_attrs["dephead"] = head
+                        token_attrs["feats_ud"] = f"|{feats_str}|" if feats_str else "|"
+                    head = token.get("head")
+                    if head is not None:
+                        token_attrs["dephead_ud"] = head
                     if deprel := token.get("deprel"):
-                        token_attrs["deprel"] = "" if deprel == "_" else deprel
+                        token_attrs["deprel_ud"] = "" if deprel == "_" else deprel
                     if deps := token.get("deps"):
                         deps_str = "|".join(f"{dep}={rel}" for dep, rel in deps)
                         if deps_str:
-                            token_attrs["deps"] = f"|{deps_str}|"
+                            token_attrs["deps_ud"] = f"|{deps_str}|"
                     if misc := token.get("misc"):
                         misc_str = "|".join(f"{key}={value}" for key, value in misc.items())
                         if misc_str:
-                            token_attrs["misc"] = f"|{misc_str}|"
+                            token_attrs["misc_ud"] = f"|{misc_str}|"
                     token_end = token_start + len(form)
                     self._add_span("token", token_start, token_end, token_attrs, TOKEN_SUBPOS)
 
@@ -413,20 +414,20 @@ def analyze_conllu(source_file: Path) -> set[str]:
                 if (lemma := token.get("lemma")) and lemma != "_":
                     elements.add("token:baseform")
                 if (upos := token.get("upos")) and upos != "_":
-                    elements.add("token:upos")
+                    elements.add("token:pos_ud")
                 if token.get("xpos"):
                     elements.add("token:xpos")
                 if token.get("feats"):
-                    elements.add("token:ufeats")
+                    elements.add("token:feats_ud")
                 if token.get("head"):
-                    elements.add("token:dephead")
+                    elements.add("token:dephead_ud")
                 if (deprel := token.get("deprel")) and deprel != "_":
-                    elements.add("token:deprel")
+                    elements.add("token:deprel_ud")
                 if token.get("deps"):
-                    elements.add("token:deps")
+                    elements.add("token:deps_ud")
                 if misc := token.get("misc"):
                     if misc.get("NewPar") == "Yes":
                         elements.add("paragraph")
-                    elements.add("token:misc")
+                    elements.add("token:misc_ud")
 
     return elements

@@ -21,12 +21,12 @@ example_output: |-
     <document id="mf920901-001">
       <paragraph id="mf920901-001-p1">
         <sentence sent_id="mf920901-001-p1s1A" text_en="Slovak constitution: pros and cons">
-          <token baseform="slovenský" dephead="2" deprel="amod" id="1" ufeats="|Case=Nom|Degree=Pos|Gender=Fem|Number=Sing|Polarity=Pos|" upos="ADJ" xpos="AAFS1----1A----">Slovenská</token>
-          <token baseform="ústava" deprel="root" id="2" misc="|SpaceAfter=No|" ufeats="|Case=Nom|Gender=Fem|Number=Sing|Polarity=Pos|" upos="NOUN" xpos="NNFS1-----A----">ústava</token>
-          <token baseform=":" dephead="2" deprel="punct" id="3" upos="PUNCT" xpos="Z:-------------">:</token>
-          <token baseform="pro" dephead="2" deprel="appos" id="4" misc="|LId=pro-1|" ufeats="|Case=Acc|" upos="ADP" xpos="RR--4----------">pro</token>
-          <token baseform="i" dephead="6" deprel="cc" id="5" misc="|LId=i-1|" upos="CCONJ" xpos="J^-------------">i</token>
-          <token baseform="proti" dephead="4" deprel="conj" id="6" misc="|LId=proti-1|" ufeats="|Case=Dat|" upos="ADP" xpos="RR--3----------">proti</token>
+          <token baseform="slovenský" dephead_ud="2" deprel_ud="amod" id="1" feats_ud="|Case=Nom|Degree=Pos|Gender=Fem|Number=Sing|Polarity=Pos|" pos_ud="ADJ" xpos="AAFS1----1A----">Slovenská</token>
+          <token baseform="ústava" deprel_ud="root" id="2" misc_ud="|SpaceAfter=No|" feats_ud="|Case=Nom|Gender=Fem|Number=Sing|Polarity=Pos|" pos_ud="NOUN" xpos="NNFS1-----A----">ústava</token>
+          <token baseform=":" dephead_ud="2" deprel_ud="punct" id="3" pos_ud="PUNCT" xpos="Z:-------------">:</token>
+          <token baseform="pro" dephead_ud="2" deprel_ud="appos" id="4" misc_ud="|LId=pro-1|" feats_ud="|Case=Acc|" pos_ud="ADP" xpos="RR--4----------">pro</token>
+          <token baseform="i" dephead_ud="6" deprel_ud="cc" id="5" misc_ud="|LId=i-1|" pos_ud="CCONJ" xpos="J^-------------">i</token>
+          <token baseform="proti" dephead_ud="4" deprel_ud="conj" id="6" misc_ud="|LId=proti-1|" feats_ud="|Case=Dat|" pos_ud="ADP" xpos="RR--3----------">proti</token>
         </sentence>
       </paragraph>
     </document>

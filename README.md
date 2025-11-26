@@ -67,7 +67,7 @@ in your `config.yaml`.
 
 ##### Example
 
-You want to use the `sentence` and `token` from `sparv_sbx_conllu` and also map `token:xpos` as `token:pos`.
+You want to use the `sentence` and `token` from `sparv_sbx_conllu` and also map `token:xpos` as `token:pos` and `token:pos_ud` as `token:upos`.
 
 ```yaml
 # file=config.yaml
@@ -75,7 +75,32 @@ classes:
   sentence: sentence
   token: token
   "token:pos": token:xpos
+  "token:upos": token:pos_ud
 ```
+
+##### Common annotation from a standard CoNLL-U file
+
+These annotations are some of the annotations you can expect from a CoNLL-U file, but it depends on the file.
+
+| Annotation         | CoNLL-U column                              | Always?                                                | Comment                                            | Example in CoNLL-U                           |
+| ------------------ | ------------------------------------------- | ------------------------------------------------------ | -------------------------------------------------- | -------------------------------------------- | ---------- | ----------- | ------------- |
+| `text`             |                                             | yes                                                    | the whole text                                     |
+| `document`         |                                             | yes                                                    | either implicit, or at least one specified         |
+| `sentence`         |                                             | yes                                                    | must contain at least one sentence                 |
+| `token`            |                                             | yes                                                    | must contain at least one token                    |
+| `document:id`      | `# newdoc id =`                             | no                                                     |                                                    | `# newdoc id = ID` gives `document:id = ID`  |
+| `paragraph`        | `# newpar`<br>`NewPar=Yes` in column `misc` | no                                                     | Can exist around sentences<br>And inside sentences | `# newpar`<br>`NewPar=Yes` in `misc` column  |
+| `paragraph:id`     | `# newpar id =`                             | no                                                     |                                                    | `# newpar id = ID` gives `paragraph:id = ID` |
+| `token:id`         | `id` column                                 | no                                                     | Always present in standard CoNLL-U                 |
+| `form` column      | no                                          | Always present in standard CoNLL-U, may contain spaces |
+| `token:baseform`   | `lemma` column                              | no                                                     | May contain spaces                                 |
+| `token:pos_ud`     | `upos` column                               | no                                                     | UD POS                                             |
+| `token:xpos`       | `xpos` column                               | no                                                     | custom POS (no standard)                           |
+| `token:feats_ud`   | `feats` column                              | no                                                     | Dict-like values                                   | `Case=Nom                                    | Gender=Fem | Number=Sing | Polarity=Pos` |
+| `token:dephead_ud` | `head` column                               | no                                                     | integer                                            |
+| `token:deprel_ud`  | `deprel` column                             | no                                                     | UD-dep value                                       |
+| `token:deps_ud     | `deps` column                               | no                                                     | At least one pair `head`:`deprel`                  | `2:obj                                       | 4:obj`     |
+| `token:misc_ud`    | `misc` column                               | no                                                     | Dict-like values                                   | `SpaceAfter=No`                              |
 
 ## Known issues
 

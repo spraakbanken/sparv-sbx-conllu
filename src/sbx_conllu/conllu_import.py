@@ -14,6 +14,8 @@ logger = sparv.api.get_logger(__name__)
 
 CONLLU_EXTENSION_NAME: str = "conllu"
 CONLLU_EXTENSION: str = f".{CONLLU_EXTENSION_NAME}"
+TRACKING_ISSUE_EMPTY_NODE: str = "https://github.com/spraakbanken/sparv-sbx-conllu/issues/14"
+TRACKING_ISSUE_MULTIWORD: str = "https://github.com/spraakbanken/sparv-sbx-conllu/issues/15"
 
 
 class XMLStructure(SourceStructureParser):
@@ -62,7 +64,7 @@ class XMLStructure(SourceStructureParser):
 @importer(
     "Import CoNLL-U files",
     file_extension=CONLLU_EXTENSION_NAME,
-    outputs=[Config("sbx_conllu.import_attributes")],
+    outputs=["text", "document", "sentence", "token", Config("sbx_conllu.import_attributes")],
     config=[
         Config(
             "sbx_conllu.import_attributes",
@@ -132,6 +134,7 @@ class SparvCoNLLUParser:
         self.data: dict[str, _Element] = defaultdict(
             lambda: {"attrs": set(), "elements": []}
         )  # Metadata collected during parsing
+        self.warnings: dict[str, int] = defaultdict(int)
 
     def parse(self, file: SourceFilename) -> None:
         """Parse CoNLL-U file."""
@@ -186,8 +189,9 @@ class SparvCoNLLUParser:
                             _fmt_id(id_),
                             form,
                             source_file,
-                            "https://github.com/spraakbanken/sparv-sbx-conllu/issues/14",
+                            TRACKING_ISSUE_EMPTY_NODE,
                         )
+                        self.warnings["empty node"] += 1
                         continue
                     if isinstance(id_, tuple):
                         next_id = id_[2]
@@ -200,8 +204,9 @@ class SparvCoNLLUParser:
                             _fmt_id(id_),
                             form,
                             source_file,
-                            "https://github.com/spraakbanken/sparv-sbx-conllu/issues/15",
+                            TRACKING_ISSUE_MULTIWORD,
                         )
+                        self.warnings["multiword"] += 1
                         continue
                     misc: dict[str, str] | None = token.get("misc")
                     if misc and misc.get("NewPar") == "Yes":
@@ -226,24 +231,25 @@ class SparvCoNLLUParser:
                     if lemma := token.get("lemma"):
                         token_attrs["baseform"] = "" if lemma == "_" else lemma
                     if upos := token.get("upos"):
-                        token_attrs["upos"] = "" if upos == "_" else upos
+                        token_attrs["pos_ud"] = "" if upos == "_" else upos
                     if xpos := token.get("xpos"):
                         token_attrs["xpos"] = xpos
                     if feats := token.get("feats"):
                         feats_str = "|".join(f"{feat}={value}" for feat, value in feats.items())
-                        token_attrs["ufeats"] = f"|{feats_str}|" if feats_str else "|"
-                    if head := token.get("head"):
-                        token_attrs["dephead"] = head
+                        token_attrs["feats_ud"] = f"|{feats_str}|" if feats_str else "|"
+                    head = token.get("head")
+                    if head is not None:
+                        token_attrs["dephead_ud"] = head
                     if deprel := token.get("deprel"):
-                        token_attrs["deprel"] = "" if deprel == "_" else deprel
+                        token_attrs["deprel_ud"] = "" if deprel == "_" else deprel
                     if deps := token.get("deps"):
                         deps_str = "|".join(f"{dep}={rel}" for dep, rel in deps)
                         if deps_str:
-                            token_attrs["deps"] = f"|{deps_str}|"
+                            token_attrs["deps_ud"] = f"|{deps_str}|"
                     if misc := token.get("misc"):
                         misc_str = "|".join(f"{key}={value}" for key, value in misc.items())
                         if misc_str:
-                            token_attrs["misc"] = f"|{misc_str}|"
+                            token_attrs["misc_ud"] = f"|{misc_str}|"
                     token_end = token_start + len(form)
                     self._add_span("token", token_start, token_end, token_attrs, TOKEN_SUBPOS)
 
@@ -323,6 +329,22 @@ class SparvCoNLLUParser:
         # Save list of all elements and attributes to a file (needed for export)
         structure.sort()
         SourceStructure(file).write(structure)
+        # log warnings statistics
+        if self.warnings:
+            total_warnings = sum(self.warnings.values())
+            logger.warning(
+                "The source file '%s' triggered %d warnings; %d for empty nodes, %d for multiword tokens",
+                file,
+                total_warnings,
+                self.warnings["empty node"],
+                self.warnings["multiword"],
+            )
+            for warning_class, tracking_issue in [
+                ("empty node", TRACKING_ISSUE_EMPTY_NODE),
+                ("multiword", TRACKING_ISSUE_MULTIWORD),
+            ]:
+                if self.warnings[warning_class]:
+                    logger.warning("Tracking issue for '%s': %s", warning_class, tracking_issue)
 
     def _add_span(
         self, name: str, start: int, end: int, attrs: dict[str, str], subpos: _Subpos, id_key: str = "id"
@@ -392,20 +414,20 @@ def analyze_conllu(source_file: Path) -> set[str]:
                 if (lemma := token.get("lemma")) and lemma != "_":
                     elements.add("token:baseform")
                 if (upos := token.get("upos")) and upos != "_":
-                    elements.add("token:upos")
+                    elements.add("token:pos_ud")
                 if token.get("xpos"):
                     elements.add("token:xpos")
                 if token.get("feats"):
-                    elements.add("token:ufeats")
+                    elements.add("token:feats_ud")
                 if token.get("head"):
-                    elements.add("token:dephead")
+                    elements.add("token:dephead_ud")
                 if (deprel := token.get("deprel")) and deprel != "_":
-                    elements.add("token:deprel")
+                    elements.add("token:deprel_ud")
                 if token.get("deps"):
-                    elements.add("token:deps")
+                    elements.add("token:deps_ud")
                 if misc := token.get("misc"):
                     if misc.get("NewPar") == "Yes":
                         elements.add("paragraph")
-                    elements.add("token:misc")
+                    elements.add("token:misc_ud")
 
     return elements

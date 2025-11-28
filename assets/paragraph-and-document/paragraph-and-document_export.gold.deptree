@@ -1,0 +1,8 @@
+{'sent_id': 'mf920901-001-p1s1A'}
+(deprel:root) form:ústava lemma:ústava upos:NOUN [2]
+    (deprel:amod) form:Slovenská lemma:slovenský upos:ADJ [1]
+    (deprel:punct) form:: lemma:: upos:PUNCT [3]
+    (deprel:appos) form:pro lemma:pro upos:ADP [4]
+        (deprel:conj) form:proti lemma:proti upos:ADP [6]
+            (deprel:cc) form:i lemma:i upos:CCONJ [5]
+

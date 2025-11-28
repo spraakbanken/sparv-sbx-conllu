@@ -84,7 +84,7 @@
         <token baseform="post" dephead_ud="4" deprel_ud="nsubj" deps_ud="|nsubj=4|" feats_ud="|Number=Sing|" id="3" word="post" pos_ud="NOUN" xpos="NN">post</token>
         <token baseform="argue" dephead_ud="0" deprel_ud="root" deps_ud="|root=0|" feats_ud="|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|" id="4" word="argues" pos_ud="VERB" xpos="VBZ">argues</token>
         <token baseform="that" dephead_ud="12" deprel_ud="mark" deps_ud="|mark=12|" id="5" word="that" pos_ud="SCONJ" xpos="IN">that</token>
-        <token id="6-7" word="Google's">Google's</token>
+        <token baseform="Google" dephead_ud="8" deprel_ud="nmod:poss" deps_ud="|nmod:poss=8|" feats_ud="|Number=Sing|" id="6" word="Google's" pos_ud="PROPN" xpos="NNP">Google's</token>
         <token baseform="rush" dephead_ud="12" deprel_ud="nsubj" deps_ud="|nsubj=12|" feats_ud="|Number=Sing|" id="8" word="rush" pos_ud="NOUN" xpos="NN">rush</token>
         <token baseform="toward" dephead_ud="10" deprel_ud="case" deps_ud="|case=10|" id="9" word="toward" pos_ud="ADP" xpos="IN">toward</token>
         <token baseform="ubiquity" dephead_ud="8" deprel_ud="nmod" deps_ud="|nmod:toward=8|" feats_ud="|Number=Sing|" id="10" word="ubiquity" pos_ud="NOUN" xpos="NN">ubiquity</token>
@@ -92,13 +92,13 @@
         <token baseform="backfire" dephead_ud="4" deprel_ud="ccomp" deps_ud="|ccomp=4|ccomp=18|" feats_ud="|VerbForm=Inf|" id="12" word="backfire" pos_ud="VERB" xpos="VB">backfire</token>
         <token baseform="--" dephead_ud="18" deprel_ud="punct" deps_ud="|punct=18|" id="13" word="--" pos_ud="PUNCT" xpos=",">--</token>
         <token baseform="which" dephead_ud="18" deprel_ud="obj" deps_ud="|ref=12|" feats_ud="|PronType=Rel|" id="14" word="which" pos_ud="PRON" xpos="WDT">which</token>
-        <token id="15-16" word="we've">we've</token>
+        <token baseform="we" dephead_ud="18" deprel_ud="nsubj" deps_ud="|nsubj=18|" feats_ud="|Case=Nom|Number=Plur|Person=1|PronType=Prs|" id="15" word="we've" pos_ud="PRON" xpos="PRP">we've</token>
         <token baseform="all" dephead_ud="18" deprel_ud="advmod" deps_ud="|advmod=18|" id="17" word="all" pos_ud="ADV" xpos="RB">all</token>
         <token baseform="hear" dephead_ud="12" deprel_ud="advcl:relcl" deps_ud="|advcl:relcl=12|" feats_ud="|Tense=Past|VerbForm=Part|" id="18" word="heard" misc_ud="|Cxn=rc-wh-ccomp|" pos_ud="VERB" xpos="VBN">heard</token>
         <token baseform="before" dephead_ud="18" deprel_ud="advmod" deps_ud="|advmod=18|" id="19" word="before" misc_ud="|SpaceAfter=No|" pos_ud="ADV" xpos="RB">before</token>
         <token baseform="," dephead_ud="27" deprel_ud="punct" deps_ud="|punct=27|" id="20" word="," pos_ud="PUNCT" xpos=",">,</token>
         <token baseform="but" dephead_ud="27" deprel_ud="cc" deps_ud="|cc=27|" id="21" word="but" pos_ud="CCONJ" xpos="CC">but</token>
-        <token id="22-23" word="it's">it's</token>
+        <token baseform="it" dephead_ud="27" deprel_ud="nsubj:pass" deps_ud="|nsubj:pass=27|" feats_ud="|Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs|" id="22" word="it's" pos_ud="PRON" xpos="PRP">it's</token>
         <token baseform="particularly" dephead_ud="27" deprel_ud="advmod" deps_ud="|advmod=27|" id="24" word="particularly" pos_ud="ADV" xpos="RB">particularly</token>
         <token baseform="well" dephead_ud="27" deprel_ud="advmod" deps_ud="|advmod=27|" feats_ud="|Degree=Pos|" id="25" word="well" misc_ud="|SpaceAfter=No|" pos_ud="ADV" xpos="RB">well</token>
         <token baseform="-" dephead_ud="25" deprel_ud="punct" deps_ud="|punct=25|" id="26" word="-" misc_ud="|SpaceAfter=No|" pos_ud="PUNCT" xpos="HYPH">-</token>
@@ -147,7 +147,7 @@
     </paragraph>
     <paragraph id="weblog-blogspot.com_marketview_20050511222700_ENG_20050511_222700-p0002">
       <sentence sent_id="weblog-blogspot.com_marketview_20050511222700_ENG_20050511_222700-0007">
-        <token id="1-2" word="I'm">I'm</token>
+        <token baseform="I" dephead_ud="3" deprel_ud="nsubj" deps_ud="|nsubj=3|" feats_ud="|Case=Nom|Number=Sing|Person=1|PronType=Prs|" id="1" word="I'm" pos_ud="PRON" xpos="PRP">I'm</token>
         <token baseform="stay" dephead_ud="0" deprel_ud="root" deps_ud="|root=0|" feats_ud="|Tense=Pres|VerbForm=Part|" id="3" word="staying" pos_ud="VERB" xpos="VBG">staying</token>
         <token baseform="away" dephead_ud="3" deprel_ud="advmod" deps_ud="|advmod=3|" id="4" word="away" pos_ud="ADV" xpos="RB">away</token>
         <token baseform="from" dephead_ud="7" deprel_ud="case" deps_ud="|case=7|" id="5" word="from" pos_ud="ADP" xpos="IN">from</token>

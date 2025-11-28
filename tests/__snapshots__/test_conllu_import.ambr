@@ -116,6 +116,42 @@
     'token:pos_ud',
   })
 # ---
+# name: test_find_root
+  Token({
+    'deprel': 'nsubj',
+    'feats': None,
+    'form': 'B',
+    'head': 4,
+    'id': 2,
+    'lemma': 'B',
+    'upos': 'NOUN',
+    'xpos': None,
+  })
+# ---
+# name: test_find_root.1
+  Token({
+    'deprel': 'case',
+    'feats': None,
+    'form': 'C',
+    'head': 4,
+    'id': 3,
+    'lemma': 'C',
+    'upos': 'PART',
+    'xpos': None,
+  })
+# ---
+# name: test_find_root.2
+  Token({
+    'deprel': 'root',
+    'feats': None,
+    'form': 'C',
+    'head': 0,
+    'id': 3,
+    'lemma': 'C',
+    'upos': 'PART',
+    'xpos': None,
+  })
+# ---
 # name: test_parse[empty-node]
   _CallList([
     _Call(
@@ -410,4 +446,255 @@
       }),
     ),
   ])
+# ---
+# name: test_parser_parse
+  defaultdict({
+    'document': dict({
+      'attrs': set({
+      }),
+      'elements': list([
+        dict({
+          'attrs': dict({
+          }),
+          'end': tuple(
+            23,
+            4,
+          ),
+          'name': 'document',
+          'start': tuple(
+            0,
+            1,
+          ),
+        }),
+      ]),
+    }),
+    'paragraph': dict({
+      'attrs': set({
+      }),
+      'elements': list([
+      ]),
+    }),
+    'sentence': dict({
+      'attrs': set({
+        'sent_id',
+      }),
+      'elements': list([
+        dict({
+          'attrs': dict({
+            'sent_id': 'easy case',
+          }),
+          'end': tuple(
+            7,
+            2,
+          ),
+          'name': 'sentence',
+          'start': tuple(
+            0,
+            3,
+          ),
+        }),
+        dict({
+          'attrs': dict({
+            'sent_id': 'easy case (flipped)',
+          }),
+          'end': tuple(
+            15,
+            2,
+          ),
+          'name': 'sentence',
+          'start': tuple(
+            8,
+            3,
+          ),
+        }),
+        dict({
+          'attrs': dict({
+            'sent_id': 'tricky case 1',
+          }),
+          'end': tuple(
+            23,
+            2,
+          ),
+          'name': 'sentence',
+          'start': tuple(
+            16,
+            3,
+          ),
+        }),
+      ]),
+    }),
+    'token': dict({
+      'attrs': set({
+        'baseform',
+        'dephead_ud',
+        'deprel_ud',
+        'id',
+        'pos_ud',
+      }),
+      'elements': list([
+        dict({
+          'attrs': dict({
+            'baseform': 'A',
+            'dephead_ud': 0,
+            'deprel_ud': 'root',
+            'id': '1',
+            'pos_ud': 'VERB',
+          }),
+          'end': tuple(
+            1,
+            0,
+          ),
+          'name': 'token',
+          'start': tuple(
+            0,
+            5,
+          ),
+        }),
+        dict({
+          'attrs': dict({
+            'baseform': 'B',
+            'dephead_ud': 4,
+            'deprel_ud': 'nsubj',
+            'id': '2',
+            'pos_ud': 'NOUN',
+          }),
+          'end': tuple(
+            4,
+            0,
+          ),
+          'name': 'token',
+          'start': tuple(
+            2,
+            5,
+          ),
+        }),
+        dict({
+          'attrs': dict({
+            'baseform': 'D',
+            'dephead_ud': 1,
+            'deprel_ud': 'nsubj',
+            'id': '4',
+            'pos_ud': 'NOUN',
+          }),
+          'end': tuple(
+            6,
+            0,
+          ),
+          'name': 'token',
+          'start': tuple(
+            5,
+            5,
+          ),
+        }),
+        dict({
+          'attrs': dict({
+            'baseform': 'A',
+            'dephead_ud': 0,
+            'deprel_ud': 'root',
+            'id': '1',
+            'pos_ud': 'VERB',
+          }),
+          'end': tuple(
+            9,
+            0,
+          ),
+          'name': 'token',
+          'start': tuple(
+            8,
+            5,
+          ),
+        }),
+        dict({
+          'attrs': dict({
+            'baseform': 'C',
+            'dephead_ud': 4,
+            'deprel_ud': 'case',
+            'id': '3',
+            'pos_ud': 'PART',
+          }),
+          'end': tuple(
+            12,
+            0,
+          ),
+          'name': 'token',
+          'start': tuple(
+            10,
+            5,
+          ),
+        }),
+        dict({
+          'attrs': dict({
+            'baseform': 'D',
+            'dephead_ud': 1,
+            'deprel_ud': 'nsubj',
+            'id': '4',
+            'pos_ud': 'NOUN',
+          }),
+          'end': tuple(
+            14,
+            0,
+          ),
+          'name': 'token',
+          'start': tuple(
+            13,
+            5,
+          ),
+        }),
+        dict({
+          'attrs': dict({
+            'baseform': 'A',
+            'dephead_ud': 3,
+            'deprel_ud': 'nsubj',
+            'id': '1',
+            'pos_ud': 'DET',
+          }),
+          'end': tuple(
+            17,
+            0,
+          ),
+          'name': 'token',
+          'start': tuple(
+            16,
+            5,
+          ),
+        }),
+        dict({
+          'attrs': dict({
+            'baseform': 'C',
+            'dephead_ud': 0,
+            'deprel_ud': 'root',
+            'id': '3',
+            'pos_ud': 'PART',
+          }),
+          'end': tuple(
+            20,
+            0,
+          ),
+          'name': 'token',
+          'start': tuple(
+            18,
+            5,
+          ),
+        }),
+        dict({
+          'attrs': dict({
+            'baseform': 'D',
+            'dephead_ud': 3,
+            'deprel_ud': 'punct',
+            'id': '4',
+            'pos_ud': 'PUNCT',
+          }),
+          'end': tuple(
+            22,
+            0,
+          ),
+          'name': 'token',
+          'start': tuple(
+            21,
+            5,
+          ),
+        }),
+      ]),
+    }),
+  })
 # ---

@@ -1,0 +1,15 @@
+{'sent_id': 'easy case'}
+(deprel:root) form:A lemma:A upos:VERB [1]
+    (deprel:nsubj) form:D lemma:D upos:NOUN [4]
+        (deprel:nsubj) form:BC lemma:B upos:NOUN [2]
+
+{'sent_id': 'easy case (flipped)'}
+(deprel:root) form:A lemma:A upos:VERB [1]
+    (deprel:nsubj) form:D lemma:D upos:NOUN [4]
+        (deprel:case) form:BC lemma:C upos:PART [3]
+
+{'sent_id': 'tricky case 1'}
+(deprel:root) form:BC lemma:C upos:PART [3]
+    (deprel:nsubj) form:A lemma:A upos:DET [1]
+    (deprel:punct) form:D lemma:D upos:PUNCT [4]
+

@@ -18,7 +18,7 @@
     </sentence>
     <sentence sent_id="panc0.s4" text_en="This is what is heard." text_fr="Voilà ce qui nous est parvenu par la tradition orale." translit="tat yathānuśrūyate.">
       <token baseform="तद्" dephead_ud="3" deprel_ud="nsubj" feats_ud="|Case=Nom|…=|PronType=Dem|" id="1" word="तत्" misc_ud="|Translit=tat|LTranslit=tad|Gloss=it|" pos_ud="DET">तत्</token>
-      <token id="2-3" word="यथानुश्रूयते" misc_ud="|SpaceAfter=No|">यथानुश्रूयते</token>
+      <token baseform="अनु-श्रु" dephead_ud="0" deprel_ud="root" feats_ud="|Mood=Ind|…=|Voice=Pass|" id="3" word="यथानुश्रूयते" misc_ud="|SpaceAfter=No|" pos_ud="VERB">यथानुश्रूयते</token>
       <token baseform="।" dephead_ud="3" deprel_ud="punct" id="4" word="।" misc_ud="|Translit=.|LTranslit=.|Gloss=.|" pos_ud="PUNCT">।</token>
     </sentence>
   </document>

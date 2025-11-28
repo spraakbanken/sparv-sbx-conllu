@@ -1,11 +1,12 @@
 from pathlib import Path
 from unittest import mock
 
+import conllu
 import pytest
 from sparv.api import Output, Source, SourceFilename, SourceStructure, Text
 from syrupy.assertion import SnapshotAssertion
 
-from sbx_conllu.conllu_import import analyze_conllu, parse
+from sbx_conllu.conllu_import import SparvCoNLLUParser, _find_root, analyze_conllu, parse  # noqa: PLC2701
 
 # id   form  lemma upostag xpostag           feats  head    deprel deps  misc
 EXAMPLE_NO_TEXT: str = """
@@ -69,3 +70,20 @@ def test_analyze_conllu(filename: str, snapshot: SnapshotAssertion) -> None:
     actual = analyze_conllu(Path(filename))
 
     assert actual == snapshot
+
+
+def test_find_root(snapshot: SnapshotAssertion) -> None:
+    with Path("assets/texts/deprel-cases.conllu").open(encoding="utf-8") as fp:
+        for sentence in conllu.parse_incr(fp):
+            for token in sentence:
+                id_ = token["id"]
+                if isinstance(id_, tuple) and id_[1] == "-":
+                    root = _find_root(id_, sentence)
+                    assert root == snapshot
+
+
+def test_parser_parse(snapshot: SnapshotAssertion) -> None:
+    parser = SparvCoNLLUParser(Source("assets/texts"))
+    parser.parse(SourceFilename("deprel-cases"))
+
+    assert parser.data == snapshot

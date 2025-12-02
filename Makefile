@@ -191,11 +191,14 @@ test-examples: \
 	test-example-en_ewt-ud-test \
 	test-example-paragraph-and-document \
 	test-example-paragraph-in-sentence \
-	test-example-sentence-comments
+	test-example-sentence-comments \
+	test-example-deprel-cases
 
 test-example-long-token-to-text:
 	rm -rf examples/long-token-to-text/export examples/long-token-to-text/sparv-workdir examples/long-token-to-text/.snakemake
 	cd examples/long-token-to-text; ${INVENV} sparv run --stats --log-to-file debug
+	python scripts/print_deptree.py examples/long-token-to-text/export/xml_export.pretty/long-token-to-text_export.xml > examples/long-token-to-text/export/long-token-to-text.deptree
+	${DIFF} assets/long-token-to-text/long-token-to-text_export.gold.deptree examples/long-token-to-text/export/long-token-to-text.deptree
 	${DIFF} assets/long-token-to-text/long-token-to-text_export.gold.xml \
 	    examples/long-token-to-text/export/xml_export.pretty/long-token-to-text_export.xml
 	${DIFF} assets/long-token-to-text/preserved_format/long-token-to-text_export.gold.xml \
@@ -203,10 +206,15 @@ test-example-long-token-to-text:
 
 snapshot-update-example-long-token-to-text: \
 	assets/long-token-to-text/long-token-to-text_export.gold.xml \
+	assets/long-token-to-text/long-token-to-text_export.gold.deptree \
 	assets/long-token-to-text/preserved_format/long-token-to-text_export.gold.xml
 
 assets/long-token-to-text/long-token-to-text_export.gold.xml: \
 		examples/long-token-to-text/export/xml_export.pretty/long-token-to-text_export.xml
+	@cp "$<" "$@"
+
+assets/long-token-to-text/long-token-to-text_export.gold.deptree: \
+		examples/long-token-to-text/export/long-token-to-text.deptree
 	@cp "$<" "$@"
 
 assets/long-token-to-text/preserved_format/long-token-to-text_export.gold.xml: \
@@ -243,8 +251,10 @@ assets/no-metadata/preserved_format/space-after-no_export.gold.xml: \
 test-example-paragraph-and-document:
 	rm -rf examples/paragraph-and-document/export examples/paragraph-and-document/sparv-workdir examples/paragraph-and-document/.snakemake
 	cd examples/paragraph-and-document; ${INVENV} sparv run --stats --log-to-file debug
+	python scripts/print_deptree.py examples/paragraph-and-document/export/xml_export.pretty/paragraph-and-document_export.xml > paragraph-and-document.deptree
+	${DIFF} assets/paragraph-and-document/paragraph-and-document_export.gold.deptree paragraph-and-document.deptree
 	${DIFF} assets/paragraph-and-document/paragraph-and-document_export.gold.xml \
-	examples/paragraph-and-document/export/xml_export.pretty/paragraph-and-document_export.xml
+	    examples/paragraph-and-document/export/xml_export.pretty/paragraph-and-document_export.xml
 
 snapshot-update-example-paragraph-and-document: \
 	assets/paragraph-and-document/paragraph-and-document_export.gold.xml
@@ -256,21 +266,30 @@ assets/paragraph-and-document/paragraph-and-document_export.gold.xml: \
 test-example-en_ewt-ud-test:
 	rm -rf examples/en_ewt-ud-test/export examples/en_ewt-ud-test/sparv-workdir examples/en_ewt-ud-test/.snakemake
 	cd examples/en_ewt-ud-test; ${INVENV} sparv run --stats --log-to-file debug
+	python scripts/print_deptree.py examples/en_ewt-ud-test/export/xml_export.pretty/en_ewt-ud-test_excerp_export.xml > examples/en_ewt-ud-test/export/en_ewt-ud-test_excerp.deptree
+	${DIFF} assets/en_ewt-ud-test/en_ewt-ud-test_excerp_export.gold.deptree examples/en_ewt-ud-test/export/en_ewt-ud-test_excerp.deptree
 	${DIFF} assets/en_ewt-ud-test/en_ewt-ud-test_excerp_export.gold.xml \
-	examples/en_ewt-ud-test/export/xml_export.pretty/en_ewt-ud-test_excerp_export.xml
+	    examples/en_ewt-ud-test/export/xml_export.pretty/en_ewt-ud-test_excerp_export.xml
 
 snapshot-update-example-en_ewt-ud-test: \
-	assets/en_ewt-ud-test/en_ewt-ud-test_excerp_export.gold.xml
+	assets/en_ewt-ud-test/en_ewt-ud-test_excerp_export.gold.xml \
+	assets/en_ewt-ud-test/en_ewt-ud-test_excerp_export.gold.deptree
 
 assets/en_ewt-ud-test/en_ewt-ud-test_excerp_export.gold.xml: \
 		examples/en_ewt-ud-test/export/xml_export.pretty/en_ewt-ud-test_excerp_export.xml
 	@cp "$<" "$@"
 
+assets/en_ewt-ud-test/en_ewt-ud-test_excerp_export.gold.deptree: \
+			examples/en_ewt-ud-test/export/en_ewt-ud-test_excerp.deptree
+		@cp "$<" "$@"
+
 test-example-paragraph-in-sentence:
 	rm -rf examples/paragraph-in-sentence/export examples/paragraph-in-sentence/sparv-workdir examples/paragraph-in-sentence/.snakemake
 	cd examples/paragraph-in-sentence; ${INVENV} sparv run --stats --log-to-file debug
+	python scripts/print_deptree.py examples/paragraph-in-sentence/export/xml_export.pretty/paragraph-in-sentence_export.xml > examples/paragraph-in-sentence/export/paragraph-in-sentence.deptree
+	${DIFF} assets/paragraph-in-sentence/paragraph-in-sentence_export.gold.deptree examples/paragraph-in-sentence/export/paragraph-in-sentence.deptree
 	${DIFF} assets/paragraph-in-sentence/paragraph-in-sentence_export.gold.xml \
-	examples/paragraph-in-sentence/export/xml_export.pretty/paragraph-in-sentence_export.xml
+	    examples/paragraph-in-sentence/export/xml_export.pretty/paragraph-in-sentence_export.xml
 
 snapshot-update-example-paragraph-in-sentence: \
 	assets/paragraph-in-sentence/paragraph-in-sentence_export.gold.xml
@@ -279,15 +298,41 @@ assets/paragraph-in-sentence/paragraph-in-sentence_export.gold.xml: \
 		examples/paragraph-in-sentence/export/xml_export.pretty/paragraph-in-sentence_export.xml
 	@cp "$<" "$@"
 
+assets/paragraph-in-sentence/paragraph-in-sentence_export.gold.deptree: \
+			examples/paragraph-in-sentence/export/paragraph-in-sentence.deptree
+		@cp "$<" "$@"
+
 test-example-sentence-comments:
 	rm -rf examples/sentence-comments/export examples/sentence-comments/sparv-workdir examples/sentence-comments/.snakemake
 	cd examples/sentence-comments; ${INVENV} sparv run --stats --log-to-file debug
+	python scripts/print_deptree.py examples/sentence-comments/export/xml_export.pretty/sentence-comments_export.xml > examples/sentence-comments/export/sentence-comments.deptree
+	${DIFF} assets/sentence-comments/sentence-comments_export.gold.deptree examples/sentence-comments/export/sentence-comments.deptree
 	${DIFF} assets/sentence-comments/sentence-comments_export.gold.xml \
-	examples/sentence-comments/export/xml_export.pretty/sentence-comments_export.xml
+	    examples/sentence-comments/export/xml_export.pretty/sentence-comments_export.xml
 
 snapshot-update-example-sentence-comments: \
-	assets/sentence-comments/sentence-comments_export.gold.xml
+	assets/sentence-comments/sentence-comments_export.gold.xml \
+	assets/sentence-comments/sentence-comments_export.gold.deptree
 
 assets/sentence-comments/sentence-comments_export.gold.xml: \
 		examples/sentence-comments/export/xml_export.pretty/sentence-comments_export.xml
+	@cp "$<" "$@"
+
+assets/sentence-comments/sentence-comments_export.gold.deptree: \
+		examples/sentence-comments/export/sentence-comments.deptree
+	@cp "$<" "$@"
+
+test-example-deprel-cases:
+	rm -rf examples/deprel-cases/export examples/deprel-cases/sparv-workdir examples/deprel-cases/.snakemake
+	cd examples/deprel-cases; ${INVENV} sparv run --stats --log-to-file debug
+	python scripts/print_deptree.py examples/deprel-cases/export/xml_export.pretty/deprel-cases_export.xml > deprel-cases.deptree
+	${DIFF} assets/deprel-cases/deprel-cases_export.gold.deptree deprel-cases.deptree
+	${DIFF} assets/deprel-cases/deprel-cases_export.gold.xml \
+	    examples/deprel-cases/export/xml_export.pretty/deprel-cases_export.xml
+
+snapshot-update-example-deprel-cases: \
+	assets/deprel-cases/deprel-cases_export.gold.xml
+
+assets/deprel-cases/deprel-cases_export.gold.xml: \
+		examples/deprel-cases/export/xml_export.pretty/deprel-cases_export.xml
 	@cp "$<" "$@"

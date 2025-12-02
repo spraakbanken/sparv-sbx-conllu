@@ -1,0 +1,20 @@
+{'sent_id': '1'}
+(deprel:root) form:buy lemma:buy upos:VERB [2]
+    (deprel:nsubj) form:They lemma:they upos:PRON [1]
+    (deprel:conj) form:sell lemma:sell upos:VERB [4]
+        (deprel:cc) form:and lemma:and upos:CCONJ [3]
+    (deprel:obj) form:books lemma:book upos:NOUN [5]
+    (deprel:punct) form:. lemma:. upos:PUNCT [6]
+
+{'sent_id': '2'}
+(deprel:root) form:have lemma:have upos:VERB [2]
+    (deprel:nsubj) form:I lemma:I upos:PRON [1]
+    (deprel:obj) form:clue lemma:clue upos:NOUN [4]
+        (deprel:det) form:no lemma:no upos:DET [3]
+    (deprel:punct) form:. lemma:. upos:PUNCT [5]
+
+{'sent_id': 'panc0.s4'}
+(deprel:root) form:यथानुश्रूयते lemma:अनु-श्रु upos:VERB [3]
+    (deprel:nsubj) form:तत् lemma:तद् upos:DET [1]
+    (deprel:punct) form:। lemma:। upos:PUNCT [4]
+

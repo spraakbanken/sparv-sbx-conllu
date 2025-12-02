@@ -109,7 +109,7 @@ These annotations are some of the annotations you can expect from a CoNLL-U file
 Sparv will log a warning if any of the following are encountered.
 
 - When importing CoNLL-U data, empty nodes are skipped. E.g. `id = 5.1` [Tracking issue](https://github.com/spraakbanken/sparv-sbx-conllu/issues/14)
-- When importing CoNLL-U data, tokens inside multiword tokens are skipped.
+- When importing CoNLL-U data, tokens inside multiword tokens are merged, see [Multiword](docs/multiword.md).
   E.g. `id = 2-3` are added, but `id = 2` and `id = 3` are skipped. [Tracking issue](https://github.com/spraakbanken/sparv-sbx-conllu/issues/15)
 
 ## Minimum Supported Python Version Policy

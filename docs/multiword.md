@@ -2,13 +2,12 @@
 
 [**Tracking issue**](https://github.com/spraakbanken/sparv-sbx-conllu/issues/15)
 
-`sparv-sbx-conllu` does not handle CoNLL-U:s multiword (id is a span, e.g. `15-16`) tokens fully, since `Sparv` has no way no
+`sparv-sbx-conllu` does not handle CoNLL-U:s multiword (id is a span, e.g. `15-16`) tokens fully, since `Sparv` has no way to
 represent a token that is not present in the text.
 
 `sparv-sbx-conllu` currently handles multiword tokens as follows:
 
-- Take `form` from the multiword token.
-- Take `misc` from the multiword token.
+- Take `form` and `misc` from the multiword token.
 - Take `lemma`, `upos`, `xpos`, `head`, `deprel` and `deps` from the subtokens that is the root of the deprel subtree.
 - Gives the merged token the id of the root of the subtree.
 

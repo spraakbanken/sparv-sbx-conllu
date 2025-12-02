@@ -24,8 +24,8 @@ def print_tree_from_xml(corpus_path: Path) -> None:
     for sentence in root.iter("sentence"):
         if sent_id := sentence.attrib.get("sent_id"):
             print(f"{{'sent_id': '{sent_id}'}}")
-        tree = _to_tree(sentence)
-        _print_tree_from_sentence_xml(tree)
+        tree_ = _to_tree(sentence)
+        _print_tree_from_sentence_xml(tree_)
         print()
 
 
@@ -57,8 +57,7 @@ def _head_to_token(sentence: ET.Element) -> dict[int, list[ET.Element]]:
 def _create_elem(tag: str, attrib: dict, text: str | None, children: list[ET.Element] | None = None) -> ET.Element:
     elem = ET.Element(tag, attrib=attrib)
     elem.text = text or ""
-    if elem is not None:
-        elem.extend(children)
+    elem.extend(children or [])
     return elem
 
 

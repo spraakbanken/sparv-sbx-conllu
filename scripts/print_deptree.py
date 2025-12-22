@@ -30,7 +30,9 @@ def print_tree_from_xml(corpus_path: Path) -> None:
 
 
 def _print_tree_from_sentence_xml(token: ET.Element, depth: int = 0) -> None:
-    node_repr = " ".join([f"form:{token.text}", f"lemma:{token.attrib['baseform']}", f"upos:{token.attrib['pos_ud']}"])
+    node_repr = " ".join(
+        [f"form:{token.text}", f"lemma:{token.attrib['baseform_ud']}", f"upos:{token.attrib['pos_ud']}"]
+    )
     print(
         "{indent}(deprel:{deprel}) {node_repr} [{idx}]".format(
             indent=" " * depth * 4, deprel=token.attrib["deprel_ud"], node_repr=node_repr, idx=token.attrib["id"]

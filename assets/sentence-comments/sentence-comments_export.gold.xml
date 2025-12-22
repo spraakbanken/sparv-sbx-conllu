@@ -2,24 +2,24 @@
 <text>
   <document>
     <sentence sent_id="1">
-      <token baseform="they" dephead_ud="2" deprel_ud="nsubj" deps_ud="|nsubj=2|nsubj=4|" feats_ud="|Case=Nom|Number=Plur|" id="1" word="They" pos_ud="PRON" xpos="PRP">They</token>
-      <token baseform="buy" dephead_ud="0" deprel_ud="root" deps_ud="|root=0|" feats_ud="|Number=Plur|Person=3|Tense=Pres|" id="2" word="buy" pos_ud="VERB" xpos="VBP">buy</token>
-      <token baseform="and" dephead_ud="4" deprel_ud="cc" deps_ud="|cc=4|" id="3" word="and" pos_ud="CCONJ" xpos="CC">and</token>
-      <token baseform="sell" dephead_ud="2" deprel_ud="conj" deps_ud="|root=0|conj=2|" feats_ud="|Number=Plur|Person=3|Tense=Pres|" id="4" word="sell" pos_ud="VERB" xpos="VBP">sell</token>
-      <token baseform="book" dephead_ud="2" deprel_ud="obj" deps_ud="|obj=2|obj=4|" feats_ud="|Number=Plur|" id="5" word="books" misc_ud="|SpaceAfter=No|" pos_ud="NOUN" xpos="NNS">books</token>
-      <token baseform="." dephead_ud="2" deprel_ud="punct" deps_ud="|punct=2|" id="6" word="." pos_ud="PUNCT" xpos=".">.</token>
+      <token baseform_ud="they" dephead_ud="2" deprel_ud="nsubj" deps_ud="|nsubj=2|nsubj=4|" feats_ud="|Case=Nom|Number=Plur|" id="1" word="They" pos_ud="PRON" xpos="PRP">They</token>
+      <token baseform_ud="buy" dephead_ud="0" deprel_ud="root" deps_ud="|root=0|" feats_ud="|Number=Plur|Person=3|Tense=Pres|" id="2" word="buy" pos_ud="VERB" xpos="VBP">buy</token>
+      <token baseform_ud="and" dephead_ud="4" deprel_ud="cc" deps_ud="|cc=4|" id="3" word="and" pos_ud="CCONJ" xpos="CC">and</token>
+      <token baseform_ud="sell" dephead_ud="2" deprel_ud="conj" deps_ud="|root=0|conj=2|" feats_ud="|Number=Plur|Person=3|Tense=Pres|" id="4" word="sell" pos_ud="VERB" xpos="VBP">sell</token>
+      <token baseform_ud="book" dephead_ud="2" deprel_ud="obj" deps_ud="|obj=2|obj=4|" feats_ud="|Number=Plur|" id="5" word="books" misc_ud="|SpaceAfter=No|" pos_ud="NOUN" xpos="NNS">books</token>
+      <token baseform_ud="." dephead_ud="2" deprel_ud="punct" deps_ud="|punct=2|" id="6" word="." pos_ud="PUNCT" xpos=".">.</token>
     </sentence>
     <sentence sent_id="2">
-      <token baseform="I" dephead_ud="2" deprel_ud="nsubj" feats_ud="|Case=Nom|Number=Sing|Person=1|" id="1" word="I" pos_ud="PRON" xpos="PRP">I</token>
-      <token baseform="have" dephead_ud="0" deprel_ud="root" feats_ud="|Number=Sing|Person=1|Tense=Pres|" id="2" word="have" pos_ud="VERB" xpos="VBP">have</token>
-      <token baseform="no" dephead_ud="4" deprel_ud="det" feats_ud="|PronType=Neg|" id="3" word="no" pos_ud="DET" xpos="DT">no</token>
-      <token baseform="clue" dephead_ud="2" deprel_ud="obj" feats_ud="|Number=Sing|" id="4" word="clue" misc_ud="|SpaceAfter=No|" pos_ud="NOUN" xpos="NN">clue</token>
-      <token baseform="." dephead_ud="2" deprel_ud="punct" id="5" word="." pos_ud="PUNCT" xpos=".">.</token>
+      <token baseform_ud="I" dephead_ud="2" deprel_ud="nsubj" feats_ud="|Case=Nom|Number=Sing|Person=1|" id="1" word="I" pos_ud="PRON" xpos="PRP">I</token>
+      <token baseform_ud="have" dephead_ud="0" deprel_ud="root" feats_ud="|Number=Sing|Person=1|Tense=Pres|" id="2" word="have" pos_ud="VERB" xpos="VBP">have</token>
+      <token baseform_ud="no" dephead_ud="4" deprel_ud="det" feats_ud="|PronType=Neg|" id="3" word="no" pos_ud="DET" xpos="DT">no</token>
+      <token baseform_ud="clue" dephead_ud="2" deprel_ud="obj" feats_ud="|Number=Sing|" id="4" word="clue" misc_ud="|SpaceAfter=No|" pos_ud="NOUN" xpos="NN">clue</token>
+      <token baseform_ud="." dephead_ud="2" deprel_ud="punct" id="5" word="." pos_ud="PUNCT" xpos=".">.</token>
     </sentence>
     <sentence sent_id="panc0.s4" text_en="This is what is heard." text_fr="Voilà ce qui nous est parvenu par la tradition orale." translit="tat yathānuśrūyate.">
-      <token baseform="तद्" dephead_ud="3" deprel_ud="nsubj" feats_ud="|Case=Nom|…=|PronType=Dem|" id="1" word="तत्" misc_ud="|Translit=tat|LTranslit=tad|Gloss=it|" pos_ud="DET">तत्</token>
-      <token baseform="अनु-श्रु" dephead_ud="0" deprel_ud="root" feats_ud="|Mood=Ind|…=|Voice=Pass|" id="3" word="यथानुश्रूयते" misc_ud="|SpaceAfter=No|" pos_ud="VERB">यथानुश्रूयते</token>
-      <token baseform="।" dephead_ud="3" deprel_ud="punct" id="4" word="।" misc_ud="|Translit=.|LTranslit=.|Gloss=.|" pos_ud="PUNCT">।</token>
+      <token baseform_ud="तद्" dephead_ud="3" deprel_ud="nsubj" feats_ud="|Case=Nom|…=|PronType=Dem|" id="1" word="तत्" misc_ud="|Translit=tat|LTranslit=tad|Gloss=it|" pos_ud="DET">तत्</token>
+      <token baseform_ud="अनु-श्रु" dephead_ud="0" deprel_ud="root" feats_ud="|Mood=Ind|…=|Voice=Pass|" id="3" word="यथानुश्रूयते" misc_ud="|SpaceAfter=No|" pos_ud="VERB">यथानुश्रूयते</token>
+      <token baseform_ud="।" dephead_ud="3" deprel_ud="punct" id="4" word="।" misc_ud="|Translit=.|LTranslit=.|Gloss=.|" pos_ud="PUNCT">।</token>
     </sentence>
   </document>
 </text>

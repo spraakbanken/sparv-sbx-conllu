@@ -5,7 +5,7 @@
     'sentence',
     'text',
     'token',
-    'token:baseform',
+    'token:baseform_ud',
   })
 # ---
 # name: test_analyze_conllu[assets/texts/en_ewt-ud-test_excerp.conllu]
@@ -18,7 +18,7 @@
     'sentence:sent_id',
     'text',
     'token',
-    'token:baseform',
+    'token:baseform_ud',
     'token:dephead_ud',
     'token:deprel_ud',
     'token:deps_ud',
@@ -35,7 +35,7 @@
     'sentence:sent_id',
     'text',
     'token',
-    'token:baseform',
+    'token:baseform_ud',
     'token:dephead_ud',
     'token:deprel_ud',
     'token:deps_ud',
@@ -51,7 +51,7 @@
     'sentence',
     'text',
     'token',
-    'token:baseform',
+    'token:baseform_ud',
   })
 # ---
 # name: test_analyze_conllu[assets/texts/paragraph-and-document.conllu]
@@ -64,7 +64,7 @@
     'sentence:sent_id',
     'text',
     'token',
-    'token:baseform',
+    'token:baseform_ud',
     'token:dephead_ud',
     'token:deprel_ud',
     'token:feats_ud',
@@ -81,7 +81,7 @@
     'sentence:sent_id',
     'text',
     'token',
-    'token:baseform',
+    'token:baseform_ud',
     'token:dephead_ud',
     'token:deprel_ud',
     'token:misc_ud',
@@ -95,7 +95,7 @@
     'sentence:sent_id',
     'text',
     'token',
-    'token:baseform',
+    'token:baseform_ud',
     'token:dephead_ud',
     'token:deprel_ud',
     'token:deps_ud',
@@ -111,7 +111,7 @@
     'sentence',
     'text',
     'token',
-    'token:baseform',
+    'token:baseform_ud',
     'token:misc_ud',
     'token:pos_ud',
   })
@@ -174,7 +174,7 @@
           'sentence',
           'text',
           'token',
-          'token:baseform',
+          'token:baseform_ud',
           'token:id',
         ]),
       ),
@@ -208,7 +208,7 @@
           'sentence:sent_id',
           'text',
           'token',
-          'token:baseform',
+          'token:baseform_ud',
           'token:dephead_ud',
           'token:deprel_ud',
           'token:deps_ud',
@@ -247,7 +247,7 @@
           'sentence:sent_id',
           'text',
           'token',
-          'token:baseform',
+          'token:baseform_ud',
           'token:dephead_ud',
           'token:deprel_ud',
           'token:deps_ud',
@@ -285,7 +285,7 @@
           'sentence',
           'text',
           'token',
-          'token:baseform',
+          'token:baseform_ud',
           'token:id',
         ]),
       ),
@@ -320,7 +320,7 @@
           'sentence:text_en',
           'text',
           'token',
-          'token:baseform',
+          'token:baseform_ud',
           'token:dephead_ud',
           'token:deprel_ud',
           'token:feats_ud',
@@ -358,7 +358,7 @@
           'sentence:sent_id',
           'text',
           'token',
-          'token:baseform',
+          'token:baseform_ud',
           'token:dephead_ud',
           'token:deprel_ud',
           'token:id',
@@ -397,7 +397,7 @@
           'sentence:translit',
           'text',
           'token',
-          'token:baseform',
+          'token:baseform_ud',
           'token:dephead_ud',
           'token:deprel_ud',
           'token:deps_ud',
@@ -435,7 +435,7 @@
           'sentence',
           'text',
           'token',
-          'token:baseform',
+          'token:baseform_ud',
           'token:deprel_ud',
           'token:id',
           'token:misc_ud',
@@ -525,7 +525,7 @@
     }),
     'token': dict({
       'attrs': set({
-        'baseform',
+        'baseform_ud',
         'dephead_ud',
         'deprel_ud',
         'id',
@@ -534,7 +534,7 @@
       'elements': list([
         dict({
           'attrs': dict({
-            'baseform': 'A',
+            'baseform_ud': 'A',
             'dephead_ud': 0,
             'deprel_ud': 'root',
             'id': '1',
@@ -552,7 +552,7 @@
         }),
         dict({
           'attrs': dict({
-            'baseform': 'B',
+            'baseform_ud': 'B',
             'dephead_ud': 4,
             'deprel_ud': 'nsubj',
             'id': '2',
@@ -570,7 +570,7 @@
         }),
         dict({
           'attrs': dict({
-            'baseform': 'D',
+            'baseform_ud': 'D',
             'dephead_ud': 1,
             'deprel_ud': 'nsubj',
             'id': '4',
@@ -588,7 +588,7 @@
         }),
         dict({
           'attrs': dict({
-            'baseform': 'A',
+            'baseform_ud': 'A',
             'dephead_ud': 0,
             'deprel_ud': 'root',
             'id': '1',
@@ -606,7 +606,7 @@
         }),
         dict({
           'attrs': dict({
-            'baseform': 'C',
+            'baseform_ud': 'C',
             'dephead_ud': 4,
             'deprel_ud': 'case',
             'id': '3',
@@ -624,7 +624,7 @@
         }),
         dict({
           'attrs': dict({
-            'baseform': 'D',
+            'baseform_ud': 'D',
             'dephead_ud': 1,
             'deprel_ud': 'nsubj',
             'id': '4',
@@ -642,7 +642,7 @@
         }),
         dict({
           'attrs': dict({
-            'baseform': 'A',
+            'baseform_ud': 'A',
             'dephead_ud': 3,
             'deprel_ud': 'nsubj',
             'id': '1',
@@ -660,7 +660,7 @@
         }),
         dict({
           'attrs': dict({
-            'baseform': 'C',
+            'baseform_ud': 'C',
             'dephead_ud': 0,
             'deprel_ud': 'root',
             'id': '3',
@@ -678,7 +678,7 @@
         }),
         dict({
           'attrs': dict({
-            'baseform': 'D',
+            'baseform_ud': 'D',
             'dephead_ud': 3,
             'deprel_ud': 'punct',
             'id': '4',

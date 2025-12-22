@@ -405,7 +405,7 @@ def _fmt_id(id_: int | tuple[int, str, int]) -> str:
 
 def _fill_token_attrs(token_attrs: dict, token: conllu.Token) -> None:
     if lemma := token.get("lemma"):
-        token_attrs["baseform"] = "" if lemma == "_" else lemma
+        token_attrs["baseform_ud"] = "" if lemma == "_" else lemma
     if upos := token.get("upos"):
         token_attrs["pos_ud"] = "" if upos == "_" else upos
     if xpos := token.get("xpos"):
@@ -483,7 +483,7 @@ def analyze_conllu(source_file: Path) -> set[str]:
                     elements.add(f"document:{attr_name}")
             for token in sentence:
                 if (lemma := token.get("lemma")) and lemma != "_":
-                    elements.add("token:baseform")
+                    elements.add("token:baseform_ud")
                 if (upos := token.get("upos")) and upos != "_":
                     elements.add("token:pos_ud")
                 if token.get("xpos"):

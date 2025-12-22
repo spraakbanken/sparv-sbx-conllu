@@ -2,37 +2,37 @@
 <text>
   <document>
     <sentence sent_id="sv-ud-train-477">
-      <token baseform="på" dephead_ud="2" deprel_ud="case" id="1" word="På" pos_ud="ADP">På</token>
-      <token baseform="högstadium" dephead_ud="6" deprel_ud="obl" id="2" word="högstadiet" pos_ud="NOUN">högstadiet</token>
-      <token baseform="skola" dephead_ud="6" deprel_ud="aux" id="3" word="skall" pos_ud="AUX">skall</token>
-      <token baseform="varje" dephead_ud="5" deprel_ud="det" id="4" word="varje" pos_ud="DET">varje</token>
-      <token baseform="elev" dephead_ud="6" deprel_ud="nsubj" id="5" word="elev" pos_ud="NOUN">elev</token>
-      <token baseform="välja" dephead_ud="0" deprel_ud="root" id="6" word="välja" pos_ud="VERB">välja</token>
-      <token baseform="en" dephead_ud="6" deprel_ud="obj" id="7" word="ett" pos_ud="NUM">ett</token>
-      <token baseform="av" dephead_ud="10" deprel_ud="case" id="8" word="av" pos_ud="ADP">av</token>
-      <token baseform="fyra" dephead_ud="10" deprel_ud="nummod" id="9" word="fyra" pos_ud="NUM">fyra</token>
-      <token baseform="tillvalsämne" dephead_ud="7" deprel_ud="nmod" id="10" word="tillvalsämnen" misc_ud="|SpaceAfter=No|" pos_ud="NOUN">tillvalsämnen</token>
-      <token baseform=":" dephead_ud="10" deprel_ud="punct" id="11" word=":" pos_ud="PUNCT">:</token>
+      <token baseform_ud="på" dephead_ud="2" deprel_ud="case" id="1" word="På" pos_ud="ADP">På</token>
+      <token baseform_ud="högstadium" dephead_ud="6" deprel_ud="obl" id="2" word="högstadiet" pos_ud="NOUN">högstadiet</token>
+      <token baseform_ud="skola" dephead_ud="6" deprel_ud="aux" id="3" word="skall" pos_ud="AUX">skall</token>
+      <token baseform_ud="varje" dephead_ud="5" deprel_ud="det" id="4" word="varje" pos_ud="DET">varje</token>
+      <token baseform_ud="elev" dephead_ud="6" deprel_ud="nsubj" id="5" word="elev" pos_ud="NOUN">elev</token>
+      <token baseform_ud="välja" dephead_ud="0" deprel_ud="root" id="6" word="välja" pos_ud="VERB">välja</token>
+      <token baseform_ud="en" dephead_ud="6" deprel_ud="obj" id="7" word="ett" pos_ud="NUM">ett</token>
+      <token baseform_ud="av" dephead_ud="10" deprel_ud="case" id="8" word="av" pos_ud="ADP">av</token>
+      <token baseform_ud="fyra" dephead_ud="10" deprel_ud="nummod" id="9" word="fyra" pos_ud="NUM">fyra</token>
+      <token baseform_ud="tillvalsämne" dephead_ud="7" deprel_ud="nmod" id="10" word="tillvalsämnen" misc_ud="|SpaceAfter=No|" pos_ud="NOUN">tillvalsämnen</token>
+      <token baseform_ud=":" dephead_ud="10" deprel_ud="punct" id="11" word=":" pos_ud="PUNCT">:</token>
       <paragraph>
-        <token baseform="*" dephead_ud="13" deprel_ud="punct" id="12" word="*" misc_ud="|NewPar=Yes|" pos_ud="PUNCT">*</token>
-        <token baseform="språk" dephead_ud="10" deprel_ud="appos" id="13" word="språk" pos_ud="NOUN">språk</token>
-        <token baseform="(" dephead_ud="13" deprel_ud="punct" id="14" word="(" misc_ud="|SpaceAfter=No|" pos_ud="PUNCT">(</token>
-        <token baseform="fransk" dephead_ud="13" deprel_ud="appos" id="15" word="franska" pos_ud="NOUN">franska</token>
-        <token baseform="eller" dephead_ud="17" deprel_ud="cc" id="16" word="eller" pos_ud="CCONJ">eller</token>
-        <token baseform="tysk" dephead_ud="15" deprel_ud="conj" id="17" word="tyska" misc_ud="|SpaceAfter=No|" pos_ud="NOUN">tyska</token>
-        <token baseform=")" dephead_ud="13" deprel_ud="punct" id="18" word=")" pos_ud="PUNCT">)</token>
+        <token baseform_ud="*" dephead_ud="13" deprel_ud="punct" id="12" word="*" misc_ud="|NewPar=Yes|" pos_ud="PUNCT">*</token>
+        <token baseform_ud="språk" dephead_ud="10" deprel_ud="appos" id="13" word="språk" pos_ud="NOUN">språk</token>
+        <token baseform_ud="(" dephead_ud="13" deprel_ud="punct" id="14" word="(" misc_ud="|SpaceAfter=No|" pos_ud="PUNCT">(</token>
+        <token baseform_ud="fransk" dephead_ud="13" deprel_ud="appos" id="15" word="franska" pos_ud="NOUN">franska</token>
+        <token baseform_ud="eller" dephead_ud="17" deprel_ud="cc" id="16" word="eller" pos_ud="CCONJ">eller</token>
+        <token baseform_ud="tysk" dephead_ud="15" deprel_ud="conj" id="17" word="tyska" misc_ud="|SpaceAfter=No|" pos_ud="NOUN">tyska</token>
+        <token baseform_ud=")" dephead_ud="13" deprel_ud="punct" id="18" word=")" pos_ud="PUNCT">)</token>
       </paragraph>
       <paragraph>
-        <token baseform="*" dephead_ud="20" deprel_ud="punct" id="19" word="*" misc_ud="|NewPar=Yes|" pos_ud="PUNCT">*</token>
-        <token baseform="ekonomi" dephead_ud="13" deprel_ud="conj" id="20" word="ekonomi" pos_ud="NOUN">ekonomi</token>
+        <token baseform_ud="*" dephead_ud="20" deprel_ud="punct" id="19" word="*" misc_ud="|NewPar=Yes|" pos_ud="PUNCT">*</token>
+        <token baseform_ud="ekonomi" dephead_ud="13" deprel_ud="conj" id="20" word="ekonomi" pos_ud="NOUN">ekonomi</token>
       </paragraph>
       <paragraph>
-        <token baseform="*" dephead_ud="22" deprel_ud="punct" id="21" word="*" misc_ud="|NewPar=Yes|" pos_ud="PUNCT">*</token>
-        <token baseform="teknik" dephead_ud="13" deprel_ud="conj" id="22" word="teknik" pos_ud="NOUN">teknik</token>
+        <token baseform_ud="*" dephead_ud="22" deprel_ud="punct" id="21" word="*" misc_ud="|NewPar=Yes|" pos_ud="PUNCT">*</token>
+        <token baseform_ud="teknik" dephead_ud="13" deprel_ud="conj" id="22" word="teknik" pos_ud="NOUN">teknik</token>
       </paragraph>
       <paragraph>
-        <token baseform="*" dephead_ud="24" deprel_ud="punct" id="23" word="*" misc_ud="|NewPar=Yes|" pos_ud="PUNCT">*</token>
-        <token baseform="konst" dephead_ud="13" deprel_ud="conj" id="24" word="konst" pos_ud="NOUN">konst</token>
+        <token baseform_ud="*" dephead_ud="24" deprel_ud="punct" id="23" word="*" misc_ud="|NewPar=Yes|" pos_ud="PUNCT">*</token>
+        <token baseform_ud="konst" dephead_ud="13" deprel_ud="conj" id="24" word="konst" pos_ud="NOUN">konst</token>
       </paragraph>
     </sentence>
   </document>

@@ -2,19 +2,19 @@
 <text>
   <document>
     <sentence sent_id="easy case">
-      <token baseform="A" dephead_ud="0" deprel_ud="root" id="1" word="A" pos_ud="VERB">A</token>
-      <token baseform="B" dephead_ud="4" deprel_ud="nsubj" id="2" word="BC" pos_ud="NOUN">BC</token>
-      <token baseform="D" dephead_ud="1" deprel_ud="nsubj" id="4" word="D" pos_ud="NOUN">D</token>
+      <token baseform_ud="A" dephead_ud="0" deprel_ud="root" id="1" word="A" pos_ud="VERB">A</token>
+      <token baseform_ud="B" dephead_ud="4" deprel_ud="nsubj" id="2" word="BC" pos_ud="NOUN">BC</token>
+      <token baseform_ud="D" dephead_ud="1" deprel_ud="nsubj" id="4" word="D" pos_ud="NOUN">D</token>
     </sentence>
     <sentence sent_id="easy case (flipped)">
-      <token baseform="A" dephead_ud="0" deprel_ud="root" id="1" word="A" pos_ud="VERB">A</token>
-      <token baseform="C" dephead_ud="4" deprel_ud="case" id="3" word="BC" pos_ud="PART">BC</token>
-      <token baseform="D" dephead_ud="1" deprel_ud="nsubj" id="4" word="D" pos_ud="NOUN">D</token>
+      <token baseform_ud="A" dephead_ud="0" deprel_ud="root" id="1" word="A" pos_ud="VERB">A</token>
+      <token baseform_ud="C" dephead_ud="4" deprel_ud="case" id="3" word="BC" pos_ud="PART">BC</token>
+      <token baseform_ud="D" dephead_ud="1" deprel_ud="nsubj" id="4" word="D" pos_ud="NOUN">D</token>
     </sentence>
     <sentence sent_id="tricky case 1">
-      <token baseform="A" dephead_ud="3" deprel_ud="nsubj" id="1" word="A" pos_ud="DET">A</token>
-      <token baseform="C" dephead_ud="0" deprel_ud="root" id="3" word="BC" pos_ud="PART">BC</token>
-      <token baseform="D" dephead_ud="3" deprel_ud="punct" id="4" word="D" pos_ud="PUNCT">D</token>
+      <token baseform_ud="A" dephead_ud="3" deprel_ud="nsubj" id="1" word="A" pos_ud="DET">A</token>
+      <token baseform_ud="C" dephead_ud="0" deprel_ud="root" id="3" word="BC" pos_ud="PART">BC</token>
+      <token baseform_ud="D" dephead_ud="3" deprel_ud="punct" id="4" word="D" pos_ud="PUNCT">D</token>
     </sentence>
   </document>
 </text>

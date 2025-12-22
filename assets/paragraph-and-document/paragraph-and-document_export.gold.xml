@@ -3,12 +3,12 @@
   <document id="mf920901-001">
     <paragraph id="mf920901-001-p1">
       <sentence sent_id="mf920901-001-p1s1A" text_en="Slovak constitution: pros and cons">
-        <token baseform="slovenský" dephead_ud="2" deprel_ud="amod" feats_ud="|Case=Nom|Degree=Pos|Gender=Fem|Number=Sing|Polarity=Pos|" id="1" word="Slovenská" pos_ud="ADJ" xpos="AAFS1----1A----">Slovenská</token>
-        <token baseform="ústava" dephead_ud="0" deprel_ud="root" feats_ud="|Case=Nom|Gender=Fem|Number=Sing|Polarity=Pos|" id="2" word="ústava" misc_ud="|SpaceAfter=No|" pos_ud="NOUN" xpos="NNFS1-----A----">ústava</token>
-        <token baseform=":" dephead_ud="2" deprel_ud="punct" id="3" word=":" pos_ud="PUNCT" xpos="Z:-------------">:</token>
-        <token baseform="pro" dephead_ud="2" deprel_ud="appos" feats_ud="|Case=Acc|" id="4" word="pro" misc_ud="|LId=pro-1|" pos_ud="ADP" xpos="RR--4----------">pro</token>
-        <token baseform="i" dephead_ud="6" deprel_ud="cc" id="5" word="i" misc_ud="|LId=i-1|" pos_ud="CCONJ" xpos="J^-------------">i</token>
-        <token baseform="proti" dephead_ud="4" deprel_ud="conj" feats_ud="|Case=Dat|" id="6" word="proti" misc_ud="|LId=proti-1|" pos_ud="ADP" xpos="RR--3----------">proti</token>
+        <token baseform_ud="slovenský" dephead_ud="2" deprel_ud="amod" feats_ud="|Case=Nom|Degree=Pos|Gender=Fem|Number=Sing|Polarity=Pos|" id="1" word="Slovenská" pos_ud="ADJ" xpos="AAFS1----1A----">Slovenská</token>
+        <token baseform_ud="ústava" dephead_ud="0" deprel_ud="root" feats_ud="|Case=Nom|Gender=Fem|Number=Sing|Polarity=Pos|" id="2" word="ústava" misc_ud="|SpaceAfter=No|" pos_ud="NOUN" xpos="NNFS1-----A----">ústava</token>
+        <token baseform_ud=":" dephead_ud="2" deprel_ud="punct" id="3" word=":" pos_ud="PUNCT" xpos="Z:-------------">:</token>
+        <token baseform_ud="pro" dephead_ud="2" deprel_ud="appos" feats_ud="|Case=Acc|" id="4" word="pro" misc_ud="|LId=pro-1|" pos_ud="ADP" xpos="RR--4----------">pro</token>
+        <token baseform_ud="i" dephead_ud="6" deprel_ud="cc" id="5" word="i" misc_ud="|LId=i-1|" pos_ud="CCONJ" xpos="J^-------------">i</token>
+        <token baseform_ud="proti" dephead_ud="4" deprel_ud="conj" feats_ud="|Case=Dat|" id="6" word="proti" misc_ud="|LId=proti-1|" pos_ud="ADP" xpos="RR--3----------">proti</token>
       </sentence>
     </paragraph>
   </document>

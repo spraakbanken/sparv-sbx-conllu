@@ -45,7 +45,7 @@ fastjsonschema==2.21.2
     # via nbformat
 filelock==3.20.0
     # via torch
-fsspec==2025.9.0
+fsspec==2026.2.0
     # via torch
 gitdb==4.0.12
     # via gitpython

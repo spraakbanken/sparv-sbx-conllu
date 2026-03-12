@@ -16,6 +16,13 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "daily"
+    groups:
+      group-security-dependencies:
+        applies-to: security-updates
+        group-by: dependency-name
+      group-version-dependencies:
+        applies-to: version-updates
+        group-by: dependency-name
     ignore:
       - dependency-name: "*"
         # patch and minor updates don't matter for libraries as consumers of this library build
@@ -31,6 +38,13 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "daily"
+    groups:
+      group-security-dependencies:
+        applies-to: security-updates
+        group-by: dependency-name
+      group-version-dependencies:
+        applies-to: version-updates
+        group-by: dependency-name
     ignore:
       - dependency-name: "*"
         # patch and minor updates don't matter for libraries as consumers of this library build

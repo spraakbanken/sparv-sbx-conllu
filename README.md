@@ -11,7 +11,7 @@
 
 [![CI(check)](https://github.com/spraakbanken/sparv-sbx-conllu/actions/workflows/check.yml/badge.svg)](https://github.com/spraakbanken/sparv-sbx-conllu/actions/workflows/check.yml)
 [![CI(release)](https://github.com/spraakbanken/sparv-sbx-conllu/actions/workflows/release.yml/badge.svg)](https://github.com/spraakbanken/sparv-sbx-conllu/actions/workflows/release.yml)
-[![CI(scheduled)](https://github.com/spraakbanken/sparv-sbx-conllu/actions/workflows/rolling.yml/badge.svg)](https://github.com/spraakbanken/sparv-sbx-conllu/actions/workflows/rolling.yml)
+[![CI(rolling)](https://github.com/spraakbanken/sparv-sbx-conllu/actions/workflows/rolling.yml/badge.svg)](https://github.com/spraakbanken/sparv-sbx-conllu/actions/workflows/rolling.yml)
 [![CI(test)](https://github.com/spraakbanken/sparv-sbx-conllu/actions/workflows/test.yml/badge.svg)](https://github.com/spraakbanken/sparv-sbx-conllu/actions/workflows/test.yml)
 
 [sparv]: https://github.com/spraakbanken/sparv

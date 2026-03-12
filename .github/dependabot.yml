@@ -16,21 +16,13 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "daily"
-    ignore:
-      - dependency-name: "*"
-        # patch and minor updates don't matter for libraries as consumers of this library build
-        # with their own lockfile, rather than the version specified in this library's lockfile
-        # remove this ignore rule if your package has binaries to ensure that the binaries are
-        # built with the exact set of dependencies and those are up to date.
-        update-types:
-          - "version-update:semver-patch"
-          - "version-update:semver-minor"
-    cooldown:
-      default-days: 7
-  - package-ecosystem: "uv" # See documentation for possible values
-    directory: "/" # Location of package manifests
-    schedule:
-      interval: "daily"
+    groups:
+      group-security-dependencies:
+        applies-to: security-updates
+        group-by: dependency-name
+      group-version-dependencies:
+        applies-to: version-updates
+        group-by: dependency-name
     ignore:
       - dependency-name: "*"
         # patch and minor updates don't matter for libraries as consumers of this library build

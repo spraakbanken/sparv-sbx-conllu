@@ -20,7 +20,7 @@ repos:
             "--format=requirements-txt",
             "--no-hashes",
             "--no-emit-project",
-            "--output-file=tests/requirements-testing.lock",
+            "--output-file=tests/requirements-testing.txt",
           ]
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v5.0.0

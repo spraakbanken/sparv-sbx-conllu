@@ -157,10 +157,10 @@ publish:
 
 
 .PHONY: prepare-release
-prepare-release: update-changelog tests/requirements-testing.lock
+prepare-release: update-changelog tests/requirements-testing.txt
 
 # we use lock extension so that dependabot doesn't pick up changes in this file
-tests/requirements-testing.lock: pyproject.toml
+tests/requirements-testing.txt: pyproject.toml
 	uv export --dev --format requirements-txt --no-hashes --no-emit-project --output-file $@
 
 .PHONY: update-changelog

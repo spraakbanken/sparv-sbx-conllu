@@ -35,7 +35,7 @@ datrie==0.8.3
     # via snakemake
 docutils==0.22.2
     # via snakemake
-docx2python==1.27.1
+docx2python==3.6.2
     # via sparv
 dpath==2.2.0
     # via yte

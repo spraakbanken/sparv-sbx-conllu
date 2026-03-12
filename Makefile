@@ -57,8 +57,7 @@ help:
 	@echo ""
 
 PLATFORM := `uname -o`
-REPO := spraakbanken/sparv-sbx-conllu
-PROJECT_SRC := src/sbx_conllu
+PROJECT_SRC := src
 
 ifeq (${VIRTUAL_ENV},)
   VENV_NAME = .venv
@@ -94,11 +93,11 @@ install-dev: install-pre-commit
 # install pre-commit hooks
 install-pre-commit: .git/hooks/pre-commit
 .git/hooks/pre-commit: .pre-commit-config.yaml
-	@if command -v pre-commit > /dev/null; then pre-commit install; else echo "WARN: 'pre-commit' not installed"; fi
+	if command -v prek > /dev/null; then prek install -f; else if command -v pre-commit > /dev/null; then pre-commit install; else echo "WARN: neither 'prek' nor 'pre-commit' is installed"; fi; fi
 
 # setup production environment
 install:
-	uv sync --all-packages --no-dev
+	uv sync --all-packages --no-dev --frozen
 
 lock: uv.lock
 
@@ -121,7 +120,7 @@ doc-tests:
 .PHONY: type-check
 # check types
 type-check:
-	${INVENV} mypy ${PROJECT_SRC} ${tests}
+	${INVENV} ty check ${PROJECT_SRC} ${tests}
 
 .PHONY: lint
 # lint the code

@@ -3,64 +3,66 @@ name = "sparv-sbx-conllu"
 version = "0.3.0"
 description = "Add your description here"
 readme = "README.md"
-authors = [
-    { name = "Språkbanken Text", email = "sb-info@svenska.gu.se" },
-]
 requires-python = ">=3.11"
-dependencies = [
-    "conllu>=6.0.0",
-    "setuptools>=80.9.0",
-    "sparv>=5.3.1",
+authors = [
+  { name = "Språkbanken Text", email = "sb-info@svenska.gu.se" },
 ]
 classifiers = [
-    "Development Status :: 3 - Alpha",
-    # "Development Status :: 4 - Beta",
-    # "Development Status :: 5 - Production/Stable",
-    "Intended Audience :: Developers",
-    "License :: OSI Approved :: MIT License",
-    "Operating System :: Unix",
-    "Operating System :: POSIX",
-    # "Operating System :: Microsoft :: Windows",
-    "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: 3.12",
-    "Programming Language :: Python :: 3.13",
-    "Programming Language :: Python :: 3.14",
-    "Programming Language :: Python :: Implementation :: CPython",
-    # "uncomment if you test on these interpreters:",
-    # "Programming Language :: Python :: Implementation :: IronPython",
-    # "Programming Language :: Python :: Implementation :: Jython",
-    # "Programming Language :: Python :: Implementation :: Stackless",
-    "Topic :: Utilities",
+  "Development Status :: 4 - Beta",
+  # "Development Status :: 5 - Production/Stable",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: POSIX",
+  "Operating System :: Unix",
+  # "Operating System :: Microsoft :: Windows",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Programming Language :: Python :: Implementation :: CPython",
+  # "uncomment if you test on these interpreters:",
+  # "Programming Language :: Python :: Implementation :: IronPython",
+  # "Programming Language :: Python :: Implementation :: Jython",
+  # "Programming Language :: Python :: Implementation :: Stackless",
+  "Topic :: Utilities",
 ]
+dependencies = [
+  "conllu>=6.0.0",
+  "setuptools>=80.9.0,<81",
+  "sparv>=5.3.1",
+]
+
+[project.urls]
+Changelog = "https://github.com/spraakbanken/sparv-sbx-conllu/blob/main/CHANGELOG.md"
+Homepage = "https://spraakbanken.gu.se"
+Issues = "https://github.com/spraakbanken/sparv-sbx-conllu/issues"
+Repository = "https://github.com/spraakbanken/sparv-sbx-conllu"
 
 [project.entry-points."sparv.plugin"]
 sbx_conllu = "sbx_conllu"
 
-[project.urls]
-Homepage = "https://spraakbanken.gu.se"
-Repository = "https://github.com/spraakbanken/sparv-sbx-conllu"
-Issues = "https://github.com/spraakbanken/sparv-sbx-conllu/issues"
-Changelog = "https://github.com/spraakbanken/sparv-sbx-conllu/blob/main/CHANGELOG.md"
+[dependency-groups]
+dev = [{ include-group = "lint" }, { include-group = "test" }]
+lint = [
+  "ruff>=0.14.2",
+  "ty>=0.0.21",
+]
+metadata = [
+  "sparv-sbx-metadata",
+]
+test = [
+  "pytest>=9.0.2",
+  "pytest-cov>=7.0.0",
+  "syrupy>=5.1.0",
+]
 
 [build-system]
-requires = ["uv_build>=0.9,<0.10.0"]
+requires = ["uv_build>=0.10,<0.11.0"]
 build-backend = "uv_build"
 
 [tool.uv.build-backend]
 module-name = "sbx_conllu"
 source-exclude = ["/.github", "/docs"]
-
-[dependency-groups]
-dev = [
-    "mypy>=1.18.2",
-    "pytest>=8.4.2",
-    "pytest-cov>=7.0.0",
-    "ruff>=0.14.2",
-    "syrupy>=5.0.0",
-]
-metadata = [
-    "sparv-sbx-metadata",
-]
 
 [tool.uv.sources]
 sparv-sbx-metadata = { git = "https://github.com/spraakbanken/sparv-sbx-metadata", tag = "v2.3.1" }

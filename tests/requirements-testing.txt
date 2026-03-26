@@ -253,7 +253,7 @@ typing-extensions==4.15.0
     #   typing-inspect
 typing-inspect==0.9.0
     # via sparv
-urllib3==2.5.0
+urllib3==2.6.3
     # via requests
 wcwidth==0.2.14
     # via prompt-toolkit

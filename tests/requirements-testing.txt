@@ -53,7 +53,7 @@ gitpython==3.1.45
     # via snakemake
 humanfriendly==10.0
     # via snakemake
-idna==3.11
+idna==3.15
     # via requests
 iniconfig==2.3.0
     # via pytest

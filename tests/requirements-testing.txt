@@ -231,7 +231,7 @@ tomli==2.4.0 ; python_full_version <= '3.11'
     # via coverage
 toposort==1.10
     # via snakemake
-torch==2.9.0
+torch==2.12.0
     # via
     #   sparv
     #   stanza
